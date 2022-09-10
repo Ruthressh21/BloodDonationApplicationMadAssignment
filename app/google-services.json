@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "545533813335",
+    "firebase_url": "https://latestblooddonationapp-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "latestblooddonationapp",
+    "storage_bucket": "latestblooddonationapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545533813335:android:01f3d6588d2b87647b7912",
+        "android_client_info": {
+          "package_name": "my.edu.latestblooddonationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxdJ0WjaaJy4DSYPl5u3BIMZ_EVakFHlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

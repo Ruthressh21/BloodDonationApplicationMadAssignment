@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">latestBloodDonationApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="button_login">Log In</string>
+    <string name="fullName">Full Name</string>
+    <string name="gender">Gender</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="bloodType">Blood Type</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+
+    <string name="register">Register as Donor</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="new_user">Want to donate? Register Now</string>
+    <string name="register_donor">Registration Donor Account</string>
+    <string name="dateOfBirth">Date of Birth</string>
+    <string name="blood_group">Blood Group</string>
+    <string-array name="blood_groups">
+        <item>A+</item>
+        <item>O+</item>
+        <item>B+</item>
+        <item>AB+</item>
+        <item>A-</item>
+        <item>O-</item>
+        <item>B-</item>
+        <item>AB-</item>
+    </string-array>
+    <string name="question_title">Questionnaire</string>
+    <string name="question1">Question 1</string>
+    <string name="question1s">Do you know your blood type ?</string>
+    <string name="question2">Question 2</string>
+    <string name="question2s">Where you intoxicated with alcohol 3 days ago ?</string>
+    <string name="question3">Question 3</string>
+    <string name="question3s">Were you sick recently ?</string>
+    <string name="question4">Question 4</string>
+    <string name="question4s">Did you undergo surgery recently ?</string>
+    <string name="button_submit">Submit</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="profile">Profile</string>
+    <string name="history">Donation History</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="log_out">Log Out</string>
+    <string name="aboutUs">We organize this Persona Blood Donation hospital is to help the patients who need of surgery,
+                          cancer treatment and transfusions for blood loss from traumatic injuries. The main purpose
+                          is to ensure healthy lives and promote well-being for all at all ages. Currently, we have
+                          created this mobile app for the blood donor to donate their blood. Blood donor can easily
+                          make their appointment through this app. Blood donor will also receive many blood donation
+                          appointment from this app. It will only shown the blood type request that is suitable for
+                          the blood donor.</string>
+
+</resources>
