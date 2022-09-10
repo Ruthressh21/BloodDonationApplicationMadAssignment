@@ -93,7 +93,6 @@ class fragmentRegistration : Fragment() {
                         ).show()
                     }
                 }
-            Navigation.findNavController(it).navigate(R.id.action_registrationFragment_to_loginFragment)
 
             binding.imageView3.setOnClickListener {
                 findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)

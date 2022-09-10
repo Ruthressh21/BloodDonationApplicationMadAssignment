@@ -13,9 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import my.edu.latestblooddonationapp.databinding.FragmentLoginBinding
 
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 
 class fragmentLogin : Fragment() {
 
