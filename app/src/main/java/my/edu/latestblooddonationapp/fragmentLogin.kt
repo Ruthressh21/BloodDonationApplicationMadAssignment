@@ -71,6 +71,7 @@ class fragmentLogin : Fragment() {
                         HomeActivity::class.java
                     )
                     startActivity(intent)
+                    Toast.makeText(context,"Welcome", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }
