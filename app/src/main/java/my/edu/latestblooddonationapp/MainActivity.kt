@@ -10,6 +10,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 import my.edu.latestblooddonationapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

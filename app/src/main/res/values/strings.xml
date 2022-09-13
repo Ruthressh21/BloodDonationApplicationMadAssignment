@@ -56,12 +56,38 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="log_out">Log Out</string>
-    <string name="aboutUs">We organize this Persona Blood Donation hospital is to help the patients who need of surgery,
-                          cancer treatment and transfusions for blood loss from traumatic injuries. The main purpose
-                          is to ensure healthy lives and promote well-being for all at all ages. Currently, we have
-                          created this mobile app for the blood donor to donate their blood. Blood donor can easily
-                          make their appointment through this app. Blood donor will also receive many blood donation
-                          appointment from this app. It will only shown the blood type request that is suitable for
-                          the blood donor.</string>
+
+    //Admin
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">User</string>
+    <string name="nav_header_subtitle">user@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_aboutUs">About Us</string>
+    <string name="menu_viewProfile">View Profile</string>
+    <string name="menu_editProfile">Edit Profile</string>
+    <string name="menu_logOut">Log Out</string>
+    <string name="aboutUs"> We organize this Persona Blood Donation hospital is to help the patients who need of surgery,
+                            cancer treatment and transfusions for blood loss from traumatic injuries. The main purpose
+                            is to ensure healthy lives and promote well-being for all at all ages. Currently, we have
+                            created this mobile app for the blood donor to donate their blood. Blood donor can easily
+                            make their appointment through this app. Blood donor will also receive many blood donation
+                            appointment from this app. It will only shown the blood type request that is suitable for
+                            the blood donor.  </string>
+    <string name="createDonorRequest">Create Donor Request</string>
+    <string name="deleteDonorRequest">Delete Donor Request</string>
+    <string name="editDonorRequest">Edit Donor Request</string>
+    <string name="viewDonorRequest">View Donor Request</string>
+    <string name="patientName">Patient Name</string>
+    <string name="bloodTypes">Blood Types</string>
+    <string-array name="bloodTypesSpinner">
+        <item>A</item>
+        <item>B</item>
+        <item>O</item>
+        <item>AB</item>
+    </string-array>
+    <string name="description">Description</string>
+    <string name="confirm">Confirm</string>
 
 </resources>
