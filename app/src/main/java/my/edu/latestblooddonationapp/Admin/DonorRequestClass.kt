@@ -1,12 +1,12 @@
 package my.edu.latestblooddonationapp.Admin
 
 
-class DonorRequestClass(var donarRequestId:String,
+class DonorRequestClass(
                         var patientName:String,
                         var bloodType:String,
                         var description:String
 ) {
     constructor() : this(
-        "", "", "", ""
+        "", "", ""
     )
 }
