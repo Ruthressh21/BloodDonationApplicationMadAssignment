@@ -19,15 +19,12 @@ import org.w3c.dom.Text
 import java.text.DateFormat
 import java.util.*
 
-private lateinit var firebaseAuth: FirebaseAuth
-
 
 class fragmentRegistration : Fragment() {
 
 
     private var _binding: FragmentRegistrationBinding? = null
-
-
+    private lateinit var firebaseAuth: FirebaseAuth
 
     // This property is only valid between onCreateView and
     // onDestroyView.

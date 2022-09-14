@@ -12,7 +12,7 @@
     <fragment
         android:id="@+id/nav_aboutUs"
         android:name="my.edu.latestblooddonationapp.AboutUs"
-        android:label="@string/aboutUs"
+        android:label="@string/menu_aboutUs"
         tools:layout="@layout/fragment_aboutus" />
     <fragment
         android:id="@+id/nav_viewProfile"
@@ -24,4 +24,9 @@
         android:name="my.edu.latestblooddonationapp.editProfileFragment"
         android:label="@string/menu_editProfile"
         tools:layout="@layout/fragment_edit_profile" />
+    <activity
+        android:id="@+id/action_logOut"
+        android:name="my.edu.latestblooddonationapp.MainActivity"
+        android:label="@string/login"
+        tools:layout="@layout/activity_main" />
 </navigation>
