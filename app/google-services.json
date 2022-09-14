@@ -1,92 +1,33 @@
 {
   "project_info": {
-    "project_number": "545533813335",
-    "firebase_url": "https://latestblooddonationapp-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "latestblooddonationapp",
-    "storage_bucket": "latestblooddonationapp.appspot.com"
+    "project_number": "253091241374",
+    "project_id": "blooddonationfirebase-8075a",
+    "storage_bucket": "blooddonationfirebase-8075a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:545533813335:android:01f3d6588d2b87647b7912",
+        "mobilesdk_app_id": "1:253091241374:android:19dc4de6e4d6992627ca8f",
         "android_client_info": {
           "package_name": "my.edu.latestblooddonationapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
+          "client_id": "253091241374-geva289l51b6m1j9qsuj3nsts1o3867s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAxdJ0WjaaJy4DSYPl5u3BIMZ_EVakFHlA"
+          "current_key": "AIzaSyAlU8sbDHpflkSVTlAD0jwEcmByJLIbYx0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:545533813335:android:1235d3c33151af7c7b7912",
-        "android_client_info": {
-          "package_name": "tarc.edu.blooddonation"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAxdJ0WjaaJy4DSYPl5u3BIMZ_EVakFHlA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:545533813335:android:2f991b15accd5ce97b7912",
-        "android_client_info": {
-          "package_name": "tarc.edu.latestblooddonation"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAxdJ0WjaaJy4DSYPl5u3BIMZ_EVakFHlA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "545533813335-2ba1e2vd0rubh3t3kbb5r2uiudbket86.apps.googleusercontent.com",
+              "client_id": "253091241374-geva289l51b6m1j9qsuj3nsts1o3867s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

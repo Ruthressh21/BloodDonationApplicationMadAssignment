@@ -44,7 +44,7 @@ class viewProfileFragment : Fragment() {
     }
 
     private fun getUserDetails(){
-        val databaseuser  = FirebaseDatabase.getInstance("https://latestblooddonationapp-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
+        val databaseuser  = FirebaseDatabase.getInstance("https://blooddonationfirebase-8075a-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
         databaseuser.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (i in snapshot.children) {

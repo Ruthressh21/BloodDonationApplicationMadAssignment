@@ -3,39 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph2"
-    app:startDestination="@id/donorHome3">
-
+    app:startDestination="@id/nav_home">
     <fragment
-        android:id="@+id/donorHome3"
-        android:name="my.edu.latestblooddonationapp.donorHome"
-        android:label="fragment_donor_home"
-        tools:layout="@layout/fragment_donor_home" >
-        <action
-            android:id="@+id/action_donorHome3_to_editProfileFragment3"
-            app:destination="@id/editProfileFragment3"
-            app:popUpTo="@id/donorHome3"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_donorHome3_to_viewProfileFragment"
-            app:destination="@id/viewProfileFragment"
-            app:popUpTo="@id/viewProfileFragment" />
-    </fragment>
+        android:id="@+id/nav_home"
+        android:name="my.edu.latestblooddonationapp.Admin.Home"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_admin_home" />
     <fragment
-        android:id="@+id/editProfileFragment3"
-        android:name="my.edu.latestblooddonationapp.editProfileFragment"
-        android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" >
-        <action
-            android:id="@+id/action_editProfileFragment3_to_donorHome3"
-            app:popUpTo="@id/donorHome3" />
-    </fragment>
+        android:id="@+id/nav_aboutUs"
+        android:name="my.edu.latestblooddonationapp.AboutUs"
+        android:label="@string/aboutUs"
+        tools:layout="@layout/fragment_aboutus" />
     <fragment
-        android:id="@+id/viewProfileFragment"
+        android:id="@+id/nav_viewProfile"
         android:name="my.edu.latestblooddonationapp.viewProfileFragment"
-        android:label="fragment_view_profile"
-        tools:layout="@layout/fragment_view_profile" >
-        <action
-            android:id="@+id/action_viewProfileFragment_to_donorHome3"
-            app:destination="@id/donorHome3" />
-    </fragment>
+        android:label="@string/menu_viewProfile"
+        tools:layout="@layout/fragment_view_profile" />
+    <fragment
+        android:id="@+id/nav_editProfile"
+        android:name="my.edu.latestblooddonationapp.editProfileFragment"
+        android:label="@string/menu_editProfile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>

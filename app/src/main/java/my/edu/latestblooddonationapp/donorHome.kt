@@ -28,15 +28,6 @@ class donorHome : Fragment() {
 
         _binding = FragmentDonorHomeBinding.inflate(inflater, container, false)
 
-
-        binding.button.setOnClickListener{
-            findNavController().navigate(R.id.action_donorHome3_to_editProfileFragment3)
-        }
-
-        binding.btnViewProfile.setOnClickListener{
-            findNavController().navigate(R.id.action_donorHome3_to_viewProfileFragment)
-        }
-
         return binding.root
     }
 }
