@@ -56,7 +56,7 @@ class fragmentRegistration : Fragment() {
             val password: String = binding.password.text.toString()
             var id: Int = 0
 
-            val database = Firebase.database("https://blooddonationfirebase-8075a-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            val database = Firebase.database("https://blooddonationfirebase2-default-rtdb.asia-southeast1.firebasedatabase.app/")
             val ref = database.getReference("Users")
 
             ref.addListenerForSingleValueEvent(object :ValueEventListener {

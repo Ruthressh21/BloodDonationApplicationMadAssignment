@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "253091241374",
-    "firebase_url": "https://blooddonationfirebase-8075a-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "blooddonationfirebase-8075a",
-    "storage_bucket": "blooddonationfirebase-8075a.appspot.com"
+    "project_number": "823128555361",
+    "firebase_url": "https://blooddonationfirebase2-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "blooddonationfirebase2",
+    "storage_bucket": "blooddonationfirebase2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:253091241374:android:19dc4de6e4d6992627ca8f",
+        "mobilesdk_app_id": "1:823128555361:android:9fc3345f12faaad8ca8f20",
         "android_client_info": {
           "package_name": "my.edu.latestblooddonationapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "253091241374-geva289l51b6m1j9qsuj3nsts1o3867s.apps.googleusercontent.com",
+          "client_id": "823128555361-60h3vgs63rpu03grt5tmgcs7kukut86i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAlU8sbDHpflkSVTlAD0jwEcmByJLIbYx0"
+          "current_key": "AIzaSyC2PK3GqUfgt_EQFr7jtLVqDfbSZ4Lr4ak"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "253091241374-geva289l51b6m1j9qsuj3nsts1o3867s.apps.googleusercontent.com",
+              "client_id": "823128555361-60h3vgs63rpu03grt5tmgcs7kukut86i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

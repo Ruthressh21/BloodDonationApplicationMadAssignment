@@ -73,10 +73,15 @@
                             make their appointment through this app. Blood donor will also receive many blood donation
                             appointment from this app. It will only shown the blood type request that is suitable for
                             the blood donor.  </string>
-    <string name="createDonorRequest">Create Donor Request</string>
-    <string name="deleteDonorRequest">Delete Donor Request</string>
-    <string name="editDonorRequest">Edit Donor Request</string>
-    <string name="viewDonorRequest">View Donor Request</string>
+    <string name="donorRequest">Donor Request</string>
+    <string name="createDonorRequest">Create</string>
+    <string name="deleteDonorRequest">Delete</string>
+    <string name="editDonorRequest">Edit</string>
+    <string name="viewDonorRequest">View</string>
+    <string name="createDonorRequest2">Create Donor Request</string>
+    <string name="deleteDonorRequest2">Delete Donor Request</string>
+    <string name="editDonorRequest2">Edit Donor Request</string>
+    <string name="viewDonorRequest2">View Donor Request</string>
     <string name="patientName">Patient Name</string>
     <string name="bloodTypes">Blood Types</string>
     <string-array name="bloodTypesSpinner">
@@ -87,5 +92,7 @@
     </string-array>
     <string name="description">Description</string>
     <string name="confirm">Confirm</string>
+    <string name="create_donor_request">Donor request have been create successfully</string>
+    <string name="error">%1$s</string>
 
 </resources>
