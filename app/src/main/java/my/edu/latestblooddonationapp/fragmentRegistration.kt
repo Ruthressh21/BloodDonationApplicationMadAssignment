@@ -59,12 +59,12 @@ class fragmentRegistration : Fragment() {
     private var address = ""
     private var password = ""
     private var userType = ""
-    private var genderError = ""
 
 
     private fun validateData() {
         name = binding.fullName.text.toString().trim()
         dateBirth = binding.birthDate.text.toString().trim()
+        gender = binding.genderType.checkedRadioButtonId.toString().trim()
         bloodGroup = binding.spinner.selectedItem.toString().trim()
         phoneNum = binding.phoneNumber.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()

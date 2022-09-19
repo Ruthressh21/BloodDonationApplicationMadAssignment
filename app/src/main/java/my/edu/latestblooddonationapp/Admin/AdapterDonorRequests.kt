@@ -154,6 +154,7 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
         var description : TextView = binding.textViewDescription2
         var deleteBtn : ImageButton = binding.imageButtonDelete
         var editBtn : ImageButton = binding.imageButtonEdit
+
     }
 
     override fun getFilter(): Filter {
