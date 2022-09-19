@@ -62,6 +62,9 @@ class fragmentRegistration : Fragment() {
 
 
     private fun validateData() {
+        val temp : Int  = binding.genderType.checkedRadioButtonId
+        val rad = view?.findViewById<RadioButton>(temp)
+        val genders = rad?.text.toString()
         name = binding.fullName.text.toString().trim()
         dateBirth = binding.birthDate.text.toString().trim()
         gender = binding.genderType.checkedRadioButtonId.toString().trim()
@@ -70,6 +73,7 @@ class fragmentRegistration : Fragment() {
         address = binding.homeAddress.text.toString().trim()
         email = binding.emailAddress.text.toString().trim()
         password = binding.password.text.toString().trim()
+        gender = genders
         val cPassword = binding.confirmPassword.text.toString().trim()
         userType = binding.spinnerUserType.selectedItem.toString().trim()
 
