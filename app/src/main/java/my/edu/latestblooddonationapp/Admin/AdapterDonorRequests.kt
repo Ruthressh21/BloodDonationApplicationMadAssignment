@@ -13,9 +13,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import my.edu.latestblooddonationapp.R
+import my.edu.latestblooddonationapp.databinding.FragmentAdminHomeBinding
+import my.edu.latestblooddonationapp.databinding.FragmentEditDonorRequestBinding
 import my.edu.latestblooddonationapp.databinding.FragmentRowDonorRequestBinding
 
 class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDonorRequests>,
@@ -76,7 +82,7 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
                 .show()
         }
 
-        holder.editBtn.setOnClickListener {
+      holder.editBtn.setOnClickListener {
                 //confirm before edit
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Edit")
@@ -91,15 +97,15 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
                     }
                     .show()
             }
+
         }
 
-    @SuppressLint("ResourceType")
+   @SuppressLint("ResourceType")
     private fun editDonorRequest(model: ModelDonorRequests, holder: AdapterDonorRequests.HolderDonorRequests) {
        //get patientName,bloodType, description
         val patientName = model.patientName
         val bloodType = model.bloodType
         val description = model.description
-
 
                 val activity = context as AppCompatActivity
                 val fragmentManager = activity.supportFragmentManager
@@ -114,7 +120,6 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
                 fragmentTransaction.replace(R.id.recycleView, fragment).addToBackStack(null).commit()
 
     }
-
 
 
     private fun deleteDonorRequest(model: ModelDonorRequests, holder: HolderDonorRequests) {
@@ -165,5 +170,4 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
     }
 
 }
-
 

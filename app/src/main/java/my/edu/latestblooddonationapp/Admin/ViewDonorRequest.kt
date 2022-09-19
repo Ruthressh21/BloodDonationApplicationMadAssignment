@@ -103,7 +103,5 @@ class ViewDonorRequest : Fragment() {
         binding.buttonAddDonorRequest.setOnClickListener{
             findNavController().navigate(R.id.action_viewDonorRequest_to_createDonorRequest)
         }
-
-
     }
 }
