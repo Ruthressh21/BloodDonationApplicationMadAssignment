@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import my.edu.latestblooddonationapp.R
 
 class DonorVerifyRequest : AppCompatActivity() {
@@ -18,6 +20,8 @@ class DonorVerifyRequest : AppCompatActivity() {
         val bloodType: TextView = findViewById(R.id.outputBloodType)
         val description: TextView = findViewById(R.id.outputDescription)
 
+        Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            .getReference("")
 
     }
 }

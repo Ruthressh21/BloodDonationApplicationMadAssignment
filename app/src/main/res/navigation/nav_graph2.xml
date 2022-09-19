@@ -66,4 +66,9 @@
             android:id="@+id/action_editDonorRequest2_to_donorRequest"
             app:destination="@id/donorRequest" />
     </fragment>
+    <fragment
+        android:id="@+id/donorVerifyRt"
+        android:name="my.edu.latestblooddonationapp.User.DonorVerifyRt"
+        android:label="fragment_donor_verify_rt"
+        tools:layout="@layout/fragment_donor_verify_rt" />
 </navigation>
