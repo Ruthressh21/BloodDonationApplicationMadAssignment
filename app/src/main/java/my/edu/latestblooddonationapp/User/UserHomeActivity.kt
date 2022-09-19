@@ -23,6 +23,17 @@ class UserHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeUserBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
+
+
+      binding.buttonClick.setOnClickListener{
+          val intent = Intent(this,DonorVerifyRequest::class.java)
+          startActivity(intent)
+      }
+
+
     }
+
+
 }
