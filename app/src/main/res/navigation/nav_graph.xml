@@ -17,9 +17,6 @@
         <action
             android:id="@+id/action_loginFragment_to_fragmentForgotPassword"
             app:destination="@id/fragmentForgotPassword" />
-        <action
-            android:id="@+id/action_loginFragment_to_donorHome2"
-            app:destination="@id/donorHome2" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -39,26 +36,5 @@
         <action
             android:id="@+id/action_fragmentForgotPassword_to_loginFragment"
             app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/donorHome2"
-        android:name="my.edu.latestblooddonationapp.donorHome"
-        android:label="fragment_donor_home"
-        tools:layout="@layout/fragment_donor_home" >
-        <action
-            android:id="@+id/action_donorHome2_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_donorHome2_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/editProfileFragment"
-        android:name="my.edu.latestblooddonationapp.editProfileFragment"
-        android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" >
-        <action
-            android:id="@+id/action_editProfileFragment_to_donorHome2"
-            app:destination="@id/donorHome2" />
     </fragment>
 </navigation>

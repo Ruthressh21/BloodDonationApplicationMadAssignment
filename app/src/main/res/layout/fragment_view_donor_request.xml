@@ -4,16 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/recycleView"
     tools:context=".Admin.ViewDonorRequest">
 
     <TextView
         android:id="@+id/textViewTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/viewDonorRequest2"
+        android:layout_marginTop="28dp"
+        android:text="@string/donorRequest"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:hint="Search Blood Type"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColorHint="#CCCCCC"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle3"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:layout_editor_absoluteX="-1dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/donorRequestsView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddDonorRequest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSearch"
+        app:layout_constraintVertical_bias="0.468"
+        tools:listitem="@layout/fragment_row_donor_request" />
+
+    <Button
+        android:id="@+id/buttonAddDonorRequest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_button"
+        android:minHeight="10dp"
+        android:text="Add Donor Request"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

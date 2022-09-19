@@ -9,7 +9,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import my.edu.latestblooddonationapp.databinding.FragmentEditProfileBinding
 import my.edu.latestblooddonationapp.databinding.FragmentViewProfileBinding
 
 class viewProfileFragment : Fragment() {
@@ -44,7 +43,7 @@ class viewProfileFragment : Fragment() {
     }
 
     private fun getUserDetails(){
-        val databaseuser  = FirebaseDatabase.getInstance("https://blooddonationfirebase2-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
+        val databaseuser  = FirebaseDatabase.getInstance("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
         databaseuser.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (i in snapshot.children) {

@@ -1,7 +1,9 @@
 package my.edu.latestblooddonationapp
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import my.edu.latestblooddonationapp.Admin.HomeActivity
+import my.edu.latestblooddonationapp.User.UserHomeActivity
 import my.edu.latestblooddonationapp.databinding.FragmentLoginBinding
 
 
@@ -17,10 +24,10 @@ import my.edu.latestblooddonationapp.databinding.FragmentLoginBinding
 class fragmentLogin : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
-    //private lateinit var auth: FirebaseAuth
 
     private lateinit var firebaseAuth: FirebaseAuth
 
+    private lateinit var progressDialog: ProgressDialog
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,48 +40,92 @@ class fragmentLogin : Fragment() {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-
         firebaseAuth = FirebaseAuth.getInstance()
-        binding.buttonLogin.setOnClickListener{
-            login()
+
+        progressDialog = ProgressDialog(context)
+        progressDialog.setTitle("Please wait...")
+        progressDialog.setCanceledOnTouchOutside(false)
+
+        binding.buttonLogin.setOnClickListener {
+            /*Steps
+           1) Input Data
+           2) Validate Data
+           3) Login - Firebase Auth
+           4) Check user type - Fire Auth
+              If User - Move to User Page
+              If Admin - Move to Admin Page
+            */
+            validateData()
         }
         return binding.root
     }
 
-    private fun login() {
+    private var email = ""
+    private var password = ""
+    private var error = ""
 
-        val email = binding.edittextEmail.text.toString()
-        val passwd = binding.editTextPassword.text.toString()
+    private fun validateData() {
+
+        email = binding.edittextEmail.text.toString().trim()
+        password = binding.editTextPassword.text.toString().trim()
 
         if (email.isEmpty()) {
-            binding.edittextEmail.error = "Please enter your email correctly"
-            binding.edittextEmail.requestFocus()
-            return
+            binding.edittextEmail.error = "Enter your email"
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.edittextEmail.error = "Invalid email format"
+        } else if (password.isEmpty()) {
+            binding.editTextPassword.error = "Enter your password"
+        } else {
+            loginUser()
         }
-        if (email.isEmpty()) {
-            binding.editTextPassword.error = "Please enter your password correctly"
-            binding.editTextPassword.requestFocus()
-            return
-        }
+    }
 
-        if (email.isNotEmpty() && passwd.isNotEmpty()) {
-            firebaseAuth.signInWithEmailAndPassword(email, passwd).addOnCompleteListener {
-                if (it.isSuccessful) {
-//                    findNavController().navigate(R.id.action_loginFragment_to_donorHome2)
-//                    val intent = Intent(context, MainActivity::class.java)
-//                    startActivity(intent)
-                    val intent = Intent(
-                        context,
-                        HomeActivity::class.java
-                    )
-                    startActivity(intent)
-                    Toast.makeText(context,"Welcome", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(context, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                }
+    private fun loginUser() {
+        progressDialog.setMessage("Logging In")
+        progressDialog.show()
+
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                //checkUser
+                progressDialog.setMessage("Checking User")
+
+                val firebaseUser = firebaseAuth.currentUser!!
+
+                val ref = FirebaseDatabase.getInstance().getReference("Users")
+                ref.child(firebaseUser.uid)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            progressDialog.dismiss()
+                            val userType = snapshot.child("userType").value
+                            if (userType == "Admin") {
+                                val intent = Intent(
+                                    context,
+                                    HomeActivity::class.java
+                                )
+                                startActivity(intent)
+                                Toast.makeText(context, "Welcome admin", Toast.LENGTH_SHORT).show()
+                            } else if (userType == "User") {
+                                val intent = Intent(
+                                    context,
+                                    UserHomeActivity::class.java
+                                )
+                                startActivity(intent)
+                                Toast.makeText(context, "Welcome user", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            TODO("Not yet implemented")
+                        }
+                    })
+            } else {
+                progressDialog.dismiss()
+                binding.textViewError.text = "Incorrect email or password,\n"+
+                                             "reenter again !!"
             }
         }
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -85,12 +136,5 @@ class fragmentLogin : Fragment() {
         binding.forgotPassword.setOnClickListener{
             findNavController().navigate(R.id.action_loginFragment_to_fragmentForgotPassword)
         }
-
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        firebaseAuth.signOut()
-        _binding = null
     }
 }

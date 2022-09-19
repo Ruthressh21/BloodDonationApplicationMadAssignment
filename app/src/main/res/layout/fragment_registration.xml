@@ -15,7 +15,7 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewTitle4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -36,10 +36,10 @@
             android:inputType="textPersonName"
             android:textColor="@color/white"
             android:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="@+id/textViewTitle4"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/textViewTitle4"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitle4"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
@@ -105,7 +105,7 @@
                 tools:layout_editor_absoluteY="350dp" />
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/radioButtonFemale"
                 android:layout_width="111dp"
                 android:layout_height="match_parent"
                 android:text="@string/female"
@@ -245,9 +245,10 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:backgroundTint="@color/black"
             android:ems="10"
             android:inputType="textPassword"
-            android:backgroundTint="@color/black"
+            android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="@+id/labelPasswords"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/labelPasswords"
@@ -261,10 +262,10 @@
             android:layout_marginTop="52dp"
             android:text="@string/register"
             android:backgroundTint="#30ffffff"
-            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerUserType"
             app:layout_constraintHorizontal_bias="0.508"
-            app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintStart_toStartOf="@+id/spinnerUserType"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerUserType" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -275,6 +276,72 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labelConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/black"
+            android:text="@string/confirm_password"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/black"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/labelConfirmPassword"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/labelConfirmPassword"
+            app:layout_constraintTop_toBottomOf="@+id/labelConfirmPassword"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/labelUserType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/black"
+            android:text="@string/userType"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/confirmPassword"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/confirmPassword"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
+
+        <Spinner
+            android:id="@+id/spinnerUserType"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/black"
+            android:entries="@array/userTypes"
+            app:layout_constraintEnd_toEndOf="@+id/labelUserType"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/labelUserType"
+            app:layout_constraintTop_toBottomOf="@+id/labelUserType" />
+
+        <TextView
+            android:id="@+id/textViewGenderError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/genderType"
+            app:layout_constraintStart_toEndOf="@+id/textViewGender"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
