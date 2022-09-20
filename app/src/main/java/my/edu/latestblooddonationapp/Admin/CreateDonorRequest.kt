@@ -82,6 +82,7 @@ class CreateDonorRequest : Fragment() {
         hashMap["timestamp"] = "$timestamp"
         hashMap["uid"] = "${firebaseAuth.uid}"
 
+
         val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("DonorRequests")
         ref.child("$timestamp")
             .setValue(hashMap)

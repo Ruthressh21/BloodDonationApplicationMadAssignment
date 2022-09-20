@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="my.edu.latestblooddonationapp.fragmentLogin"
-        android:label="LoginFragment"
+        android:label="Login"
         tools:layout="@layout/fragment_login">
 
         <action

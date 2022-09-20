@@ -19,16 +19,6 @@
         android:label="@string/menu_aboutUs"
         tools:layout="@layout/fragment_aboutus" />
     <fragment
-        android:id="@+id/nav_viewProfile"
-        android:name="my.edu.latestblooddonationapp.viewProfileFragment"
-        android:label="@string/menu_viewProfile"
-        tools:layout="@layout/fragment_view_profile" />
-    <activity
-        android:id="@+id/action_logOut"
-        android:name="my.edu.latestblooddonationapp.MainActivity"
-        android:label="@string/login"
-        tools:layout="@layout/activity_main" />
-    <fragment
         android:id="@+id/createDonorRequest"
         android:name="my.edu.latestblooddonationapp.Admin.CreateDonorRequest"
         android:label="@string/createDonorRequest2"
@@ -66,4 +56,9 @@
             android:id="@+id/action_editDonorRequest2_to_donorRequest"
             app:destination="@id/donorRequest" />
     </fragment>
+    <fragment
+        android:id="@+id/action_logOut"
+        android:name="my.edu.latestblooddonationapp.fragmentLogin"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.navigation.NavigationView
 import my.edu.latestblooddonationapp.databinding.ActivityMainBinding
+import my.edu.latestblooddonationapp.databinding.FragmentLoginBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_logOut -> {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, FragmentLoginBinding::class.java)
                 startActivity(intent)
                 true
             }
