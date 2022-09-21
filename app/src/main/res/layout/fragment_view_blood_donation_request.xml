@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/recycleView"
-    tools:context=".Admin.ViewDonorRequest">
+    tools:context=".Admin.ViewBloodDonationRequest">
 
     <TextView
         android:id="@+id/textViewTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="@string/donorRequest"
+        android:text="@string/bloodDonationRequest"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,29 +33,29 @@
         tools:layout_editor_absoluteX="-1dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/donorRequestsView"
+        android:id="@+id/bloodDonationrRequestsView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAddDonorRequest"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddBloodDonationRequest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSearch"
         app:layout_constraintVertical_bias="0.468"
-        tools:listitem="@layout/fragment_row_donor_request" />
+        tools:listitem="@layout/fragment_row_blood_donation_request" />
 
     <Button
-        android:id="@+id/buttonAddDonorRequest"
+        android:id="@+id/buttonAddBloodDonationRequest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:layout_weight="1"
         android:background="@drawable/shape_button"
         android:minHeight="10dp"
-        android:text="Add Donor Request"
+        android:text="Add Blood Donation Request"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageViewDonorRequest"
+        android:id="@+id/imageViewBloodDonationRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -36,14 +36,15 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textViewDonateBlood"
+        android:id="@+id/textViewBloodDonationRequests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="Donor Request"
+        android:lines="2"
+        android:text="Blood Donation \nRequests"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewDonorRequest"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewBloodDonationRequest"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewDonorRequest" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewBloodDonationRequest" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

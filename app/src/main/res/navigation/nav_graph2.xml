@@ -10,8 +10,8 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_admin_home" >
         <action
-            android:id="@+id/action_nav_home_to_viewDonorRequest"
-            app:destination="@id/donorRequest" />
+            android:id="@+id/action_nav_home_to_viewBloodDonationRequest"
+            app:destination="@id/viewBloodDonationRequest" />
     </fragment>
     <fragment
         android:id="@+id/nav_aboutUs"
@@ -19,46 +19,46 @@
         android:label="@string/menu_aboutUs"
         tools:layout="@layout/fragment_aboutus" />
     <fragment
-        android:id="@+id/createDonorRequest"
-        android:name="my.edu.latestblooddonationapp.Admin.CreateDonorRequest"
-        android:label="@string/createDonorRequest2"
-        tools:layout="@layout/fragment_create_donor_request" >
-        <action
-            android:id="@+id/action_createDonorRequest_to_viewDonorRequest"
-            app:destination="@id/donorRequest" />
-    </fragment>
-    <fragment
-        android:id="@+id/donorRequest"
-        android:name="my.edu.latestblooddonationapp.Admin.ViewDonorRequest"
-        android:label="@string/donorRequest"
-        tools:layout="@layout/fragment_view_donor_request" >
-        <action
-            android:id="@+id/action_viewDonorRequest_to_nav_home"
-            app:destination="@id/nav_home" />
-        <action
-            android:id="@+id/action_viewDonorRequest_to_createDonorRequest"
-            app:destination="@id/createDonorRequest" />
-        <action
-            android:id="@+id/action_viewDonorRequest_to_editDonorRequest"
-            app:destination="@id/editDonorRequest" />
-    </fragment>
-    <fragment
         android:id="@+id/nav_editProfile"
         android:name="my.edu.latestblooddonationapp.editProfileFragment"
         android:label="@string/menu_editProfile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
-        android:id="@+id/editDonorRequest"
-        android:name="my.edu.latestblooddonationapp.Admin.EditDonorRequest"
-        android:label="@string/editDonorRequest2"
-        tools:layout="@layout/fragment_edit_donor_request">
-        <action
-            android:id="@+id/action_editDonorRequest2_to_donorRequest"
-            app:destination="@id/donorRequest" />
-    </fragment>
-    <fragment
         android:id="@+id/action_logOut"
         android:name="my.edu.latestblooddonationapp.fragmentLogin"
         android:label="@string/login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/viewBloodDonationRequest"
+        android:name="my.edu.latestblooddonationapp.Admin.ViewBloodDonationRequest"
+        android:label="@string/bloodDonationRequest"
+        tools:layout="@layout/fragment_view_blood_donation_request" >
+        <action
+            android:id="@+id/action_viewBloodDonationRequest_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_viewBloodDonationRequest_to_editBloodDonationRequest"
+            app:destination="@id/editBloodDonationRequest" />
+        <action
+            android:id="@+id/action_viewBloodDonationRequest_to_createBloodDonationRequest"
+            app:destination="@id/createBloodDonationRequest" />
+    </fragment>
+    <fragment
+        android:id="@+id/editBloodDonationRequest"
+        android:name="my.edu.latestblooddonationapp.Admin.EditBloodDonationRequest"
+        android:label="@string/editBloodDonationRequest2"
+        tools:layout="@layout/fragment_edit_blood_donation_request" >
+        <action
+            android:id="@+id/action_editBloodDonationRequest_to_viewBloodDonationRequest"
+            app:destination="@id/viewBloodDonationRequest" />
+    </fragment>
+    <fragment
+        android:id="@+id/createBloodDonationRequest"
+        android:name="my.edu.latestblooddonationapp.Admin.CreateBloodDonationRequest"
+        android:label="@string/createBloodDonationRequest2"
+        tools:layout="@layout/fragment_create_blood_donation_request" >
+        <action
+            android:id="@+id/action_createBloodDonationRequest_to_viewBloodDonationRequest"
+            app:destination="@id/viewBloodDonationRequest" />
+    </fragment>
 </navigation>

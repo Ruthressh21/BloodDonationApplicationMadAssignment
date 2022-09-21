@@ -33,8 +33,8 @@ class Home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.imageViewDonorRequest.setOnClickListener{
-            findNavController().navigate(R.id.action_nav_home_to_viewDonorRequest)
+        binding.imageViewBloodDonationRequest.setOnClickListener{
+            findNavController().navigate(R.id.action_nav_home_to_viewBloodDonationRequest)
         }
     }
 }

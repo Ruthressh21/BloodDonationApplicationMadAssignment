@@ -21,35 +21,34 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import my.edu.latestblooddonationapp.R
 import my.edu.latestblooddonationapp.databinding.FragmentAdminHomeBinding
-import my.edu.latestblooddonationapp.databinding.FragmentEditDonorRequestBinding
-import my.edu.latestblooddonationapp.databinding.FragmentRowDonorRequestBinding
+import my.edu.latestblooddonationapp.databinding.FragmentRowBloodDonationRequestBinding
 
-class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDonorRequests>,
+class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationRequests.HolderBloodDonationRequests>,
     Filterable {
 
     private lateinit var progressDialog: ProgressDialog
     private val context: Context
-    public var categoryArrayList: ArrayList<ModelDonorRequests>
-    private lateinit var binding: FragmentRowDonorRequestBinding
-    private var filterList: ArrayList<ModelDonorRequests>
+    public var categoryArrayList: ArrayList<ModelBloodDonationRequests>
+    private lateinit var binding: FragmentRowBloodDonationRequestBinding
+    private var filterList: ArrayList<ModelBloodDonationRequests>
 
-    private var filter: FilterDonorRequests? = null
+    private var filter: FilterBloodDonationRequests? = null
 
     //constructor
-    constructor(context: Context, categoryArrayList: ArrayList<ModelDonorRequests>) {
+    constructor(context: Context, categoryArrayList: ArrayList<ModelBloodDonationRequests>) {
         this.context = context
         this.categoryArrayList = categoryArrayList
         this.filterList = categoryArrayList
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderDonorRequests {
-        //inflate/bind fragment_row_donor_request.xml
-        binding = FragmentRowDonorRequestBinding.inflate(LayoutInflater.from(context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderBloodDonationRequests {
+        //inflate/bind fragment_row_blood_donation_request.xml
+        binding = FragmentRowBloodDonationRequestBinding.inflate(LayoutInflater.from(context), parent, false)
 
-        return HolderDonorRequests(binding.root)
+        return HolderBloodDonationRequests(binding.root)
     }
 
-    override fun onBindViewHolder(holder: HolderDonorRequests, position: Int) {
+    override fun onBindViewHolder(holder: HolderBloodDonationRequests, position: Int) {
        //get data
         val model = categoryArrayList[position]
         val id = model.id
@@ -74,7 +73,7 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
                     progressDialog = ProgressDialog(context)
                     progressDialog.setTitle("Deleting...")
                     progressDialog.setCanceledOnTouchOutside(false)
-                    deleteDonorRequest(model, holder)
+                    deleteBloodDonationRequest(model, holder)
                 }
                 .setNegativeButton("Cancel"){a,d->
                     a.dismiss()
@@ -91,7 +90,7 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
                         progressDialog = ProgressDialog(context)
                         progressDialog.setTitle("Editing...")
                         progressDialog.setCanceledOnTouchOutside(false)
-                        editDonorRequest(model, holder)
+                        editBloodDonationRequest(model, holder)
                     }.setNegativeButton("Cancel"){a,d->
                         a.dismiss()
                     }
@@ -101,7 +100,7 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
         }
 
    @SuppressLint("ResourceType")
-    private fun editDonorRequest(model: ModelDonorRequests, holder: AdapterDonorRequests.HolderDonorRequests) {
+    private fun editBloodDonationRequest(model: ModelBloodDonationRequests, holder: AdapterBloodDonationRequests.HolderBloodDonationRequests) {
        //get patientName,bloodType, description
         val patientName = model.patientName
         val bloodType = model.bloodType
@@ -110,7 +109,7 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
                 val activity = context as AppCompatActivity
                 val fragmentManager = activity.supportFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
-                val fragment = EditDonorRequest()
+                val fragment = EditBloodDonationRequest()
 
                 val bundle = Bundle()
                 fragment.arguments = bundle
@@ -122,12 +121,12 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
     }
 
 
-    private fun deleteDonorRequest(model: ModelDonorRequests, holder: HolderDonorRequests) {
+    private fun deleteBloodDonationRequest(model: ModelBloodDonationRequests, holder: HolderBloodDonationRequests) {
         progressDialog.dismiss()
         //get id of donor request to delete
         val id = model.id
         //Firebase DB > Categories > categoryId
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("DonorRequests")
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("BloodDonationRequests")
         ref.child(id)
             .removeValue()
             .addOnCompleteListener { task ->
@@ -151,8 +150,8 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
     }
 
 
-    //ViewHolder class to hold/init UI views for fragment_row_donor_request.xml
-    inner class HolderDonorRequests(itemView: View): RecyclerView.ViewHolder(itemView){
+    //ViewHolder class to hold/init UI views for fragment_row_blood_donation_request.xml
+    inner class HolderBloodDonationRequests(itemView: View): RecyclerView.ViewHolder(itemView){
         //init ui views
         var patientName : TextView = binding.textViewPatientName2
         var bloodType : TextView = binding.textViewBloodTypes2
@@ -164,9 +163,9 @@ class AdapterDonorRequests :RecyclerView.Adapter<AdapterDonorRequests.HolderDono
 
     override fun getFilter(): Filter {
         if(filter == null){
-            filter = FilterDonorRequests(filterList, this)
+            filter = FilterBloodDonationRequests(filterList, this)
         }
-        return filter as FilterDonorRequests
+        return filter as FilterBloodDonationRequests
     }
 
 }

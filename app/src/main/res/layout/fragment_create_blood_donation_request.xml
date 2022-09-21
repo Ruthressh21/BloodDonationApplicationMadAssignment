@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.CreateDonorRequest">
+    tools:context=".Admin.CreateBloodDonationRequest">
 
     <EditText
         android:id="@+id/editTextDescription"
@@ -51,7 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/createDonorRequest2"
+        android:text="@string/createBloodDonationRequest2"
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

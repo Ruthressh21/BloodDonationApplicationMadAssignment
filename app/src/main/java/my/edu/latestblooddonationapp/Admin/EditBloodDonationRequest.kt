@@ -10,12 +10,12 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import my.edu.latestblooddonationapp.databinding.FragmentEditDonorRequestBinding
+import my.edu.latestblooddonationapp.databinding.FragmentEditBloodDonationRequestBinding
 
 
-class EditDonorRequest : Fragment() {
+class EditBloodDonationRequest : Fragment() {
 
-    private var _binding: FragmentEditDonorRequestBinding? = null
+    private var _binding: FragmentEditBloodDonationRequestBinding? = null
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -35,7 +35,7 @@ class EditDonorRequest : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentEditDonorRequestBinding.inflate(inflater, container, false)
+        _binding = FragmentEditBloodDonationRequestBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -73,15 +73,15 @@ private fun validateData() {
     } else if (description.isEmpty()) {
         binding.editTextDescription.error = "Enter the description"
     } else {
-        editDonorRequestFirebase()
+        editBloodDonationRequestFirebase()
     }
 }
 
 
-private fun editDonorRequestFirebase() {
+private fun editBloodDonationRequestFirebase() {
     progressDialog.dismiss()
     progressDialog = ProgressDialog(context)
-    progressDialog.setMessage("Editing Donor Request...")
+    progressDialog.setMessage("Editing Blood Donation Request...")
     progressDialog.show()
 
     val timestamp = System.currentTimeMillis()
@@ -96,7 +96,7 @@ private fun editDonorRequestFirebase() {
 
     val ref =
         Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
-            .getReference("DonorRequests")
+            .getReference("BloodDonationRequests")
     ref.child("$timestamp")
         .updateChildren(hashMap)
         .addOnCompleteListener { task ->
