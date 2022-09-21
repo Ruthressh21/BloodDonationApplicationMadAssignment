@@ -1,4 +1,4 @@
-package my.edu.latestblooddonationapp.Admin
+package my.edu.latestblooddonationapp.User
 
 import android.os.Bundle
 import android.text.Editable
@@ -16,18 +16,18 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import my.edu.latestblooddonationapp.R
-import my.edu.latestblooddonationapp.databinding.FragmentViewBloodDonationRequestBinding
+import my.edu.latestblooddonationapp.databinding.FragmentViewDonateBloodBinding
 
-class ViewBloodDonationRequest : Fragment() {
+class ViewDonateBlood : Fragment() {
 
-    private var _binding: FragmentViewBloodDonationRequestBinding? = null
+    private var _binding: FragmentViewDonateBloodBinding? = null
     private lateinit var firebaseAuth: FirebaseAuth
 
     //arrayList to hold categories
-    private lateinit var categoryArrayList: ArrayList<ModelBloodDonationRequests>
+    private lateinit var categoryArrayList: ArrayList<ModelDonateBlood>
 
     //adapter
-    private lateinit var adapterBloodDonationRequests: AdapterBloodDonationRequests
+    private lateinit var adapterDonateBlood: AdapterDonateBlood
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -39,7 +39,7 @@ class ViewBloodDonationRequest : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentViewBloodDonationRequestBinding.inflate(inflater, container, false)
+        _binding = FragmentViewDonateBloodBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
         loadCategories()
@@ -52,7 +52,7 @@ class ViewBloodDonationRequest : Fragment() {
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 //called as and when user type anything
                 try{
-                  adapterBloodDonationRequests.filter.filter(s)
+                    adapterDonateBlood.filter.filter(s)
                 }
                 catch (e: Exception){
 
@@ -79,16 +79,16 @@ class ViewBloodDonationRequest : Fragment() {
                 categoryArrayList.clear()
                 for (ds in snapshot.children){
                     //get data as model
-                    val model = ds.getValue((ModelBloodDonationRequests::class.java))
+                    val model = ds.getValue((ModelDonateBlood::class.java))
 
                     //add to arrayList
                     categoryArrayList.add(model!!)
                 }
                 //setup adapter
-                adapterBloodDonationRequests = AdapterBloodDonationRequests(context!!, categoryArrayList)
+                adapterDonateBlood = AdapterDonateBlood(context!!, categoryArrayList)
 
                 //set adapter to recyclerView
-                binding.bloodDonationRequestsView.adapter = adapterBloodDonationRequests
+                binding.donateBloodView.adapter = adapterDonateBlood
 
             }
 
@@ -96,12 +96,5 @@ class ViewBloodDonationRequest : Fragment() {
                 TODO("Not yet implemented")
             }
         })
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.buttonAddBloodDonationRequest.setOnClickListener{
-            findNavController().navigate(R.id.action_viewBloodDonationRequest_to_createBloodDonationRequest)
-        }
     }
 }

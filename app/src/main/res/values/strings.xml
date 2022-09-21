@@ -33,16 +33,6 @@
         <item>O</item>
         <item>AB</item>
     </string-array>
-    <string name="question_title">Questionnaire</string>
-    <string name="question1">Question 1</string>
-    <string name="question1s">Do you know your blood type ?</string>
-    <string name="question2">Question 2</string>
-    <string name="question2s">Where you intoxicated with alcohol 3 days ago ?</string>
-    <string name="question3">Question 3</string>
-    <string name="question3s">Were you sick recently ?</string>
-    <string name="question4">Question 4</string>
-    <string name="question4s">Did you undergo surgery recently ?</string>
-    <string name="button_submit">Submit</string>
     <string name="update_profile">Update Profile</string>
     <string name="profile">Profile</string>
     <string name="history">Donation History</string>
@@ -95,6 +85,16 @@
     <string name="nav_header_title_2">User</string>
     <string name="nav_header_subtitle_2">user@gmail.com</string>
     <string name="donateBlood">Donate Blood</string>
+    <string name="question_title">Questionnaire</string>
+    <string name="question1">Question 1</string>
+    <string name="question1s">Do you know your blood type ?</string>
+    <string name="question2">Question 2</string>
+    <string name="question2s">Where you intoxicated with alcohol 3 days ago ?</string>
+    <string name="question3">Question 3</string>
+    <string name="question3s">Were you sick recently ?</string>
+    <string name="question4">Question 4</string>
+    <string name="question4s">Did you undergo surgery recently ?</string>
+    <string name="button_submit">Submit</string>
     <string name="accept">Accept</string>
     <string name="reject">Reject</string>
 

@@ -32,5 +32,33 @@
         android:id="@+id/questionnaire"
         android:name="my.edu.latestblooddonationapp.User.Questionnaire"
         android:label="Questionnaire"
-        tools:layout="@layout/fragment_questionnaire" />
+        tools:layout="@layout/fragment_questionnaire" >
+        <action
+            android:id="@+id/action_questionnaire_to_viewDonateBlood"
+            app:destination="@id/viewDonateBlood" />
+        <action
+            android:id="@+id/action_questionnaire_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewDonateBlood"
+        android:name="my.edu.latestblooddonationapp.User.ViewDonateBlood"
+        android:label="Donate Blood"
+        tools:layout="@layout/fragment_view_donate_blood">
+        <action
+            android:id="@+id/action_viewDonateBlood_to_questionnaire"
+            app:destination="@id/questionnaire" />
+        <action
+            android:id="@+id/action_viewDonateBlood_to_createDonateBlood"
+            app:destination="@id/createDonateBlood" />
+    </fragment>
+    <fragment
+        android:id="@+id/createDonateBlood"
+        android:name="my.edu.latestblooddonationapp.User.CreateDonateBlood"
+        android:label="Create Donate Blood"
+        tools:layout="@layout/fragment_create_donate_blood" >
+        <action
+            android:id="@+id/action_createDonateBlood_to_viewDonateBlood"
+            app:destination="@id/viewDonateBlood" />
+    </fragment>
 </navigation>

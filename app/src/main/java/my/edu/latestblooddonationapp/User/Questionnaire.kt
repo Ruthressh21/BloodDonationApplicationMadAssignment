@@ -95,7 +95,7 @@ class Questionnaire : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     progressDialog.dismiss()
-
+                findNavController().navigate(R.id.action_questionnaire_to_viewDonateBlood)
                 } else {
 
                 }

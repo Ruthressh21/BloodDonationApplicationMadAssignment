@@ -161,14 +161,14 @@
 
     <TextView
         android:id="@+id/question4"
-        android:layout_width="244dp"
+        android:layout_width="wrap_content"
         android:layout_height="41dp"
         android:layout_marginTop="16dp"
         android:text="@string/question4s"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/labelQuestion4"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="@+id/labelQuestion4"
         app:layout_constraintTop_toBottomOf="@+id/labelQuestion4" />
 
