@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph3"
+    app:startDestination="@id/nav_home">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="my.edu.latestblooddonationapp.User.UserHome"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_user_home" >
+        <action
+            android:id="@+id/action_nav_home_to_questionnaire"
+            app:destination="@id/questionnaire" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_aboutUs"
+        android:name="my.edu.latestblooddonationapp.AboutUs"
+        android:label="@string/menu_aboutUs"
+        tools:layout="@layout/fragment_aboutus" />
+    <fragment
+        android:id="@+id/nav_editProfile"
+        android:name="my.edu.latestblooddonationapp.editProfileFragment"
+        android:label="@string/menu_editProfile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/action_logOut"
+        android:name="my.edu.latestblooddonationapp.fragmentLogin"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/questionnaire"
+        android:name="my.edu.latestblooddonationapp.User.Questionnaire"
+        android:label="Questionnaire"
+        tools:layout="@layout/fragment_questionnaire" />
+</navigation>

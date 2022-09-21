@@ -9,8 +9,33 @@
     android:gravity="bottom"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <TextView
+        android:id="@+id/textViewNameUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/nav_header_title_2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProfileUser" />
+
+    <TextView
+        android:id="@+id/textViewEmailUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="@string/nav_header_subtitle_2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameUser"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
-        android:id="@+id/imageViewProfile"
+        android:id="@+id/imageViewProfileUser"
         android:layout_width="76dp"
         android:layout_height="69dp"
         android:layout_marginStart="36dp"
@@ -19,30 +44,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_account_circle_24"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textViewNameUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/nav_header_title"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
-
-    <TextView
-        android:id="@+id/textViewEmailUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:text="@string/nav_header_subtitle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNameUser"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,6 +59,6 @@
     <fragment
         android:id="@+id/action_logOut"
         android:name="my.edu.latestblooddonationapp.fragmentLogin"
-        android:label="Login"
+        android:label="@string/login"
         tools:layout="@layout/fragment_login" />
 </navigation>

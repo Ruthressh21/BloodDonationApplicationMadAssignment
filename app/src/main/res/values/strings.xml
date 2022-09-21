@@ -61,12 +61,11 @@
     //Admin
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">User</string>
-    <string name="nav_header_subtitle">user@gmail.com</string>
+    <string name="nav_header_title">Admin</string>
+    <string name="nav_header_subtitle">admin@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="menu_home">Home</string>
     <string name="menu_aboutUs">About Us</string>
-    <string name="menu_viewProfile">View Profile</string>
     <string name="menu_editProfile">Edit Profile</string>
     <string name="menu_logOut">Log Out</string>
     <string name="aboutUs"> We organize this Persona Blood Donation hospital is to help the patients who need of surgery,
@@ -91,6 +90,11 @@
     </string-array>
     <string name="description">Description</string>
     <string name="confirm">Confirm</string>
+
+    //User
+    <string name="nav_header_title_2">User</string>
+    <string name="nav_header_subtitle_2">user@gmail.com</string>
+    <string name="donateBlood">Donate Blood</string>
     <string name="accept">Accept</string>
     <string name="reject">Reject</string>
 
