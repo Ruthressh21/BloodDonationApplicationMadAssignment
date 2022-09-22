@@ -27,8 +27,12 @@ class UserHomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+            val intent = Intent(this, UserHomeActivity::class.java)
+            // start your next activity
+            startActivity(intent)
 
       }
+
 
 
     }
