@@ -111,8 +111,8 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
     inner class HolderDonateBlood(itemView: View): RecyclerView.ViewHolder(itemView){
         //init ui views
         var patientName : TextView = binding.textViewPatientName2
-        var bloodType : TextView = binding.toBloodType
-        var description : TextView = binding.toDescription
+        var bloodType : TextView = binding.textViewBloodTypes2
+        var description : TextView = binding.textViewDescription2
         var donate : Button = binding.buttonDonateBlood
 
     }

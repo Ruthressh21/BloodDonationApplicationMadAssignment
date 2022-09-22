@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/toBloodType"
+        android:id="@+id/textViewBloodTypes2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewPatientName2" />
 
     <TextView
-        android:id="@+id/toDescription"
+        android:id="@+id/textViewDescription2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -81,7 +81,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/toBloodType"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBloodTypes2"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
