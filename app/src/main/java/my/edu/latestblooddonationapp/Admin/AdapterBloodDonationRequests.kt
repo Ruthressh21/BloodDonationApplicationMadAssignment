@@ -50,7 +50,7 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
     }
 
     override fun onBindViewHolder(holder: HolderBloodDonationRequests, position: Int) {
-       //get data
+        //get data
         val model = categoryArrayList[position]
         val id = model.id
         val patientName = model.patientName
@@ -59,7 +59,7 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
         val uid = model.uid
         val timestamp = model.timestamp
 
-       //set data
+        //set data
         holder.patientName.text = patientName
         holder.bloodType.text = bloodType
         holder.description.text = description
@@ -82,42 +82,42 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
                 .show()
         }
 
-      holder.editBtn.setOnClickListener {
-                //confirm before edit
-                val builder = AlertDialog.Builder(context)
-                builder.setTitle("Edit")
-                    .setMessage("Are you sure you want to edit this donor request?")
-                    .setPositiveButton("Confirm"){a,d->
-                        progressDialog = ProgressDialog(context)
-                        progressDialog.setTitle("Editing...")
-                        progressDialog.setCanceledOnTouchOutside(false)
-                        editBloodDonationRequest(model, holder)
-                    }.setNegativeButton("Cancel"){a,d->
-                        a.dismiss()
-                    }
-                    .show()
-            }
-
+        holder.editBtn.setOnClickListener {
+            //confirm before edit
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Edit")
+                .setMessage("Are you sure you want to edit this donor request?")
+                .setPositiveButton("Confirm"){a,d->
+                    progressDialog = ProgressDialog(context)
+                    progressDialog.setTitle("Editing...")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    editBloodDonationRequest(model, holder)
+                }.setNegativeButton("Cancel"){a,d->
+                    a.dismiss()
+                }
+                .show()
         }
 
-   @SuppressLint("ResourceType")
+    }
+
+    @SuppressLint("ResourceType")
     private fun editBloodDonationRequest(model: ModelBloodDonationRequests, holder: AdapterBloodDonationRequests.HolderBloodDonationRequests) {
-       //get patientName,bloodType, description
+        //get patientName,bloodType, description
         val patientName = model.patientName
         val bloodType = model.bloodType
         val description = model.description
 
-                val activity = context as AppCompatActivity
-                val fragmentManager = activity.supportFragmentManager
-                val fragmentTransaction = fragmentManager.beginTransaction()
-                val fragment = EditBloodDonationRequest()
+        val activity = context as AppCompatActivity
+        val fragmentManager = activity.supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragment = EditBloodDonationRequest()
 
-                val bundle = Bundle()
-                fragment.arguments = bundle
-                bundle.putString("patientName", patientName)
-                bundle.putString("bloodType", bloodType)
-                bundle.putString("description", description)
-                fragmentTransaction.replace(R.id.recycleView, fragment).addToBackStack(null).commit()
+        val bundle = Bundle()
+        fragment.arguments = bundle
+        bundle.putString("patientName", patientName)
+        bundle.putString("bloodType", bloodType)
+        bundle.putString("description", description)
+        fragmentTransaction.replace(R.id.recycleView, fragment).addToBackStack(null).commit()
 
     }
 
@@ -127,7 +127,7 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
         //get id of donor request to delete
         val id = model.id
         //Firebase DB > Categories > categoryId
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("BloodDonationRequests")
         ref.child(id)
             .removeValue()
             .addOnCompleteListener { task ->
