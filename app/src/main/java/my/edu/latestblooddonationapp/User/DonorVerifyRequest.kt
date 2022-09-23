@@ -16,7 +16,7 @@ import my.edu.latestblooddonationapp.R
 class DonorVerifyRequest : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_donor_verify_request)
+
 
 //        val buttonAccept: Button = findViewById(R.id.btnAccept)
 //        val buttonReject: Button = findViewById(R.id.btnReject)
