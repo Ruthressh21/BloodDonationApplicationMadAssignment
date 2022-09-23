@@ -32,6 +32,7 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
     private lateinit var binding: FragmentRowBloodDonationRequestBinding
     private var filterList: ArrayList<ModelBloodDonationRequests>
 
+
     private var filter: FilterBloodDonationRequests? = null
 
     //constructor
@@ -126,7 +127,7 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
         //get id of donor request to delete
         val id = model.id
         //Firebase DB > Categories > categoryId
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("BloodDonationRequests")
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
         ref.child(id)
             .removeValue()
             .addOnCompleteListener { task ->

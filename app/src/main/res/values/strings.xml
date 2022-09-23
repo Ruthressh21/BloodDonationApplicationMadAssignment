@@ -26,7 +26,6 @@
     <string name="new_user">Want to donate? Register Now</string>
     <string name="register_donor">Registration Donor Account</string>
     <string name="dateOfBirth">Date of Birth</string>
-    <string name="blood_group">Blood Group</string>
     <string-array name="blood_groups">
         <item>A</item>
         <item>B</item>

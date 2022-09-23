@@ -52,7 +52,7 @@ class fragmentRegistration : Fragment() {
 
     private var name = ""
     private var dateBirth = ""
-    private var bloodGroup = ""
+    private var bloodType = ""
     private var gender = ""
     private var phoneNum = ""
     private var email = ""
@@ -68,7 +68,7 @@ class fragmentRegistration : Fragment() {
         name = binding.fullName.text.toString().trim()
         dateBirth = binding.birthDate.text.toString().trim()
         gender = binding.genderType.checkedRadioButtonId.toString().trim()
-        bloodGroup = binding.spinner.selectedItem.toString().trim()
+        bloodType = binding.spinner.selectedItem.toString().trim()
         phoneNum = binding.phoneNumber.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()
         email = binding.emailAddress.text.toString().trim()
@@ -82,7 +82,7 @@ class fragmentRegistration : Fragment() {
             binding.fullName.error = "Enter your name"
         } else if (dateBirth.isEmpty()) {
             binding.birthDate.error = "Enter your date birth"
-        } else if (bloodGroup.isEmpty()) {
+        } else if (bloodType.isEmpty()) {
             Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
         } else if (binding.radioButtonMale.isChecked) {
             binding.textViewGenderError.text = ""
@@ -137,12 +137,11 @@ class fragmentRegistration : Fragment() {
                 hashMap["password"] = password
                 hashMap["name"] = name
                 hashMap["dateBirth"] = dateBirth
-                hashMap["bloodGroup"] = bloodGroup
+                hashMap["bloodType"] = bloodType
                 hashMap["gender"] = gender
                 hashMap["address"] = address
                 hashMap["phoneNum"] = phoneNum
                 hashMap["userType"] = userType // possible values are user/admin, will change value to admin manually on firebase db
-                hashMap["profileImage"] = "" //add empty, will do in profile edit
 
                 //set data to db
                 val ref =
