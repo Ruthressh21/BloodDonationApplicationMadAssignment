@@ -24,5 +24,22 @@ class UserHomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val button = binding.btnRequest
+
+
+        button.setOnClickListener {
+        val intent = Intent(
+            this,
+            DonorVerifyRequest::class.java
+        )
+        startActivity(intent)
+            finish()
+    }
+
+        binding.link.setOnClickListener(){
+            val intent = Intent(this, DonorVerifyRequest::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -34,6 +34,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097318885792:android:56b1da5b2dffb0dd34dcc5",
+        "android_client_info": {
+          "package_name": "my.edu.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097318885792-2bhvrbvg6bnkfovbemad6h2m6a9dee66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIOnPVLW0i9fluRXfb7WYelwjb6H_TOQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097318885792-2bhvrbvg6bnkfovbemad6h2m6a9dee66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
