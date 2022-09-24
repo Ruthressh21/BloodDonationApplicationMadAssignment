@@ -1,4 +1,4 @@
-package my.edu.latestblooddonationapp.Admin
+package my.edu.latestblooddonationapp.User
 
 import android.os.Bundle
 import android.text.Editable
@@ -16,18 +16,18 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import my.edu.latestblooddonationapp.R
-import my.edu.latestblooddonationapp.databinding.FragmentViewDonorRequestBinding
+import my.edu.latestblooddonationapp.databinding.FragmentViewDonateBloodBinding
 
-class ViewDonorRequest : Fragment() {
+class ViewDonateBlood : Fragment() {
 
-    private var _binding: FragmentViewDonorRequestBinding? = null
+    private var _binding: FragmentViewDonateBloodBinding? = null
     private lateinit var firebaseAuth: FirebaseAuth
 
     //arrayList to hold categories
-    private lateinit var categoryArrayList: ArrayList<ModelDonorRequests>
+    private lateinit var categoryArrayList: ArrayList<ModelDonateBlood>
 
     //adapter
-    private lateinit var adapterDonorRequests: AdapterDonorRequests
+    private lateinit var adapterDonateBlood: AdapterDonateBlood
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -39,7 +39,7 @@ class ViewDonorRequest : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentViewDonorRequestBinding.inflate(inflater, container, false)
+        _binding = FragmentViewDonateBloodBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
         loadCategories()
@@ -52,7 +52,7 @@ class ViewDonorRequest : Fragment() {
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 //called as and when user type anything
                 try{
-                  adapterDonorRequests.filter.filter(s)
+                    adapterDonateBlood.filter.filter(s)
                 }
                 catch (e: Exception){
 
@@ -72,23 +72,23 @@ class ViewDonorRequest : Fragment() {
         categoryArrayList = ArrayList()
 
         //get all categories from firebase database... Firebase DB > Categories
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("DonorRequests")
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("BloodDonationRequests")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 //clear list before starting adding data into it
                 categoryArrayList.clear()
                 for (ds in snapshot.children){
                     //get data as model
-                    val model = ds.getValue((ModelDonorRequests::class.java))
+                    val model = ds.getValue((ModelDonateBlood::class.java))
 
                     //add to arrayList
                     categoryArrayList.add(model!!)
                 }
                 //setup adapter
-                adapterDonorRequests = AdapterDonorRequests(context!!, categoryArrayList)
+                adapterDonateBlood = AdapterDonateBlood(context!!, categoryArrayList)
 
                 //set adapter to recyclerView
-                binding.donorRequestsView.adapter = adapterDonorRequests
+                binding.donateBloodView.adapter = adapterDonateBlood
 
             }
 
@@ -96,14 +96,5 @@ class ViewDonorRequest : Fragment() {
                 TODO("Not yet implemented")
             }
         })
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.buttonAddDonorRequest.setOnClickListener{
-            findNavController().navigate(R.id.action_viewDonorRequest_to_createDonorRequest)
-        }
-
-
     }
 }

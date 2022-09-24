@@ -9,17 +9,13 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/menu_home" />
     <item
-        android:id="@+id/nav_aboutUs"
-        android:icon="@drawable/ic_baseline_info_24"
-        android:title="@string/menu_aboutUs" />
-    <item
-        android:id="@+id/nav_viewProfile"
-        android:icon="@drawable/ic_baseline_pageview_24"
-        android:title="@string/menu_viewProfile" />
-    <item
         android:id="@+id/nav_editProfile"
         android:icon="@drawable/ic_baseline_edit_24"
         android:title="@string/menu_editProfile" />
+    <item
+        android:id="@+id/nav_aboutUs"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="@string/menu_aboutUs" />
     <item
         android:id="@+id/action_logOut"
         android:icon="@drawable/ic_baseline_login_24"

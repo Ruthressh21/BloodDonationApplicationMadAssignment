@@ -2,21 +2,21 @@ package my.edu.latestblooddonationapp.Admin
 
 import android.widget.Filter
 
-class FilterDonorRequests: Filter {
+class FilterBloodDonationRequests: Filter {
 
     //arrayList in which we want to search
-    private var filterList: ArrayList<ModelDonorRequests>
+    private var filterList: ArrayList<ModelBloodDonationRequests>
 
     //adapter in which filter need to be implemented
-    private var adapterDonorRequests: AdapterDonorRequests
+    private var adapterBloodDonationRequests: AdapterBloodDonationRequests
 
     //constructor
     constructor(
-        filterList: ArrayList<ModelDonorRequests>,
-        adapterDonorRequests: AdapterDonorRequests
+        filterList: ArrayList<ModelBloodDonationRequests>,
+        adapterBloodDonationRequests: AdapterBloodDonationRequests
     ) : super() {
         this.filterList = filterList
-        this.adapterDonorRequests = adapterDonorRequests
+        this.adapterBloodDonationRequests = adapterBloodDonationRequests
     }
 
     override fun performFiltering(constraint: CharSequence?): FilterResults {
@@ -30,7 +30,7 @@ class FilterDonorRequests: Filter {
 
             //change to upper case, or lower case to avoid case sensitivity
             constraint = constraint.toString().uppercase()
-            val filteredModels: ArrayList<ModelDonorRequests> = ArrayList()
+            val filteredModels: ArrayList<ModelBloodDonationRequests> = ArrayList()
             for (i in 0 until filterList.size) {
                 //validate
                 if (filterList[i].bloodType.uppercase().contains(constraint)) {
@@ -51,10 +51,10 @@ class FilterDonorRequests: Filter {
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
         //apply filter changes
-        adapterDonorRequests.categoryArrayList = results.values as ArrayList<ModelDonorRequests>
+        adapterBloodDonationRequests.categoryArrayList = results.values as ArrayList<ModelBloodDonationRequests>
 
         //notify changes
-        adapterDonorRequests.notifyDataSetChanged()
+        adapterBloodDonationRequests.notifyDataSetChanged()
     }
 
 

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.Home">
+    tools:context=".User.UserHome">
 
     <TextView
-        android:id="@+id/textViewTitle"
+        android:id="@+id/textViewTitleUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Admin Homepage"
+        android:text="User Homepage"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -19,33 +19,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageViewBloodDonationRequest"
+        android:id="@+id/imageViewDonateBlood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:clickable="true"
         android:maxWidth="500dp"
         android:maxHeight="300dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/blood_donation_request"
+        android:src="@drawable/donate_blood"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleUser"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textViewBloodDonationRequests"
+        android:id="@+id/textViewDonateBlood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:lines="2"
-        android:text="Blood Donation \nRequests"
-        android:textColor="#FF2222"
+        android:layout_marginTop="100dp"
+        android:text="@string/donateBlood"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewBloodDonationRequest"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDonateBlood"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewBloodDonationRequest" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewDonateBlood" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import my.edu.latestblooddonationapp.databinding.FragmentCreateDonorRequestBinding
+import my.edu.latestblooddonationapp.databinding.FragmentCreateBloodDonationRequestBinding
 
 
-class CreateDonorRequest : Fragment() {
+class CreateBloodDonationRequest : Fragment() {
 
-    private var _binding: FragmentCreateDonorRequestBinding? = null
+    private var _binding: FragmentCreateBloodDonationRequestBinding? = null
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -32,7 +32,7 @@ class CreateDonorRequest : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentCreateDonorRequestBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateBloodDonationRequestBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -64,12 +64,12 @@ class CreateDonorRequest : Fragment() {
         } else if (description.isEmpty()) {
             binding.editTextDescription.error = "Enter the description"
         } else {
-            createDonorRequestFirebase()
+            createBloodDonationRequestFirebase()
         }
     }
 
 
-    private fun createDonorRequestFirebase() {
+    private fun createBloodDonationRequestFirebase() {
         progressDialog.show()
 
         val timestamp = System.currentTimeMillis()
@@ -82,7 +82,8 @@ class CreateDonorRequest : Fragment() {
         hashMap["timestamp"] = "$timestamp"
         hashMap["uid"] = "${firebaseAuth.uid}"
 
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("DonorRequests")
+
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("BloodDonationRequests")
         ref.child("$timestamp")
             .setValue(hashMap)
             .addOnCompleteListener { task ->

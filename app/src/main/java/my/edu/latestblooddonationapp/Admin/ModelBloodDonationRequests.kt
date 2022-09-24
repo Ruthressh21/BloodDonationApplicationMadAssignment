@@ -1,6 +1,6 @@
 package my.edu.latestblooddonationapp.Admin
 
-class ModelDonorRequests {
+class ModelBloodDonationRequests {
 
     //variables, must match as in firebase
 

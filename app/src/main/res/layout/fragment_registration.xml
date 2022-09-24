@@ -32,10 +32,10 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:backgroundTint="@color/black"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/black"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textViewTitle4"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textViewTitle4"
@@ -56,12 +56,12 @@
             app:layout_constraintTop_toBottomOf="@+id/fullName" />
 
         <TextView
-            android:id="@+id/labelBloodGroup"
+            android:id="@+id/labelBloodType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:text="@string/bloodType"
             android:textColor="@color/white"
-            android:text="@string/blood_group"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/birthDate"
             app:layout_constraintHorizontal_bias="0.0"
@@ -137,10 +137,10 @@
             android:layout_marginTop="4dp"
             android:entries="@array/blood_groups"
             android:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/labelBloodGroup"
+            app:layout_constraintEnd_toEndOf="@+id/labelBloodType"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/labelBloodGroup"
-            app:layout_constraintTop_toBottomOf="@+id/labelBloodGroup" />
+            app:layout_constraintStart_toStartOf="@+id/labelBloodType"
+            app:layout_constraintTop_toBottomOf="@+id/labelBloodType" />
 
         <TextView
             android:id="@+id/labelAddress"
