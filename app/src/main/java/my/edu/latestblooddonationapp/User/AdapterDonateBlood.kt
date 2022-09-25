@@ -57,6 +57,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         val patientName = model.patientName
         val bloodType = model.bloodType
         val description = model.description
+
         val uid = model.uid
         val timestamp = model.timestamp
 
@@ -64,7 +65,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         holder.patientName.text = patientName
         holder.bloodType.text = bloodType
         holder.description.text = description
-
+        holder.timestamp.text = timestamp
         holder.donate.setOnClickListener(){
             //confirm before create
             val builder = AlertDialog.Builder(context)
@@ -116,6 +117,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         val patientName = model.patientName
         val bloodType = model.bloodType
         val description = model.description
+        val timestamp = model.timestamp
 
 
         val activity = context as AppCompatActivity
@@ -129,6 +131,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         bundle.putString("patientName", patientName)
         bundle.putString("bloodType", bloodType)
         bundle.putString("description", description)
+        bundle.putString("timestamp",timestamp)
         fragmentTransaction.replace(R.id.recycleView, fragment).addToBackStack(null).commit()
 
 
@@ -145,6 +148,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         var patientName : TextView = binding.textViewPatientName2
         var bloodType : TextView = binding.textViewBloodTypes2
         var description : TextView = binding.textViewDescription2
+        var timestamp   : TextView = binding.textViewRefenceID
         var donate : Button = binding.buttonDonateBlood
         var donate2 : Button = binding.buttonDonateBlood2
 
