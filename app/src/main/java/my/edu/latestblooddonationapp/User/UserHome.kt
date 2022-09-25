@@ -34,5 +34,10 @@ class UserHome : Fragment() {
         binding.imageViewDonateBlood.setOnClickListener{
             findNavController().navigate(R.id.action_nav_home_to_questionnaire)
         }
+        binding.imageButtonClose.setOnClickListener{
+            binding.imageView4.setVisibility(View.GONE)
+            binding.imageButtonClose.setVisibility(View.GONE)
+            binding.textView4.setVisibility(View.GONE)
+        }
     }
 }

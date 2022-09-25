@@ -1,5 +1,6 @@
 package my.edu.latestblooddonationapp.User
 
+
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
@@ -13,8 +14,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -79,18 +83,21 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
                     Toast.makeText(context, "Send to Admin", Toast.LENGTH_SHORT ).show()
                     holder.donate.setVisibility(View.GONE)
                     holder.donate2.setVisibility(View.VISIBLE)
+
                     createDonateBlood(model, holder)
-                    
+
 
 
                 }.setNegativeButton("Cancel"){a,d->
                     a.dismiss()
                 }
                 .show()
+
         }
+
         holder.donate2.setOnClickListener(){
             val builder = AlertDialog.Builder(context)
-
+            createDonateBlood(model, holder)
             builder.setTitle("Cancel")
                 .setMessage("Are you sure you want to cancel?")
                 .setPositiveButton("Confirm"){a,d->
@@ -100,7 +107,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
                     Toast.makeText(context, "Cancel Donate", Toast.LENGTH_SHORT ).show()
                     holder.donate.setVisibility(View.VISIBLE)
                     holder.donate2.setVisibility(View.GONE)
-                    createDonateBlood(model, holder)
+
 
 
                 }.setNegativeButton("Cancel"){a,d->
