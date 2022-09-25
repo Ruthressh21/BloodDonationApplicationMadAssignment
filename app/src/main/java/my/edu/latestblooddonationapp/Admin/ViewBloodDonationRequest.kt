@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -40,6 +41,7 @@ class ViewBloodDonationRequest : Fragment() {
     ): View {
 
         _binding = FragmentViewBloodDonationRequestBinding.inflate(inflater, container, false)
+
 
         firebaseAuth = FirebaseAuth.getInstance()
         loadCategories()
