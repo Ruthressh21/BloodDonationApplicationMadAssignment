@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -23,6 +24,7 @@ class Questionnaire : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     private lateinit var progressDialog: ProgressDialog
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -41,7 +43,7 @@ class Questionnaire : Fragment() {
         progressDialog.setTitle("Please wait...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.buttonSubmit.setOnClickListener(){
+        binding.buttonSubmit.setOnClickListener() {
             validateData()
         }
 
@@ -54,24 +56,61 @@ class Questionnaire : Fragment() {
     private var question4 = ""
 
     private fun validateData() {
+        val temp1: Int = binding.radioGroup1.checkedRadioButtonId
+        val temp2: Int = binding.radioGroup2.checkedRadioButtonId
+        val temp3: Int = binding.radioGroup3.checkedRadioButtonId
+        val temp4: Int = binding.radioGroup4.checkedRadioButtonId
+        val rad1 = view?.findViewById<RadioButton>(temp1)
+        val rad2 = view?.findViewById<RadioButton>(temp2)
+        val rad3 = view?.findViewById<RadioButton>(temp3)
+        val rad4 = view?.findViewById<RadioButton>(temp4)
+        val questions1 = rad1?.text.toString()
+        val questions2 = rad2?.text.toString()
+        val questions3 = rad3?.text.toString()
+        val questions4 = rad4?.text.toString()
+        question1 = binding.radioGroup1.checkedRadioButtonId.toString().trim()
+        question2 = binding.radioGroup2.checkedRadioButtonId.toString().trim()
+        question3 = binding.radioGroup3.checkedRadioButtonId.toString().trim()
+        question4 = binding.radioGroup4.checkedRadioButtonId.toString().trim()
+        question1 = questions1
+        question2 = questions2
+        question3 = questions3
+        question4 = questions4
 
-        question1 = binding.editTextQuestion1.text.toString().trim()
-        question2 = binding.editTextQuestion2.text.toString().trim()
-        question3 = binding.editTextQuestion3.text.toString().trim()
-        question4 = binding.editTextQuestion4.text.toString().trim()
-
-        if (question1.isEmpty()) {
-            binding.editTextQuestion1.error = "Question 1 is required"
-        } else if (question2.isEmpty()) {
-            binding.editTextQuestion2.error = "Question 2 is required"
-        } else if (question3.isEmpty()) {
-            binding.editTextQuestion3.error = "Question 3 is required"
-        }  else if (question4.isEmpty()) {
-            binding.editTextQuestion4.error = "Question 4 is required"
+        if (binding.radioButtonYes1.isChecked) {
+            binding.textViewError1.text = ""
+        } else if (binding.radioButtonNo1.isChecked) {
+            binding.textViewError1.text = ""
         } else {
+            binding.textViewError1.text = "question 1 is required"
+        }
+        if (binding.radioButtonYes2.isChecked) {
+            binding.textViewError2.text = ""
+        } else if (binding.radioButtonNo2.isChecked) {
+            binding.textViewError2.text = ""
+        } else {
+            binding.textViewError2.text = "question 2 is required"
+        }
+
+        if (binding.radioButtonYes3.isChecked) {
+            binding.textViewError3.text = ""
+        } else if (binding.radioButtonNo3.isChecked) {
+            binding.textViewError3.text = ""
+        } else{
+            binding.textViewError3.text = "question 3 is required"
+        }
+        if (binding.radioButtonYes4.isChecked) {
+            binding.textViewError4.text = ""
+        } else if (binding.radioButtonNo4.isChecked) {
+            binding.textViewError4.text = ""
+        } else {
+            binding.textViewError4.text = "question 4 is required"
+        }
+        if (binding.radioButtonYes4.isChecked || binding.radioButtonNo4.isChecked){
             createQuestionnaireFirebase()
         }
     }
+
 
 
     private fun createQuestionnaireFirebase() {
@@ -89,13 +128,15 @@ class Questionnaire : Fragment() {
         hashMap["uid"] = "${firebaseAuth.uid}"
 
 
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Questionnaires")
+        val ref =
+            Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("Questionnaires")
         ref.child("$timestamp")
             .setValue(hashMap)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     progressDialog.dismiss()
-                findNavController().navigate(R.id.action_questionnaire_to_viewDonateBlood)
+                    findNavController().navigate(R.id.action_questionnaire_to_viewDonateBlood)
                 } else {
 
                 }
