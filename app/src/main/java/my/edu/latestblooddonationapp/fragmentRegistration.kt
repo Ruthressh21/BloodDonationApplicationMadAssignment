@@ -1,6 +1,7 @@
 package my.edu.latestblooddonationapp
 
 import android.app.ProgressDialog
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Patterns
 import androidx.fragment.app.Fragment
@@ -25,6 +26,7 @@ class fragmentRegistration : Fragment() {
     private var _binding: FragmentRegistrationBinding? = null
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
+    var sharedPreferences: SharedPreferences? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -151,6 +153,14 @@ class fragmentRegistration : Fragment() {
                     .setValue(hashMap)
                     .addOnCompleteListener { task2 ->
                         if (task2.isSuccessful) {
+                            val edits: SharedPreferences.Editor = sharedPreferences!!.edit()
+                            edits.putString("name",name)
+                            edits.putString("email",email)
+                            edits.putString("dateBirth",dateBirth)
+                            edits.putString("gender",gender)
+                            edits.putString("address",phoneNum)
+                            edits.putString("userType",userType)
+                            edits?.apply()
                             progressDialog.dismiss()
                             Toast.makeText(this.context, "Register successful", Toast.LENGTH_LONG)
                                 .show()
