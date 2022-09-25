@@ -13,8 +13,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.ktx.database
@@ -63,16 +65,43 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         holder.bloodType.text = bloodType
         holder.description.text = description
 
-        holder.donate.setOnClickListener {
+        holder.donate.setOnClickListener(){
             //confirm before create
             val builder = AlertDialog.Builder(context)
-            builder.setTitle("Edit")
+
+            builder.setTitle("Accept")
                 .setMessage("Are you sure you want to donate?")
                 .setPositiveButton("Confirm"){a,d->
                     progressDialog = ProgressDialog(context)
                     progressDialog.setTitle("Please wait...")
                     progressDialog.setCanceledOnTouchOutside(false)
+                    Toast.makeText(context, "Send to Admin", Toast.LENGTH_SHORT ).show()
+                    holder.donate.setVisibility(View.GONE)
+                    holder.donate2.setVisibility(View.VISIBLE)
                     createDonateBlood(model, holder)
+                    
+
+
+                }.setNegativeButton("Cancel"){a,d->
+                    a.dismiss()
+                }
+                .show()
+        }
+        holder.donate2.setOnClickListener(){
+            val builder = AlertDialog.Builder(context)
+
+            builder.setTitle("Cancel")
+                .setMessage("Are you sure you want to cancel?")
+                .setPositiveButton("Confirm"){a,d->
+                    progressDialog = ProgressDialog(context)
+                    progressDialog.setTitle("Please wait...")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    Toast.makeText(context, "Cancel Donate", Toast.LENGTH_SHORT ).show()
+                    holder.donate.setVisibility(View.VISIBLE)
+                    holder.donate2.setVisibility(View.GONE)
+                    createDonateBlood(model, holder)
+
+
                 }.setNegativeButton("Cancel"){a,d->
                     a.dismiss()
                 }
@@ -88,10 +117,12 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         val bloodType = model.bloodType
         val description = model.description
 
+
         val activity = context as AppCompatActivity
         val fragmentManager = activity.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val fragment = CreateDonateBlood()
+
 
         val bundle = Bundle()
         fragment.arguments = bundle
@@ -99,6 +130,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         bundle.putString("bloodType", bloodType)
         bundle.putString("description", description)
         fragmentTransaction.replace(R.id.recycleView, fragment).addToBackStack(null).commit()
+
 
     }
 
@@ -114,6 +146,8 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         var bloodType : TextView = binding.textViewBloodTypes2
         var description : TextView = binding.textViewDescription2
         var donate : Button = binding.buttonDonateBlood
+        var donate2 : Button = binding.buttonDonateBlood2
+
 
     }
 
