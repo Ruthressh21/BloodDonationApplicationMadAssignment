@@ -16,6 +16,7 @@ import com.google.android.material.navigation.NavigationView
 import my.edu.latestblooddonationapp.MainActivity
 import my.edu.latestblooddonationapp.R
 import my.edu.latestblooddonationapp.databinding.ActivityHomeBinding
+import my.edu.latestblooddonationapp.databinding.FragmentLoginBinding
 
 class HomeActivity : AppCompatActivity() {
 
@@ -59,7 +60,7 @@ class HomeActivity : AppCompatActivity() {
 
         return when (item.itemId) {
             R.id.action_logOut -> {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, FragmentLoginBinding::class.java)
                 startActivity(intent)
                 true
             }
