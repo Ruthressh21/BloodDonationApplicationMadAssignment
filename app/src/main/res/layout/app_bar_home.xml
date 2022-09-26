@@ -15,11 +15,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#EF0707"
             app:popupTheme="@style/Theme.LatestBloodDonationApp.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_home" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_home" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
