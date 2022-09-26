@@ -49,20 +49,8 @@
             android:id="@+id/action_viewDonateBlood_to_questionnaire"
             app:destination="@id/questionnaire" />
         <action
-            android:id="@+id/action_viewDonateBlood_to_createDonateBlood"
-            app:destination="@id/createDonateBlood" />
-        <action
             android:id="@+id/action_viewDonateBlood_to_donorVerifyRt"
             app:destination="@id/donorVerifyRt" />
-    </fragment>
-    <fragment
-        android:id="@+id/createDonateBlood"
-        android:name="my.edu.latestblooddonationapp.User.CreateDonateBlood"
-        android:label="Create Donate Blood"
-        tools:layout="@layout/fragment_create_donate_blood" >
-        <action
-            android:id="@+id/action_createDonateBlood_to_viewDonateBlood"
-            app:destination="@id/viewDonateBlood" />
     </fragment>
     <fragment
         android:id="@+id/donorVerifyRt"
