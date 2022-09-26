@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_questionnaire_to_nav_home"
             app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_questionnaire_to_questionnaireError"
+            app:destination="@id/questionnaireError" />
     </fragment>
     <fragment
         android:id="@+id/viewDonateBlood"
@@ -56,4 +59,13 @@
         android:id="@+id/donorVerifyRt"
         android:name="my.edu.latestblooddonationapp.User.DonorVerifyRt"
         android:label="DonorVerifyRt" />
+    <fragment
+        android:id="@+id/questionnaireError"
+        android:name="my.edu.latestblooddonationapp.User.QuestionnaireError"
+        android:label="Error"
+        tools:layout="@layout/fragment_questionnaire_error">
+        <action
+            android:id="@+id/action_questionnaireError_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

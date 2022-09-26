@@ -84,6 +84,7 @@ class Questionnaire : Fragment() {
         } else {
             binding.textViewError1.text = "question 1 is required"
         }
+
         if (binding.radioButtonYes2.isChecked) {
             binding.textViewError2.text = ""
         } else if (binding.radioButtonNo2.isChecked) {
@@ -99,6 +100,7 @@ class Questionnaire : Fragment() {
         } else{
             binding.textViewError3.text = "question 3 is required"
         }
+
         if (binding.radioButtonYes4.isChecked) {
             binding.textViewError4.text = ""
         } else if (binding.radioButtonNo4.isChecked) {
@@ -106,8 +108,11 @@ class Questionnaire : Fragment() {
         } else {
             binding.textViewError4.text = "question 4 is required"
         }
-        if (binding.radioButtonYes4.isChecked || binding.radioButtonNo4.isChecked){
+
+        if (binding.radioButtonYes1.isChecked && binding.radioButtonYes2.isChecked && binding.radioButtonYes3.isChecked && binding.radioButtonYes4.isChecked){
             createQuestionnaireFirebase()
+        }else if(binding.radioButtonNo1.isChecked || binding.radioButtonNo2.isChecked || binding.radioButtonNo3.isChecked || binding.radioButtonNo4.isChecked){
+            findNavController().navigate(R.id.action_questionnaire_to_questionnaireError)
         }
     }
 
