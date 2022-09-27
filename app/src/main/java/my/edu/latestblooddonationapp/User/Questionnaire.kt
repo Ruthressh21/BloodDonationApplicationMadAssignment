@@ -109,9 +109,9 @@ class Questionnaire : Fragment() {
             binding.textViewError4.text = "question 4 is required"
         }
 
-        if (binding.radioButtonYes1.isChecked && binding.radioButtonYes2.isChecked && binding.radioButtonYes3.isChecked && binding.radioButtonYes4.isChecked){
+        if (binding.radioButtonYes1.isChecked && binding.radioButtonYes2.isChecked && binding.radioButtonNo3.isChecked && binding.radioButtonNo4.isChecked){
             createQuestionnaireFirebase()
-        }else if(binding.radioButtonNo1.isChecked || binding.radioButtonNo2.isChecked || binding.radioButtonNo3.isChecked || binding.radioButtonNo4.isChecked){
+        }else if(binding.radioButtonNo1.isChecked || binding.radioButtonNo2.isChecked || binding.radioButtonYes3.isChecked || binding.radioButtonYes4.isChecked){
             findNavController().navigate(R.id.action_questionnaire_to_questionnaireError)
         }
     }

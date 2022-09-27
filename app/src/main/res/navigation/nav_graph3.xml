@@ -24,6 +24,11 @@
         android:label="@string/menu_editProfile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
+        android:id="@+id/action_logOut"
+        android:name="my.edu.latestblooddonationapp.fragmentLogin"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
         android:id="@+id/questionnaire"
         android:name="my.edu.latestblooddonationapp.User.Questionnaire"
         android:label="Questionnaire"
@@ -49,6 +54,9 @@
         <action
             android:id="@+id/action_viewDonateBlood_to_donorVerifyRt"
             app:destination="@id/donorVerifyRt" />
+        <action
+            android:id="@+id/action_viewDonateBlood_to_fragment_donorInfo"
+            app:destination="@id/fragment_donorInfo" />
     </fragment>
     <fragment
         android:id="@+id/donorVerifyRt"
@@ -63,9 +71,9 @@
             android:id="@+id/action_questionnaireError_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
-    <activity
-        android:id="@+id/action_logOut"
-        android:name="my.edu.latestblooddonationapp.MainActivity"
-        android:label="@string/login"
-        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/fragment_donorInfo"
+        android:name="my.edu.latestblooddonationapp.fragment_donorInfo"
+        android:label="fragment_donor_info"
+        tools:layout="@layout/fragment_donor_info" />
 </navigation>

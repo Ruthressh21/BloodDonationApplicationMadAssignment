@@ -73,7 +73,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         holder.donate.setOnClickListener(){
             //confirm before create
             val builder = AlertDialog.Builder(context)
-
+            val navController =
             builder.setTitle("Accept")
                 .setMessage("Are you sure you want to donate?")
                 .setPositiveButton("Confirm"){a,d->
@@ -87,11 +87,20 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
                     createDonateBlood(model, holder)
 
 
+                    findNavController(holder.donate).navigate(R.id.action_viewDonateBlood_to_fragment_donorInfo, Bundle().apply {
+                        putString("bloodtype",bloodType.toString())
+                        putString("name",patientName.toString())
+                        putString("description",description.toString())
+                        putString("ReferenceID", timestamp.toString())
+
+                    })
 
                 }.setNegativeButton("Cancel"){a,d->
                     a.dismiss()
                 }
                 .show()
+
+
 
         }
 

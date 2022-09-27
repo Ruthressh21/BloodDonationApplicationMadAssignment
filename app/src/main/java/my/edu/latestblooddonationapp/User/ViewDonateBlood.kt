@@ -15,12 +15,15 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_donor_info.*
 import my.edu.latestblooddonationapp.R
 import my.edu.latestblooddonationapp.databinding.FragmentViewDonateBloodBinding
 
 class ViewDonateBlood : Fragment() {
 
     private var _binding: FragmentViewDonateBloodBinding? = null
+
+
 
     private lateinit var firebaseAuth: FirebaseAuth
 
