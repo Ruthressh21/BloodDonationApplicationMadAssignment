@@ -2,25 +2,25 @@ package my.edu.latestblooddonationapp.Admin
 
 import android.widget.Filter
 
-class FilterBloodDonationRequests: Filter {
+class FilterUserAccount: Filter {
 
     //arrayList in which we want to search
-    private var filterList: ArrayList<ModelBloodDonationRequests>
+    private var filterList: ArrayList<ModelUserAccount>
 
     //adapter in which filter need to be implemented
-    private var adapterBloodDonationRequests: AdapterBloodDonationRequests
+    private var adapterUserAccount: AdapterUserAccount
 
     //constructor
     constructor(
-        filterList: ArrayList<ModelBloodDonationRequests>,
-        adapterBloodDonationRequests: AdapterBloodDonationRequests
+        filterList: ArrayList<ModelUserAccount>,
+        adapterUserAccount: AdapterUserAccount
     ) : super() {
         this.filterList = filterList
-        this.adapterBloodDonationRequests = adapterBloodDonationRequests
+        this.adapterUserAccount = adapterUserAccount
     }
 
     override fun performFiltering(constraint: CharSequence?): FilterResults {
-       var constraint = constraint
+        var constraint = constraint
         val results = FilterResults()
 
         //value should not be null and not empty
@@ -30,10 +30,10 @@ class FilterBloodDonationRequests: Filter {
 
             //change to upper case, or lower case to avoid case sensitivity
             constraint = constraint.toString().uppercase()
-            val filteredModels: ArrayList<ModelBloodDonationRequests> = ArrayList()
+            val filteredModels: ArrayList<ModelUserAccount> = ArrayList()
             for (i in 0 until filterList.size) {
                 //validate
-                if (filterList[i].id.uppercase().contains(constraint) || filterList[i].patientName.uppercase().contains(constraint) || filterList[i].bloodType.uppercase().contains(constraint) || filterList[i].description.uppercase().contains(constraint)) {
+                if (filterList[i].uid.uppercase().contains(constraint)) {
                     //add to filtered list
                     filteredModels.add(filterList[i])
                 }
@@ -42,7 +42,7 @@ class FilterBloodDonationRequests: Filter {
             results.values = filteredModels
         }
         else{
-       //search value is either null or empty
+            //search value is either null or empty
             results.count = filterList.size
             results.values = filterList
         }
@@ -51,10 +51,10 @@ class FilterBloodDonationRequests: Filter {
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
         //apply filter changes
-        adapterBloodDonationRequests.categoryArrayList = results.values as ArrayList<ModelBloodDonationRequests>
+        adapterUserAccount.categoryArrayList = results.values as ArrayList<ModelUserAccount>
 
         //notify changes
-        adapterBloodDonationRequests.notifyDataSetChanged()
+        adapterUserAccount.notifyDataSetChanged()
     }
 
 

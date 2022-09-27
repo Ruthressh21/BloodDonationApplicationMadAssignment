@@ -43,15 +43,27 @@ class EditBloodDonationRequest : Fragment() {
         progressDialog.setTitle("Please wait...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        patientName = binding.editTextPatientName.text.toString().trim()
-        bloodType = binding.spinnerBloodTypes.selectedItem.toString().trim()
-        description = binding.editTextDescription.text.toString().trim()
 
-        val data = arguments
-        patientName = data!!.getString("patientName").toString()
-        bloodType = data!!.getString("bloodType").toString()
-        description = data!!.getString("description").toString()
+        var id = requireArguments().getString("id").toString()
+        var patientName = requireArguments().getString("patientName").toString()
+        var bloodType = requireArguments().getString("bloodType").toString()
+        var description =  requireArguments().getString("description").toString()
 
+        binding.textViewID3.setText(id)
+        binding.editTextPatientName.setText(patientName)
+
+        if(bloodType == "A"){
+            binding.spinnerBloodTypes.setSelection(0)
+        } else if(bloodType == "B"){
+            binding.spinnerBloodTypes.setSelection(1)
+        } else if(bloodType == "O"){
+            binding.spinnerBloodTypes.setSelection(2)
+        } else {
+            binding.spinnerBloodTypes.setSelection(3)
+        }
+
+
+        binding.editTextDescription.setText(description)
 
         binding.buttonConfirm.setOnClickListener {
             validateData()

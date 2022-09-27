@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_nav_home_to_viewBloodDonationRequest"
             app:destination="@id/viewBloodDonationRequest" />
+        <action
+            android:id="@+id/action_nav_home_to_viewUserAccount"
+            app:destination="@id/viewUserAccount" />
     </fragment>
     <fragment
         android:id="@+id/nav_aboutUs"
@@ -23,11 +26,6 @@
         android:name="my.edu.latestblooddonationapp.editProfileFragment"
         android:label="@string/menu_editProfile"
         tools:layout="@layout/fragment_edit_profile" />
-    <fragment
-        android:id="@+id/action_logOut"
-        android:name="my.edu.latestblooddonationapp.fragmentLogin"
-        android:label="@string/login"
-        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/viewBloodDonationRequest"
         android:name="my.edu.latestblooddonationapp.Admin.ViewBloodDonationRequest"
@@ -61,4 +59,18 @@
             android:id="@+id/action_createBloodDonationRequest_to_viewBloodDonationRequest"
             app:destination="@id/viewBloodDonationRequest" />
     </fragment>
+    <fragment
+        android:id="@+id/viewUserAccount"
+        android:name="my.edu.latestblooddonationapp.Admin.ViewUserAccount"
+        android:label="User Account"
+        tools:layout="@layout/fragment_view_user_account">
+        <action
+            android:id="@+id/action_viewUserAccount_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <activity
+        android:id="@+id/action_logOut"
+        android:name="my.edu.latestblooddonationapp.MainActivity"
+        android:label="@string/login"
+        tools:layout="@layout/activity_main" />
 </navigation>

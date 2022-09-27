@@ -68,7 +68,7 @@ class fragmentRegistration : Fragment() {
         val rad = view?.findViewById<RadioButton>(temp)
         val genders = rad?.text.toString()
         name = binding.fullName.text.toString().trim()
-        dateBirth = binding.birthDate.text.toString().trim()
+        dateBirth = binding.dateBirth.text.toString().trim()
         gender = binding.genderType.checkedRadioButtonId.toString().trim()
         bloodType = binding.spinner.selectedItem.toString().trim()
         phoneNum = binding.phoneNumber.text.toString().trim()
@@ -83,7 +83,7 @@ class fragmentRegistration : Fragment() {
         if (name.isEmpty()) {
             binding.fullName.error = "Enter your name"
         } else if (dateBirth.isEmpty()) {
-            binding.birthDate.error = "Enter your date birth"
+            binding.dateBirth.error = "Enter your date birth"
         } else if (bloodType.isEmpty()) {
             Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
         } else if (binding.radioButtonMale.isChecked) {

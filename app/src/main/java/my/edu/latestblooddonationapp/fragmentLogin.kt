@@ -9,12 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import my.edu.latestblooddonationapp.Admin.HomeActivity
 import my.edu.latestblooddonationapp.User.UserHomeActivity
 import my.edu.latestblooddonationapp.databinding.FragmentLoginBinding
@@ -62,7 +64,6 @@ class fragmentLogin : Fragment() {
 
     private var email = ""
     private var password = ""
-    private var error = ""
 
     private fun validateData() {
 
