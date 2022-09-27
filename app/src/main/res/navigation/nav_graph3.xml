@@ -24,11 +24,6 @@
         android:label="@string/menu_editProfile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
-        android:id="@+id/action_logOut"
-        android:name="my.edu.latestblooddonationapp.fragmentLogin"
-        android:label="@string/login"
-        tools:layout="@layout/fragment_login" />
-    <fragment
         android:id="@+id/questionnaire"
         android:name="my.edu.latestblooddonationapp.User.Questionnaire"
         android:label="Questionnaire"
@@ -52,16 +47,12 @@
             android:id="@+id/action_viewDonateBlood_to_questionnaire"
             app:destination="@id/questionnaire" />
         <action
-            android:id="@+id/action_viewDonateBlood_to_donorVerifyRt"
-            app:destination="@id/donorVerifyRt" />
-        <action
             android:id="@+id/action_viewDonateBlood_to_fragment_donorInfo"
             app:destination="@id/fragment_donorInfo" />
+        <action
+            android:id="@+id/action_viewDonateBlood_to_donorVerifyRt"
+            app:destination="@id/donorVerifyRt" />
     </fragment>
-    <fragment
-        android:id="@+id/donorVerifyRt"
-        android:name="my.edu.latestblooddonationapp.User.DonorVerifyRt"
-        android:label="DonorVerifyRt" />
     <fragment
         android:id="@+id/questionnaireError"
         android:name="my.edu.latestblooddonationapp.User.QuestionnaireError"
@@ -76,4 +67,14 @@
         android:name="my.edu.latestblooddonationapp.fragment_donorInfo"
         android:label="fragment_donor_info"
         tools:layout="@layout/fragment_donor_info" />
+    <activity
+        android:id="@+id/action_logOut"
+        android:name="my.edu.latestblooddonationapp.MainActivity"
+        android:label="@string/login"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/donorVerifyRt"
+        android:name="my.edu.latestblooddonationapp.User.DonorVerifyRt"
+        android:label="fragment_donor_verify_rt"
+        tools:layout="@layout/fragment_donor_verify_rt" />
 </navigation>

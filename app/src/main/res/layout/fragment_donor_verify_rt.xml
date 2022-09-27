@@ -7,7 +7,9 @@
     android:background="@drawable/record_divider"
     android:padding="5dp"
     tools:layout_editor_absoluteX="8dp"
-    tools:layout_editor_absoluteY="145dp">
+    tools:layout_editor_absoluteY="145dp"
+    tools:context=".User.DonorVerifyRt"
+    >
 
 
     <androidx.constraintlayout.widget.Guideline
