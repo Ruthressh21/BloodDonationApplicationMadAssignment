@@ -36,8 +36,5 @@ class Home : Fragment() {
         binding.imageViewBloodDonationRequest.setOnClickListener{
             findNavController().navigate(R.id.action_nav_home_to_viewBloodDonationRequest)
         }
-        binding.imageViewUserAccount.setOnClickListener{
-            findNavController().navigate(R.id.action_nav_home_to_viewUserAccount)
-        }
     }
 }

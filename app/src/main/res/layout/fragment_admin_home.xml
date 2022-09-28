@@ -50,33 +50,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewBloodDonationRequest" />
 
-    <ImageView
-        android:id="@+id/imageViewUserAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:clickable="true"
-        android:maxWidth="500dp"
-        android:maxHeight="300dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/user_account"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewBloodDonationRequest"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textViewAccountControl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
-        android:lines="2"
-        android:text="User Account"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewUserAccount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewUserAccount"
-        app:layout_constraintVertical_bias="0.618" />
 </androidx.constraintlayout.widget.ConstraintLayout>
