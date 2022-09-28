@@ -94,8 +94,6 @@
     <string name="question4">Question 4</string>
     <string name="question4s">Did you undergo surgery recently?</string>
     <string name="button_submit">Submit</string>
-    <string name="accept">Accept</string>
-    <string name="reject">Reject</string>
     <string name="error">Sorry, you are not eligible to donate blood \nbecause you are not fulfill our donation requirements.</string>
 
 
