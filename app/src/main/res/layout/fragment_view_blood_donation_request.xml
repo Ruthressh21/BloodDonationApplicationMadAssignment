@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/recycleView"
+    android:background="@drawable/abstract_soft_pink_watercolor_background_1035_18994"
     tools:context=".Admin.ViewBloodDonationRequest">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginTop="28dp"
         android:text="@string/bloodDonationRequest"
         android:textSize="34sp"
+        app:fontFamily="sans-serif-black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,6 +58,7 @@
         android:background="@drawable/shape_button"
         android:minHeight="10dp"
         android:text="Add Blood Donation Request"
+        app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
