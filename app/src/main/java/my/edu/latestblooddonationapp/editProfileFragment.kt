@@ -104,16 +104,9 @@ class editProfileFragment : Fragment() {
             binding.fullName.error = "Enter your name"
         } else if (dateBirth.isEmpty()) {
             binding.dateOfBirth.error = "Enter your date birth"
-        } else if (bloodType.isEmpty()) {
-            Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
-       // } else if (binding.radioButtonMale.isChecked) {
-         //   binding.textViewGenderError.text = ""
-       // } else if (binding.radioButtonFemale.isChecked) {
-       //     binding.textViewGenderError.text = ""
-       // } else if ((binding.radioButtonMale.isChecked == false) || (binding.radioButtonFemale.isChecked == false)) {
-        //    binding.textViewGenderError.text = "choose your gender"
-        }
-        if (address.isEmpty()) {
+        } else if (phoneNum.isEmpty()) {
+            Toast.makeText(this.context, "Enter your phone number", Toast.LENGTH_SHORT).show()
+        } else if (address.isEmpty()) {
             binding.homeAddress.error = "Enter your home address"
         } else if (phoneNum.isEmpty()) {
             binding.phoneNumber.error = "Enter your phone number"
