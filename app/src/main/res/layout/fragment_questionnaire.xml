@@ -9,7 +9,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/questionaireLayout"
     android:layout_width="match_parent"
-    android:background="@drawable/blood"
+    android:background="@drawable/_1_513174_png_transparent_background_google_plus_logo_transparent_background"
     android:layout_height="match_parent"
     tools:context=".User.Questionnaire">
 
