@@ -87,11 +87,13 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
                     createDonateBlood(model, holder)
 
 
-                    findNavController(holder.donate).navigate(R.id.action_viewDonateBlood_to_fragment_donorInfo, Bundle().apply {
+                    findNavController(holder.donate).navigate(R.id.action_viewDonateBlood_to_fragment_donorInfo,Bundle().apply {
                         putString("bloodtype",bloodType.toString())
                         putString("name",patientName.toString())
                         putString("description",description.toString())
                         putString("ReferenceID", timestamp.toString())
+
+
 
                     })
 
