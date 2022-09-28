@@ -153,14 +153,6 @@ class fragmentRegistration : Fragment() {
                     .setValue(hashMap)
                     .addOnCompleteListener { task2 ->
                         if (task2.isSuccessful) {
-                            val edits: SharedPreferences.Editor = sharedPreferences!!.edit()
-                            edits.putString("name",name)
-                            edits.putString("email",email)
-                            edits.putString("dateBirth",dateBirth)
-                            edits.putString("gender",gender)
-                            edits.putString("address",phoneNum)
-                            edits.putString("userType",userType)
-                            edits?.apply()
                             progressDialog.dismiss()
                             Toast.makeText(this.context, "Register successful", Toast.LENGTH_LONG)
                                 .show()

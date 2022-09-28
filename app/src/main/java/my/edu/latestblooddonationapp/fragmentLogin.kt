@@ -1,7 +1,9 @@
 package my.edu.latestblooddonationapp
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -91,17 +93,39 @@ class fragmentLogin : Fragment() {
 
                 val firebaseUser = firebaseAuth.currentUser!!
 
-                val ref = FirebaseDatabase.getInstance().getReference("Users")
+                val ref = FirebaseDatabase.getInstance("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                    .getReference("Users")
                 ref.child(firebaseUser.uid)
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             progressDialog.dismiss()
-                            val userType = snapshot.child("userType").value
+                            val name = snapshot.child("name").value.toString()
+                            val birth = snapshot.child("dateBirth").value.toString()
+                            val email = snapshot.child("email").value.toString()
+                            val gender = snapshot.child("gender").value.toString()
+                            val houseAdd = snapshot.child("address").value.toString()
+                            val userType = snapshot.child("userType").value.toString()
+                            val uid = snapshot.child("uid").value.toString()
                             if (userType == "Admin") {
                                 val intent = Intent(
                                     context,
                                     HomeActivity::class.java
                                 )
+                                val sharedPrefFile = "kotlinsharedpreference"
+                                val sharedPref: SharedPreferences? =
+                                    activity?.getSharedPreferences(
+                                        sharedPrefFile, Context.MODE_PRIVATE
+                                    )
+                                val editor: SharedPreferences.Editor? =
+                                    sharedPref?.edit()
+                                editor?.putString("userType", userType)
+                                editor?.putString("name", name)
+                                editor?.putString("email", email)
+                                editor?.putString("dateBirth", birth)
+                                editor?.putString("gender", gender)
+                                editor?.putString("address", houseAdd)
+                                editor?.putString("uid", uid)
+                                editor?.apply()
                                 startActivity(intent)
                                 Toast.makeText(context, "Welcome admin", Toast.LENGTH_SHORT).show()
                             } else if (userType == "User") {
@@ -109,6 +133,21 @@ class fragmentLogin : Fragment() {
                                     context,
                                     UserHomeActivity::class.java
                                 )
+                                val sharedPrefFile = "kotlinsharedpreference"
+                                val sharedPref: SharedPreferences? =
+                                    activity?.getSharedPreferences(
+                                        sharedPrefFile, Context.MODE_PRIVATE
+                                    )
+                                val editor: SharedPreferences.Editor? =
+                                    sharedPref?.edit()
+                                editor?.putString("userType", userType)
+                                editor?.putString("name", name)
+                                editor?.putString("email", email)
+                                editor?.putString("dateBirth", birth)
+                                editor?.putString("gender", gender)
+                                editor?.putString("address", houseAdd)
+                                editor?.putString("uid", uid)
+                                editor?.apply()
                                 startActivity(intent)
                                 Toast.makeText(context, "Welcome user", Toast.LENGTH_SHORT).show()
                             }
