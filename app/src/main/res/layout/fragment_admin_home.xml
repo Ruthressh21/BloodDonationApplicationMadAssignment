@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/_1_513174_png_transparent_background_google_plus_logo_transparent_background"
+    android:background="@drawable/color_gradient_background"
     tools:context=".Admin.Home">
 
     <TextView

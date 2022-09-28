@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="false"
-    android:background="@drawable/_1_513174_png_transparent_background_google_plus_logo_transparent_background"
+    android:background="@drawable/color_gradient_background"
     tools:context=".User.QuestionnaireError">
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back to User Homepage"
-        app:backgroundTint="@color/red"
+        android:backgroundTint="@color/material_dynamic_neutral40"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

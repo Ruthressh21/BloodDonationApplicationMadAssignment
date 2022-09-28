@@ -9,7 +9,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/questionaireLayout"
     android:layout_width="match_parent"
-    android:background="@drawable/_1_513174_png_transparent_background_google_plus_logo_transparent_background"
+    android:background="@drawable/color_gradient_background"
     android:layout_height="match_parent"
     tools:context=".User.Questionnaire">
 
@@ -115,6 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="@string/button_submit"
+        android:backgroundTint="@color/material_dynamic_neutral40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
