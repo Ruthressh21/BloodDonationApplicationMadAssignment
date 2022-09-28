@@ -97,6 +97,7 @@ class fragmentLogin : Fragment() {
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             progressDialog.dismiss()
+                            val uid = snapshot.child("uid").value
                             val name = snapshot.child("name").value
                             val dateBirth = snapshot.child("dateBirth").value
                             val bloodType = snapshot.child("bloodType").value
@@ -106,6 +107,7 @@ class fragmentLogin : Fragment() {
                             val email = snapshot.child("email").value
 
                             Bundle().apply {
+                                putString("uid",uid.toString())
                                 putString("name",name.toString())
                                 putString("patientName",dateBirth.toString())
                                 putString("bloodType",bloodType.toString())
