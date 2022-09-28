@@ -15,12 +15,16 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_donor_info.*
 import my.edu.latestblooddonationapp.R
 import my.edu.latestblooddonationapp.databinding.FragmentViewDonateBloodBinding
 
 class ViewDonateBlood : Fragment() {
 
     private var _binding: FragmentViewDonateBloodBinding? = null
+
+
+
     private lateinit var firebaseAuth: FirebaseAuth
 
     //arrayList to hold categories
@@ -28,6 +32,7 @@ class ViewDonateBlood : Fragment() {
 
     //adapter
     private lateinit var adapterDonateBlood: AdapterDonateBlood
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,8 +46,15 @@ class ViewDonateBlood : Fragment() {
 
         _binding = FragmentViewDonateBloodBinding.inflate(inflater, container, false)
 
+
         firebaseAuth = FirebaseAuth.getInstance()
         loadCategories()
+
+        binding.nextBtn.setOnClickListener(){
+            findNavController().navigate(R.id.action_viewDonateBlood_to_donorVerifyRt)
+        }
+
+
 
         //search
         binding.editTextSearch.addTextChangedListener(object: TextWatcher{
@@ -61,6 +73,7 @@ class ViewDonateBlood : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
             }
+
         })
 
 
@@ -95,6 +108,9 @@ class ViewDonateBlood : Fragment() {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
+
+
         })
+
     }
 }

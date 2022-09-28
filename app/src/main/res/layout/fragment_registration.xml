@@ -63,13 +63,13 @@
             android:text="@string/bloodType"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/birthDate"
+            app:layout_constraintEnd_toEndOf="@+id/dateBirth"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/birthDate"
-            app:layout_constraintTop_toBottomOf="@+id/birthDate" />
+            app:layout_constraintStart_toStartOf="@+id/dateBirth"
+            app:layout_constraintTop_toBottomOf="@+id/dateBirth" />
 
         <EditText
-            android:id="@+id/birthDate"
+            android:id="@+id/dateBirth"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"

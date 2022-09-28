@@ -33,7 +33,7 @@ class FilterBloodDonationRequests: Filter {
             val filteredModels: ArrayList<ModelBloodDonationRequests> = ArrayList()
             for (i in 0 until filterList.size) {
                 //validate
-                if (filterList[i].bloodType.uppercase().contains(constraint)) {
+                if (filterList[i].id.uppercase().contains(constraint) || filterList[i].patientName.uppercase().contains(constraint) || filterList[i].bloodType.uppercase().contains(constraint) || filterList[i].description.uppercase().contains(constraint)) {
                     //add to filtered list
                     filteredModels.add(filterList[i])
                 }

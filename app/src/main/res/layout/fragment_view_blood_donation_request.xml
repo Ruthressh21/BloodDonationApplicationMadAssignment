@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_baseline_search_24"
-        android:hint="Search Blood Type"
+        android:hint="Search"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColorHint="#CCCCCC"

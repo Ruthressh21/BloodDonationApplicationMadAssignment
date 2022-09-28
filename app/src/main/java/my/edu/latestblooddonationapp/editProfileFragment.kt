@@ -2,7 +2,7 @@ package my.edu.latestblooddonationapp
 
 import android.app.ProgressDialog
 import android.content.Context
-import android.content.SharedPreferences
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -15,15 +15,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_registration.*
+import my.edu.latestblooddonationapp.Admin.HomeActivity
 import my.edu.latestblooddonationapp.R
+import my.edu.latestblooddonationapp.User.UserHomeActivity
 import my.edu.latestblooddonationapp.databinding.FragmentEditProfileBinding
 
 class editProfileFragment : Fragment() {
@@ -32,9 +33,7 @@ class editProfileFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     private lateinit var progressDialog: ProgressDialog
-    private lateinit var userId:String
 
-    private lateinit var firebaseUser: FirebaseUser
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -49,20 +48,9 @@ class editProfileFragment : Fragment() {
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        val sharedPref: SharedPreferences? = this.activity?.getSharedPreferences(
-            "kotlinsharedpreference", Context.MODE_PRIVATE
-        )
-        var username: String = sharedPref?.getString("name", "No Data").toString()
-        var uid: String = sharedPref?.getString("uid", "No Data").toString()
-
-        firebaseUser = FirebaseAuth.getInstance().currentUser!!
-        userId = firebaseUser.uid
-
         progressDialog = ProgressDialog(context)
         progressDialog.setTitle("Please wait...")
         progressDialog.setCanceledOnTouchOutside(false)
-
-        getUserDetails()
 
         binding.buttonUpdateProfile.setOnClickListener {
             validateData()
@@ -78,20 +66,35 @@ class editProfileFragment : Fragment() {
     private var phoneNum = ""
     private var email = ""
     private var address = ""
+    private var password = ""
+    private var uid = ""
 
     private fun validateData() {
+        val temp: Int = binding.genderType.checkedRadioButtonId
+        val rad = view?.findViewById<RadioButton>(temp)
+        val genders = rad?.text.toString()
         name = binding.fullName.text.toString().trim()
-        dateBirth = binding.birthDate.text.toString().trim()
+        dateBirth = binding.dateBirth.text.toString().trim()
+        gender = binding.genderType.checkedRadioButtonId.toString().trim()
+        bloodGroup = binding.spinner.selectedItem.toString().trim()
         phoneNum = binding.phoneNumber.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()
+        email = binding.emailAddress.text.toString().trim()
+        gender = genders
 
         //validation
         if (name.isEmpty()) {
             binding.fullName.error = "Enter your name"
         } else if (dateBirth.isEmpty()) {
-            binding.birthDate.error = "Enter your date birth"
+            binding.dateBirth.error = "Enter your date birth"
         } else if (bloodGroup.isEmpty()) {
             Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
+        } else if (binding.radioButtonMale.isChecked) {
+            binding.textViewGenderError.text = ""
+        } else if (binding.radioButtonFemale.isChecked) {
+            binding.textViewGenderError.text = ""
+        } else if ((binding.radioButtonMale.isChecked == false) || (binding.radioButtonFemale.isChecked == false)) {
+            binding.textViewGenderError.text = "choose your gender"
         }
         if (address.isEmpty()) {
             binding.homeAddress.error = "Enter your home address"
@@ -99,6 +102,10 @@ class editProfileFragment : Fragment() {
             binding.phoneNumber.error = "Enter your phone number"
         } else if (!Patterns.PHONE.matcher(phoneNum).matches()) {
             binding.phoneNumber.error = "Invalid phone number format"
+        } else if (email.isEmpty()) {
+            binding.emailAddress.error = "Enter your email address"
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.emailAddress.error = "Invalid email format"
         } else {
             editUserAccount()
         }
@@ -140,38 +147,4 @@ class editProfileFragment : Fragment() {
 
     }
 
-    private fun getUserDetails() {
-        val databaseuser =
-            FirebaseDatabase.getInstance("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                .getReference("Users")
-        databaseuser.child(userId)
-        databaseuser.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (i in snapshot.children) {
-                    var nameFb = i.child("name").getValue().toString()
-                    var birthFb = i.child("dateBirth").getValue().toString()
-                    var uid = i.child("uid").value
-//                    var addFb = i.child("address").getValue().toString()
-//                    var bloodFb = i.child("bloodGroup").getValue().toString()
-//                    var genderFb = i.child("gender").getValue().toString()
-//                    var phoneFb = i.child("phoneNumber").getValue().toString()
-//                    var emailFb = i.child("email").getValue().toString()
-//                    var passwdFb = i.child("password").getValue().toString()
-//                    var idFb = i.child("id").getValue().toString()
-
-                    binding.fullName.setText(nameFb)
-                    binding.birthDate.setText(birthFb)
-//                  binding.birthDate.setText(birthFb)
-//                    //binding.outputBlood.setText(bloodFb)
-//                    binding.homeAddress.setText(addFb)
-//                    binding.phoneNumber.setText(phoneFb)
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
-
-    }
 }

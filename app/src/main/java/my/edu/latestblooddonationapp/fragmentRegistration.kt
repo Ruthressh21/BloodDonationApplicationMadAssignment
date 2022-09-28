@@ -68,7 +68,7 @@ class fragmentRegistration : Fragment() {
         val rad = view?.findViewById<RadioButton>(temp)
         val genders = rad?.text.toString()
         name = binding.fullName.text.toString().trim()
-        dateBirth = binding.birthDate.text.toString().trim()
+        dateBirth = binding.dateBirth.text.toString().trim()
         gender = binding.genderType.checkedRadioButtonId.toString().trim()
         bloodType = binding.spinner.selectedItem.toString().trim()
         phoneNum = binding.phoneNumber.text.toString().trim()
@@ -83,7 +83,7 @@ class fragmentRegistration : Fragment() {
         if (name.isEmpty()) {
             binding.fullName.error = "Enter your name"
         } else if (dateBirth.isEmpty()) {
-            binding.birthDate.error = "Enter your date birth"
+            binding.dateBirth.error = "Enter your date birth"
         } else if (bloodType.isEmpty()) {
             Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
         } else if (binding.radioButtonMale.isChecked) {
@@ -153,6 +153,14 @@ class fragmentRegistration : Fragment() {
                     .setValue(hashMap)
                     .addOnCompleteListener { task2 ->
                         if (task2.isSuccessful) {
+                            /*val edits: SharedPreferences.Editor = sharedPreferences!!.edit()
+                            edits.putString("name",name)
+                            edits.putString("email",email)
+                            edits.putString("dateBirth",dateBirth)
+                            edits.putString("gender",gender)
+                            edits.putString("address",phoneNum)
+                            edits.putString("userType",userType)
+                            edits?.apply()*/
                             progressDialog.dismiss()
                             Toast.makeText(this.context, "Register successful", Toast.LENGTH_LONG)
                                 .show()

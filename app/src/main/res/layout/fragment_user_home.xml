@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/_1_513174_png_transparent_background_google_plus_logo_transparent_background"
     tools:context=".User.UserHome">
 
     <TextView
@@ -11,8 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:elegantTextHeight="true"
         android:text="User Homepage"
+        android:textColor="#5A5050"
+        android:textColorHighlight="#615555"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#D8C5C5"
         android:textSize="34sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +48,54 @@
         android:layout_marginTop="100dp"
         android:text="@string/donateBlood"
         android:textSize="24sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/imageViewDonateBlood"
         app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewDonateBlood" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="277dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="advertisement"
+        android:src="@drawable/kenketsu_saibo_fixw_640_hq"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="184dp"
+        android:elegantTextHeight="true"
+        android:text="Advertisement"
+        android:textColor="#504949"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDonateBlood" />
+
+    <ImageView
+        android:id="@+id/imageButtonClose"
+        android:layout_width="14dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="256dp"
+        android:contentDescription="advertisment"
+        android:src="@android:drawable/btn_dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toEndOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

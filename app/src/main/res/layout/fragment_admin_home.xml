@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/_1_513174_png_transparent_background_google_plus_logo_transparent_background"
     tools:context=".Admin.Home">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginTop="15dp"
         android:text="Admin Homepage"
         android:textSize="34sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +44,8 @@
         android:layout_marginStart="20dp"
         android:lines="2"
         android:text="Blood Donation \nRequests"
-        android:textColor="#FF2222"
         android:textSize="24sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewBloodDonationRequest"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewBloodDonationRequest" />

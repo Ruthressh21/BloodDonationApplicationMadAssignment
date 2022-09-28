@@ -1,6 +1,5 @@
 package my.edu.latestblooddonationapp.Admin
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.ProgressDialog
@@ -56,10 +55,9 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
         val patientName = model.patientName
         val bloodType = model.bloodType
         val description = model.description
-        val uid = model.uid
-        val timestamp = model.timestamp
 
         //set data
+        holder.id.text = id
         holder.patientName.text = patientName
         holder.bloodType.text = bloodType
         holder.description.text = description
@@ -100,24 +98,18 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
 
     }
 
-    @SuppressLint("ResourceType")
     private fun editBloodDonationRequest(model: ModelBloodDonationRequests, holder: AdapterBloodDonationRequests.HolderBloodDonationRequests) {
-        //get patientName,bloodType, description
+        val id = model.id
         val patientName = model.patientName
         val bloodType = model.bloodType
         val description = model.description
 
-        val activity = context as AppCompatActivity
-        val fragmentManager = activity.supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        val fragment = EditBloodDonationRequest()
-
-        val bundle = Bundle()
-        fragment.arguments = bundle
-        bundle.putString("patientName", patientName)
-        bundle.putString("bloodType", bloodType)
-        bundle.putString("description", description)
-        fragmentTransaction.replace(R.id.recycleView, fragment).addToBackStack(null).commit()
+        findNavController(holder.editBtn).navigate(R.id.action_viewBloodDonationRequest_to_editBloodDonationRequest, Bundle().apply {
+            putString("id",id.toString())
+            putString("patientName",patientName.toString())
+            putString("bloodType",bloodType.toString())
+            putString("description",description.toString())
+        })
 
     }
 
@@ -154,6 +146,7 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
     //ViewHolder class to hold/init UI views for fragment_row_blood_donation_request.xml
     inner class HolderBloodDonationRequests(itemView: View): RecyclerView.ViewHolder(itemView){
         //init ui views
+        var id   : TextView = binding.textViewID
         var patientName : TextView = binding.textViewPatientName2
         var bloodType : TextView = binding.textViewBloodTypes2
         var description : TextView = binding.textViewDescription2

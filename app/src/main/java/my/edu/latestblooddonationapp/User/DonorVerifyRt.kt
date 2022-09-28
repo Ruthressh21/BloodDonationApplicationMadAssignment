@@ -55,7 +55,7 @@ class DonorVerifyRt : Fragment() {
 
 
 
-        binding.button.setOnClickListener {
+        binding.button3.setOnClickListener {
             val ID: String = binding.etusername.text.toString()
             if (ID.isNotEmpty()) {
                 readData(ID)
@@ -81,8 +81,9 @@ class DonorVerifyRt : Fragment() {
                 binding.toPatientName.text = patientName .toString()
                 binding.toBloodType.text=bloodType.toString()
                 binding.toDescription.text=description.toString()
-                binding.toTimestamp.text=timestamp.toString()
-                binding.toUid.text=uid.toString()
+
+
+
 
             }else{
                 Toast.makeText(context,"User Doesn't Exist ", Toast.LENGTH_SHORT).show()

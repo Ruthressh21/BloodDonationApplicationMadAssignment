@@ -1,5 +1,7 @@
 package my.edu.latestblooddonationapp.User
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +35,17 @@ class UserHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.imageViewDonateBlood.setOnClickListener{
             findNavController().navigate(R.id.action_nav_home_to_questionnaire)
+        }
+        binding.imageButtonClose.setOnClickListener{
+            binding.imageView4.setVisibility(View.GONE)
+            binding.imageButtonClose.setVisibility(View.GONE)
+            binding.textView4.setVisibility(View.GONE)
+        }
+        binding.imageView4.setOnClickListener{
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://www.youtube.com/watch?v=HMXWvvjAJek")
+            startActivity(openURL)
+
         }
     }
 }
