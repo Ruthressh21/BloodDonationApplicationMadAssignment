@@ -90,8 +90,8 @@ class fragmentRegistration : Fragment() {
             binding.textViewGenderError.text = ""
         } else if(binding.radioButtonFemale.isChecked){
             binding.textViewGenderError.text = ""
-        } else if(!binding.radioButtonMale.isChecked || !binding.radioButtonFemale.isChecked){
-            binding.textViewGenderError.text = "choose your gender"
+        } else if (genderType.checkedRadioButtonId == -1){
+            binding.textViewGenderError.text = "Please choose your gender"
         }
           if(address.isEmpty()) {
             binding.homeAddress.error = "Enter your home address"
