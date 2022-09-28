@@ -90,7 +90,7 @@ class fragmentRegistration : Fragment() {
             binding.textViewGenderError.text = ""
         } else if(binding.radioButtonFemale.isChecked){
             binding.textViewGenderError.text = ""
-        } else if((binding.radioButtonMale.isChecked == false) || (binding.radioButtonFemale.isChecked == false)){
+        } else if(!binding.radioButtonMale.isChecked || !binding.radioButtonFemale.isChecked){
             binding.textViewGenderError.text = "choose your gender"
         }
           if(address.isEmpty()) {

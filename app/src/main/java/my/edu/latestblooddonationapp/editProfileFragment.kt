@@ -63,22 +63,6 @@ class editProfileFragment : Fragment() {
                 val email = dataSnapshot.child("email").value as String?
 
                 binding.fullName.setText(name)
-                binding.dateBirth.setText(dateBirth)
-                if(bloodType == "A"){
-                    binding.spinner.setSelection(0)
-                } else if(bloodType == "B"){
-                    binding.spinner.setSelection(1)
-                } else if(bloodType == "O"){
-                    binding.spinner.setSelection(2)
-                } else {
-                    binding.spinner.setSelection(3)
-                }
-
-                if(gender == "Male"){
-                    binding.radioButtonMale.isChecked
-                } else{
-                    binding.radioButtonFemale.isChecked
-                }
 
                 binding.homeAddress.setText(address)
                 binding.phoneNumber.setText(phoneNum)
@@ -106,33 +90,23 @@ class editProfileFragment : Fragment() {
     private var uid = ""
 
     private fun validateData() {
-        val temp: Int = binding.genderType.checkedRadioButtonId
-        val rad = view?.findViewById<RadioButton>(temp)
-        val genders = rad?.text.toString()
         name = binding.fullName.text.toString().trim()
-        dateBirth = binding.dateBirth.text.toString().trim()
-        gender = binding.genderType.checkedRadioButtonId.toString().trim()
-        bloodType = binding.spinner.selectedItem.toString().trim()
+        dateBirth = binding.dateOfBirth.text.toString().trim()
+        gender = binding.gender.text.toString()
+        bloodType = binding.bloodType.text.toString()
         phoneNum = binding.phoneNumber.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()
         email = binding.emailAddress.text.toString().trim()
-        gender = genders
+       // gender = genders
 
         //validation
         if (name.isEmpty()) {
             binding.fullName.error = "Enter your name"
         } else if (dateBirth.isEmpty()) {
-            binding.dateBirth.error = "Enter your date birth"
-        } else if (bloodType.isEmpty()) {
-            Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
-        } else if (binding.radioButtonMale.isChecked) {
-            binding.textViewGenderError.text = ""
-        } else if (binding.radioButtonFemale.isChecked) {
-            binding.textViewGenderError.text = ""
-        } else if ((binding.radioButtonMale.isChecked == false) || (binding.radioButtonFemale.isChecked == false)) {
-            binding.textViewGenderError.text = "choose your gender"
-        }
-        if (address.isEmpty()) {
+            binding.dateOfBirth.error = "Enter your date birth"
+        } else if (phoneNum.isEmpty()) {
+            Toast.makeText(this.context, "Enter your phone number", Toast.LENGTH_SHORT).show()
+        } else if (address.isEmpty()) {
             binding.homeAddress.error = "Enter your home address"
         } else if (phoneNum.isEmpty()) {
             binding.phoneNumber.error = "Enter your phone number"

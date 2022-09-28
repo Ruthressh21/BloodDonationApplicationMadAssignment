@@ -9,6 +9,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/questionaireLayout"
     android:layout_width="match_parent"
+    android:background="@drawable/blood"
     android:layout_height="match_parent"
     tools:context=".User.Questionnaire">
 

@@ -62,11 +62,6 @@
             android:id="@+id/action_questionnaireError_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
-    <fragment
-        android:id="@+id/fragment_donorInfo"
-        android:name="my.edu.latestblooddonationapp.fragment_donorInfo"
-        android:label="fragment_donor_info"
-        tools:layout="@layout/fragment_donor_info" />
     <activity
         android:id="@+id/action_logOut"
         android:name="my.edu.latestblooddonationapp.MainActivity"
@@ -77,4 +72,9 @@
         android:name="my.edu.latestblooddonationapp.User.DonorVerifyRt"
         android:label="fragment_donor_verify_rt"
         tools:layout="@layout/fragment_donor_verify_rt" />
+    <fragment
+        android:id="@+id/fragment_donorInfo"
+        android:name="my.edu.latestblooddonationapp.User.Fragment_donorInfo"
+        android:label="Donor Info"
+        tools:layout="@layout/fragment_donor_info" />
 </navigation>

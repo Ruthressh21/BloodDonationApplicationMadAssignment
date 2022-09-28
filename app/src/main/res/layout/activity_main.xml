@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimary"
+            android:background="#FF2525"
             app:popupTheme="@style/Theme.LatestBloodDonationApp.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>

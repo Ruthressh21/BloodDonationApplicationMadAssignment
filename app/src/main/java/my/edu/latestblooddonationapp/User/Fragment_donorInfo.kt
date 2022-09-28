@@ -1,4 +1,4 @@
-package my.edu.latestblooddonationapp
+package my.edu.latestblooddonationapp.User
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -7,16 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import my.edu.latestblooddonationapp.databinding.FragmentCreateBloodDonationRequestBinding
+import kotlinx.android.synthetic.main.fragment_donor_info.view.*
 import my.edu.latestblooddonationapp.databinding.FragmentDonorInfoBinding
-import java.lang.ref.Reference
 
-class fragment_donorInfo : Fragment() {
-    // TODO: Rename and change types of parameters
+class Fragment_donorInfo : Fragment() {
+
     private var _binding: FragmentDonorInfoBinding? = null
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -48,10 +46,27 @@ class fragment_donorInfo : Fragment() {
         var timestamp = requireArguments().getString("ReferenceID").toString()
         var name = requireArguments().getString("name").toString()
 
-        binding.textViewBloodType.setText(bloodtype)
-        binding.textViewDescription1.setText(description)
         binding.textViewPatient.setText(name)
+        binding.textViewBloodType.setText(bloodtype)
         binding.textViewReferenceID.setText(timestamp)
+
+
+
+        if(bloodtype== "A"){
+            binding.spinnerDonorInfoBloodType.setSelection(0)
+        } else if(bloodtype == "B"){
+            binding.spinnerDonorInfoBloodType.setSelection(1)
+        } else if(bloodtype == "O"){
+            binding.spinnerDonorInfoBloodType.setSelection(2)
+        } else {
+            binding.spinnerDonorInfoBloodType.setSelection(3)
+        }
+
+
+        binding.textViewDescription1.setText(description)
+
+
+
 
         binding.btnSubmit.setOnClickListener {
             validateData()
@@ -66,9 +81,10 @@ class fragment_donorInfo : Fragment() {
     private var donorBloodType = ""
     private var donorDescription = ""
 
+
     private fun validateData() {
       name = binding.etDonorName.text.toString().trim()
-        donorBloodType = binding.etBloodType.text.toString().trim()
+        donorBloodType = binding.spinnerDonorInfoBloodType.selectedItem.toString().trim()
         donorDescription = binding.etUserID2.text.toString().trim()
 
         if (name.isEmpty()) {
@@ -80,8 +96,6 @@ class fragment_donorInfo : Fragment() {
         } else {
             createBloodDonationRequestFirebase()
 
-            Bundle().apply {
-                putString("name",binding.etDonorName.text.toString())}
         }
     }
 
@@ -89,15 +103,22 @@ class fragment_donorInfo : Fragment() {
         progressDialog.show()
 
         val timestamp = System.currentTimeMillis()
+        val pbloodtype = requireArguments().getString("bloodtype").toString()
+        val pdescription= requireArguments().getString("description").toString()
+        val ptimestamp = requireArguments().getString("ReferenceID").toString()
+        val pname = requireArguments().getString("name").toString()
+
 
 
         val hashMap = HashMap<String, Any>()
         hashMap["id"] = "$timestamp"
         hashMap["donorName"] = "$name"
-        hashMap["bloodType"] = "$donorBloodType"
-        hashMap["description"] = "$donorDescription"
-
-
+        hashMap["donorBloodType"] = "$donorBloodType"
+        hashMap["donorDescription"] = "$donorDescription"
+        hashMap["patientName"] = "$pname"
+        hashMap["patientReferenceID"] = "$ptimestamp"
+        hashMap["patientDescription"] = "$pdescription"
+        hashMap["patientBloodType"] = "$pbloodtype"
 
         hashMap["uid"] = "${firebaseAuth.uid}"
 
