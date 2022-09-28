@@ -49,12 +49,6 @@ class DonorVerifyRt : Fragment() {
     ): View {
         binding = FragmentDonorVerifyRtBinding.inflate(inflater, container, false)
 
-
-
-
-
-
-
         binding.button3.setOnClickListener {
             val ID: String = binding.etusername.text.toString()
             if (ID.isNotEmpty()) {

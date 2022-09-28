@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_donor_info.view.*
@@ -49,26 +52,37 @@ class Fragment_donorInfo : Fragment() {
         binding.textViewPatient.setText(name)
         binding.textViewBloodType.setText(bloodtype)
         binding.textViewReferenceID.setText(timestamp)
-
-
-
-        if(bloodtype== "A"){
-            binding.spinnerDonorInfoBloodType.setSelection(0)
-        } else if(bloodtype == "B"){
-            binding.spinnerDonorInfoBloodType.setSelection(1)
-        } else if(bloodtype == "O"){
-            binding.spinnerDonorInfoBloodType.setSelection(2)
-        } else {
-            binding.spinnerDonorInfoBloodType.setSelection(3)
-        }
-
-
         binding.textViewDescription1.setText(description)
 
+        val user = firebaseAuth.currentUser
+        val uid = user!!.uid
+
+        val ref =
+            Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("Users").child(uid)
+
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val uid = dataSnapshot.child("uid").value as String?
+                val name = dataSnapshot.child("name").value as String?
+                val gender = dataSnapshot.child("gender").value as String?
+                val bloodType = dataSnapshot.child("bloodType").value as String?
+                val phoneNum = dataSnapshot.child("phoneNum").value as String?
+
+                binding.textViewUID.setText(uid)
+                binding.textViewName3.setText(name)
+                binding.textViewGender3.setText(gender)
+                binding.textViewBloodType3.setText(bloodType)
+                binding.textViewPhoneNumber3.setText(phoneNum)
+
+            }
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
 
 
 
-        binding.btnSubmit.setOnClickListener {
+
+        binding.buttonConfirm2.setOnClickListener {
             validateData()
 
         }
@@ -77,62 +91,56 @@ class Fragment_donorInfo : Fragment() {
 
     }
 
+    private var uid = ""
     private var name = ""
-    private var donorBloodType = ""
-    private var donorDescription = ""
+    private var gender = ""
+    private var bloodType = ""
+    private var phoneNum = ""
 
 
     private fun validateData() {
-      name = binding.etDonorName.text.toString().trim()
-        donorBloodType = binding.spinnerDonorInfoBloodType.selectedItem.toString().trim()
-        donorDescription = binding.etUserID2.text.toString().trim()
+        uid = binding.textViewUID.text.toString().trim()
+        name = binding.textViewName3.text.toString().trim()
+        gender = binding.textViewGender3.text.toString().trim()
+        bloodType = binding.textViewBloodType3.text.toString().trim()
+        phoneNum = binding.textViewPhoneNumber3.text.toString().trim()
 
-        if (name.isEmpty()) {
-            binding.etDonorName.error = "Enter the patient name"
-        } else if (donorBloodType.isEmpty()) {
-            Toast.makeText(this.context, "Choose a blood type", Toast.LENGTH_SHORT).show()
-        } else if ( donorDescription.isEmpty()) {
-            binding.etUserID2.error = "Enter the description"
-        } else {
-            createBloodDonationRequestFirebase()
+            createConfirmBloodDonationFirebase()
 
-        }
     }
 
-    private fun createBloodDonationRequestFirebase() {
+    private fun createConfirmBloodDonationFirebase() {
         progressDialog.show()
 
         val timestamp = System.currentTimeMillis()
-        val pbloodtype = requireArguments().getString("bloodtype").toString()
-        val pdescription= requireArguments().getString("description").toString()
-        val ptimestamp = requireArguments().getString("ReferenceID").toString()
-        val pname = requireArguments().getString("name").toString()
-
-
+        val bbloodtype = requireArguments().getString("bloodtype").toString()
+        val bdescription= requireArguments().getString("description").toString()
+        val btimestamp = requireArguments().getString("ReferenceID").toString()
+        val bname = requireArguments().getString("name").toString()
 
         val hashMap = HashMap<String, Any>()
         hashMap["id"] = "$timestamp"
-        hashMap["donorName"] = "$name"
-        hashMap["donorBloodType"] = "$donorBloodType"
-        hashMap["donorDescription"] = "$donorDescription"
-        hashMap["patientName"] = "$pname"
-        hashMap["patientReferenceID"] = "$ptimestamp"
-        hashMap["patientDescription"] = "$pdescription"
-        hashMap["patientBloodType"] = "$pbloodtype"
+        hashMap["bloodDonationRequestName"] = "$bname"
+        hashMap["bloodDonationRequestReferenceID"] = "$btimestamp"
+        hashMap["bloodDonationRequestDescription"] = "$bdescription"
+        hashMap["bloodDonationRequestBloodType"] = "$bbloodtype"
 
         hashMap["uid"] = "${firebaseAuth.uid}"
+        hashMap["name"] = "$name"
+        hashMap["gender"] = "$gender"
+        hashMap["bloodType"] = "$bloodType"
+        hashMap["phoneNum"] = "$phoneNum"
 
-
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Donor")
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("BloodDonationInfo")
         ref.child("$timestamp")
             .setValue(hashMap)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     progressDialog.dismiss()
-                    binding.textViewStatus1.text = "Successfully Created"
+                    binding.textViewStatus1.text = "Successfully processed"
                 } else {
                     progressDialog.dismiss()
-                    binding.textViewStatus1.text = "Fail to Create"
+                    binding.textViewStatus1.text = "Fail to process"
                 }
 
             }

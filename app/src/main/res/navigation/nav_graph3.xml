@@ -75,6 +75,6 @@
     <fragment
         android:id="@+id/fragment_donorInfo"
         android:name="my.edu.latestblooddonationapp.User.Fragment_donorInfo"
-        android:label="Donor Info"
+        android:label="Donation Info"
         tools:layout="@layout/fragment_donor_info" />
 </navigation>
