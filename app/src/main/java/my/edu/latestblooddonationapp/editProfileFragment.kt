@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -45,18 +46,42 @@ class editProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         firebaseAuth = FirebaseAuth.getInstance()
 
         progressDialog = ProgressDialog(context)
         progressDialog.setTitle("Please wait...")
         progressDialog.setCanceledOnTouchOutside(false)
+        retrieveUsers()
 
         binding.buttonUpdateProfile.setOnClickListener {
             validateData()
         }
 
         return binding.root
+    }
+
+    private fun retrieveUsers(){
+
+        val database = FirebaseDatabase.getInstance("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            .getReference("Users")
+        database.child(firebaseAuth.uid!!).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                //for(ds in snapshot.children){
+                   // val userName = ds.child("name").getValue(String::class.java)
+                    val name = "${snapshot.child("name").value}"
+                    binding.fullName.setText(name)
+                val address = "${snapshot.child("address").value}"
+                binding.homeAddress.setText(address)
+               // }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                //  TODO("Not yet implemented")
+            }
+
+
+            })
     }
 
     private var name = ""
@@ -79,24 +104,13 @@ class editProfileFragment : Fragment() {
         bloodGroup = binding.spinner.selectedItem.toString().trim()
         phoneNum = binding.phoneNumber.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()
-        email = binding.emailAddress.text.toString().trim()
         gender = genders
 
         //validation
         if (name.isEmpty()) {
             binding.fullName.error = "Enter your name"
-        } else if (dateBirth.isEmpty()) {
-            binding.dateBirth.error = "Enter your date birth"
-        } else if (bloodGroup.isEmpty()) {
-            Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
-        } else if (binding.radioButtonMale.isChecked) {
-            binding.textViewGenderError.text = ""
-        } else if (binding.radioButtonFemale.isChecked) {
-            binding.textViewGenderError.text = ""
-        } else if ((binding.radioButtonMale.isChecked == false) || (binding.radioButtonFemale.isChecked == false)) {
-            binding.textViewGenderError.text = "choose your gender"
         }
-        if (address.isEmpty()) {
+        else if (address.isEmpty()) {
             binding.homeAddress.error = "Enter your home address"
         } else if (phoneNum.isEmpty()) {
             binding.phoneNumber.error = "Enter your phone number"
