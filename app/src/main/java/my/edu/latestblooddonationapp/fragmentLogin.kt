@@ -97,6 +97,24 @@ class fragmentLogin : Fragment() {
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             progressDialog.dismiss()
+                            val name = snapshot.child("name").value
+                            val dateBirth = snapshot.child("dateBirth").value
+                            val bloodType = snapshot.child("bloodType").value
+                            val gender = snapshot.child("gender").value
+                            val address = snapshot.child("address").value
+                            val phoneNum = snapshot.child("phoneNum").value
+                            val email = snapshot.child("email").value
+
+                            Bundle().apply {
+                                putString("name",name.toString())
+                                putString("patientName",dateBirth.toString())
+                                putString("bloodType",bloodType.toString())
+                                putString("gender",gender.toString())
+                                putString("address",address.toString())
+                                putString("phoneNum",phoneNum.toString())
+                                putString("email",email.toString())
+                            }
+
                             val userType = snapshot.child("userType").value
                             if (userType == "Admin") {
                                 val intent = Intent(

@@ -93,7 +93,7 @@ class fragmentRegistration : Fragment() {
         } else if((binding.radioButtonMale.isChecked == false) || (binding.radioButtonFemale.isChecked == false)){
             binding.textViewGenderError.text = "choose your gender"
         }
-        if(address.isEmpty()) {
+          if(address.isEmpty()) {
             binding.homeAddress.error = "Enter your home address"
         } else if (phoneNum.isEmpty()) {
             binding.phoneNumber.error = "Enter your phone number"

@@ -120,6 +120,8 @@ class Questionnaire : Fragment() {
 
     private fun createQuestionnaireFirebase() {
         progressDialog.show()
+        progressDialog.setTitle("Please wait...")
+        progressDialog.setCanceledOnTouchOutside(false)
 
         val timestamp = System.currentTimeMillis()
 
