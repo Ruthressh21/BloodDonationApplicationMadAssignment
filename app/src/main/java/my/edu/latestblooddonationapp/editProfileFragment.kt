@@ -63,7 +63,9 @@ class editProfileFragment : Fragment() {
                 val email = dataSnapshot.child("email").value as String?
 
                 binding.fullName.setText(name)
-
+                binding.dateOfBirth.setText(dateBirth)
+                binding.gender.setText(gender)
+                binding.bloodType.setText(bloodType)
                 binding.homeAddress.setText(address)
                 binding.phoneNumber.setText(phoneNum)
                 binding.emailAddress.setText(email)
