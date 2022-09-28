@@ -1,6 +1,8 @@
 package my.edu.latestblooddonationapp
 
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -13,10 +15,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_registration.*
+import my.edu.latestblooddonationapp.Admin.HomeActivity
 import my.edu.latestblooddonationapp.R
+import my.edu.latestblooddonationapp.User.UserHomeActivity
 import my.edu.latestblooddonationapp.databinding.FragmentEditProfileBinding
 
 class editProfileFragment : Fragment() {
@@ -58,6 +66,8 @@ class editProfileFragment : Fragment() {
     private var phoneNum = ""
     private var email = ""
     private var address = ""
+    private var password = ""
+    private var uid = ""
 
     private fun validateData() {
         val temp: Int = binding.genderType.checkedRadioButtonId
