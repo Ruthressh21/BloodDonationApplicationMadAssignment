@@ -21,6 +21,7 @@ class EditBloodDonationRequest : Fragment() {
 
     private lateinit var progressDialog: ProgressDialog
 
+    private var id=""
     private var patientName = ""
     private var bloodType = ""
     private var description = ""
@@ -74,6 +75,7 @@ class EditBloodDonationRequest : Fragment() {
 
 
 private fun validateData() {
+    id = binding.textViewID3.text.toString().trim()
     patientName = binding.editTextPatientName.text.toString().trim()
     bloodType = binding.spinnerBloodTypes.selectedItem.toString().trim()
     description = binding.editTextDescription.text.toString().trim()
@@ -99,17 +101,17 @@ private fun editBloodDonationRequestFirebase() {
     val timestamp = System.currentTimeMillis()
 
     val hashMap = HashMap<String, Any>()
-    hashMap["id"] = "$timestamp"
+    hashMap["id"] = "$id"
     hashMap["patientName"] = "$patientName"
     hashMap["bloodType"] = "$bloodType"
     hashMap["description"] = "$description"
-    hashMap["timestamp"] = "$timestamp"
+    hashMap["timestamp"] = "$id"
     hashMap["uid"] = "${firebaseAuth.uid}"
 
     val ref =
         Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/")
             .getReference("BloodDonationRequests")
-    ref.child("$timestamp")
+    ref.child("$id")
         .updateChildren(hashMap)
         .addOnCompleteListener { task ->
             if (task.isSuccessful) {
