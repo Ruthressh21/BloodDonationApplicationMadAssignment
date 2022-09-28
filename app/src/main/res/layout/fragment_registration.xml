@@ -261,7 +261,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
             android:text="@string/register"
-            app:backgroundTint="@color/black"
+            android:backgroundTint="@color/grey"
             app:layout_constraintEnd_toEndOf="@+id/spinnerUserType"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="@+id/spinnerUserType"
