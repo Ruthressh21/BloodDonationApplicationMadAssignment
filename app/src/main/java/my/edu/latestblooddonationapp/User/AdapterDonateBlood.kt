@@ -23,8 +23,12 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import my.edu.latestblooddonationapp.Admin.AdapterBloodDonationRequests
+import my.edu.latestblooddonationapp.Admin.ModelBloodDonationRequests
 import my.edu.latestblooddonationapp.R
 import my.edu.latestblooddonationapp.databinding.FragmentAdminHomeBinding
 import my.edu.latestblooddonationapp.databinding.FragmentRowDonateBloodBinding
@@ -95,6 +99,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
 
 
 
+
                     })
 
                 }.setNegativeButton("Cancel"){a,d->
@@ -119,7 +124,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
                     holder.donate.setVisibility(View.VISIBLE)
                     holder.donate2.setVisibility(View.GONE)
 
-
+                    CancelDonateBlood(model, holder)
 
                 }.setNegativeButton("Cancel"){a,d->
                     a.dismiss()
@@ -153,6 +158,29 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         fragmentTransaction.replace(R.id.recycleView, fragment).addToBackStack(null).commit()
 
 
+    }
+    private fun CancelDonateBlood(model: ModelDonateBlood, holder: AdapterDonateBlood.HolderDonateBlood) {
+        progressDialog.dismiss()
+        //get id of donor request to delete
+        val id = model.id
+        //Firebase DB > Categories > categoryId
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("\n" +
+                "BloodDonationInfo")
+        ref.child(id)
+            .removeValue()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    progressDialog = ProgressDialog(context)
+                    progressDialog.setTitle("Deleted")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    progressDialog.dismiss()
+                } else {
+                    progressDialog = ProgressDialog(context)
+                    progressDialog.setTitle("Delete failed")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    progressDialog.dismiss()
+                }
+            }
     }
 
     override fun getItemCount(): Int {
