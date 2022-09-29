@@ -149,7 +149,7 @@ class Fragment_donorInfo : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     progressDialog.dismiss()
-                    binding.textViewStatus1.text = "Successfully processed"
+                    binding.textViewStatus1.text = "Successfully deleted"
                 } else {
                     progressDialog.dismiss()
                     binding.textViewStatus1.text = "Fail to process"
