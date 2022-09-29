@@ -84,7 +84,7 @@
     <fragment
         android:id="@+id/donorVerifyRt"
         android:name="my.edu.latestblooddonationapp.User.DonorVerifyRt"
-        android:label="fragment_donor_verify_rt"
+        android:label="Check Patient Info"
         tools:layout="@layout/fragment_donor_verify_rt" />
     <fragment
         android:id="@+id/fragment_donorInfo"

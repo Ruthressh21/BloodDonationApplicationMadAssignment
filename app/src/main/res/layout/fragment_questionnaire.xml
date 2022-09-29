@@ -105,12 +105,14 @@
             android:id="@+id/radioButtonYes3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/black"
             android:text="Yes" />
 
         <RadioButton
             android:id="@+id/radioButtonNo3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/black"
             android:text="No" />
     </RadioGroup>
 
@@ -167,11 +169,13 @@
             android:id="@+id/radioButtonYes4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/grey"
             android:text="Yes" />
 
         <RadioButton
             android:id="@+id/radioButtonNo4"
             android:layout_width="match_parent"
+            android:buttonTint="@color/grey"
             android:layout_height="wrap_content"
             android:text="No" />
     </RadioGroup>
@@ -205,12 +209,14 @@
             android:id="@+id/radioButtonYes2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/grey"
             android:text="Yes" />
 
         <RadioButton
             android:id="@+id/radioButtonNo2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/grey"
             android:text="No" />
 
     </RadioGroup>
@@ -242,11 +248,13 @@
             android:id="@+id/radioButtonYes1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/grey"
             android:text="Yes" />
 
         <RadioButton
             android:id="@+id/radioButtonNo1"
             android:layout_width="match_parent"
+            android:buttonTint="@color/grey"
             android:layout_height="wrap_content"
             android:text="No" />
     </RadioGroup>
