@@ -3,9 +3,7 @@ package my.edu.latestblooddonationapp
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Patterns
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -37,7 +35,8 @@ class editProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        //enable menu item bar
+        setHasOptionsMenu(true)
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -157,6 +156,12 @@ class editProfileFragment : Fragment() {
                 }
             }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in edit profile fragment
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 
 }

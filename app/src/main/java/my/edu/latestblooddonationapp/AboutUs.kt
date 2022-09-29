@@ -1,9 +1,7 @@
 package my.edu.latestblooddonationapp
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import my.edu.latestblooddonationapp.databinding.FragmentAboutusBinding
 
@@ -21,10 +19,18 @@ class AboutUs : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+
+        setHasOptionsMenu(true)
         _binding = FragmentAboutusBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in about us
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 
 }

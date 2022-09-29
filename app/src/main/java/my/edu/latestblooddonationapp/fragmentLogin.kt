@@ -4,9 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -40,6 +38,8 @@ class fragmentLogin : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //enable menu item
+        setHasOptionsMenu(true)
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -157,5 +157,11 @@ class fragmentLogin : Fragment() {
         binding.forgotPassword.setOnClickListener{
             findNavController().navigate(R.id.action_loginFragment_to_fragmentForgotPassword)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in login fragment
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 }

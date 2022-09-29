@@ -4,10 +4,8 @@ import android.app.ProgressDialog
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Patterns
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -36,6 +34,9 @@ class fragmentRegistration : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        //enable menu item
+        setHasOptionsMenu(true)
 
         _binding = FragmentRegistrationBinding.inflate(inflater, container, false)
 
@@ -182,6 +183,12 @@ class fragmentRegistration : Fragment() {
                     .show()
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in registration page
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 }
 
