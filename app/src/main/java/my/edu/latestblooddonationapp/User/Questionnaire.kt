@@ -120,9 +120,9 @@ class Questionnaire : Fragment() {
             //confirm before create
             val builder = AlertDialog.Builder(context)
 
-            builder.setTitle("Does not fulfill the requirements.")
-                .setMessage("Please answer the question properly")
-                .setPositiveButton("Go back to questionaire.") { a, d ->
+            builder.setTitle("Requirements not applicable")
+                .setMessage("Please answer the question properly.")
+                .setPositiveButton("Go Back") { a,b  ->
                     progressDialog = ProgressDialog(context)
                     progressDialog.setTitle("Please wait...")
                     progressDialog.setCanceledOnTouchOutside(false)
