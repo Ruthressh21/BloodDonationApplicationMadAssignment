@@ -5,23 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/color_gradient_background"
-    tools:context=".AboutUs">
+    tools:context=".SplashScreen">
 
     <ImageView
         android:id="@+id/logoView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/about_us"
+        android:layout_width="209dp"
+        android:layout_height="192dp"
+        android:layout_marginTop="136dp"
+        android:src="@mipmap/ic_launcher_round"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewAboutUs"
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/aboutUs"
+        android:layout_marginTop="48dp"
+        android:text="Persona Hospital App"
+        android:textSize="35sp"
+        app:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoView"  />
+        app:layout_constraintTop_toBottomOf="@+id/logoView"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
