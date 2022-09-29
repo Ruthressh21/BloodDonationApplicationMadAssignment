@@ -39,9 +39,7 @@ class ViewBloodDonationRequest : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentViewBloodDonationRequestBinding.inflate(inflater, container, false)
-
 
         firebaseAuth = FirebaseAuth.getInstance()
         loadCategories()
