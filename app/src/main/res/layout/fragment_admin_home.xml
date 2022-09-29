@@ -15,6 +15,7 @@
         android:text="Admin Homepage"
         android:textSize="34sp"
         android:textStyle="bold|italic"
+        app:fontFamily="@font/cantata_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"

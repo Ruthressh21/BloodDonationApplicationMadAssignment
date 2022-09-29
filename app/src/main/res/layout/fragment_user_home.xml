@@ -16,7 +16,7 @@
         android:id="@+id/textViewTitleUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:elegantTextHeight="true"
         android:text="User Homepage"
         android:textColor="#5A5050"
@@ -25,8 +25,9 @@
         android:textColorLink="#D8C5C5"
         android:textSize="34sp"
         android:textStyle="bold|italic"
+        app:fontFamily="@font/cantata_one"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,84 +43,87 @@
         android:scaleType="fitCenter"
         android:src="@drawable/blood_header_behind"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitleUser"
         tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textViewDonateBlood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:text="@string/donateBlood"
-        android:textColor="#FFFBFB"
-        android:textSize="40sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewDonateBlood"
-        app:layout_constraintHorizontal_bias="0.912"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewDonateBlood" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="277dp"
-        android:layout_marginTop="18dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="32dp"
         android:contentDescription="advertisement"
-        android:src="@drawable/kenketsu_saibo_fixw_640_hq"
+        android:src="@drawable/a32326d1eb388e2d2dbc9caa85ba1510"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDonateBlood"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="184dp"
+        android:layout_width="409dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="148dp"
+        android:background="#4FFB689B"
         android:elegantTextHeight="true"
         android:text="Advertisement"
-        android:textColor="#504949"
-        android:textSize="24sp"
-        android:textStyle="italic"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewDonateBlood" />
 
     <ImageView
         android:id="@+id/imageButtonClose"
-        android:layout_width="14dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="256dp"
+        android:layout_width="34dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="248dp"
         android:contentDescription="advertisment"
         android:src="@android:drawable/btn_dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView4" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="142dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="136dp"
-        android:src="@drawable/img_1"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.523"
+        android:layout_width="187dp"
+        android:layout_height="241dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/pngitem_491403"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="189dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/pngtreeblood_donation_5398289"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewDonateBlood"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleUser" />
+
+    <TextView
+        android:id="@+id/textViewDonateBlood"
+        android:layout_width="292dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="140dp"
+        android:background="#6A676565"
+        android:text="@string/donateBlood"
+        android:textColor="#FFFBFB"
+        android:textSize="47sp"
+        app:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDonateBlood"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewDonateBlood" />
 
 </androidx.constraintlayout.widget.ConstraintLayout></ScrollView>
