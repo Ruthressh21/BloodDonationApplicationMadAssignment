@@ -79,6 +79,8 @@
     </string-array>
     <string name="description">Description</string>
     <string name="confirm">Confirm</string>
+    <string name="underline1"><u>Blood Donation Requests</u></string>
+    <string name="underline2"><u>Donor</u></string>
 
     //User
     <string name="nav_header_title_2">User</string>

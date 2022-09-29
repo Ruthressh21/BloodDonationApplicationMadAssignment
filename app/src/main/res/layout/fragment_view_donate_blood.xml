@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/recycleView"
+    android:background="@drawable/color_gradient_background"
     tools:context=".User.ViewDonateBlood">
 
     <TextView
@@ -16,7 +17,8 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:fontFamily="sans-serif-black"/>
 
     <EditText
         android:id="@+id/editTextSearch"
