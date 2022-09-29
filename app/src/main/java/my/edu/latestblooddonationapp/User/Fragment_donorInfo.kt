@@ -2,6 +2,7 @@ package my.edu.latestblooddonationapp.User
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,8 @@ class Fragment_donorInfo : Fragment() {
 
     private lateinit var progressDialog: ProgressDialog
 
+    val timestamp = System.currentTimeMillis()
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -41,7 +44,6 @@ class Fragment_donorInfo : Fragment() {
         progressDialog = ProgressDialog(context)
         progressDialog.setTitle("Please wait...")
         progressDialog.setCanceledOnTouchOutside(false)
-
 
         val root: View = binding.root
         var bloodtype = requireArguments().getString("bloodtype").toString()
@@ -84,8 +86,18 @@ class Fragment_donorInfo : Fragment() {
 
         binding.buttonConfirm2.setOnClickListener {
             validateData()
+            binding.buttonCancel.setVisibility(View.VISIBLE)
+            binding.buttonConfirm2.setVisibility(View.GONE)
 
         }
+
+        binding.buttonCancel.setOnClickListener {
+            binding.buttonCancel.setVisibility(View.GONE)
+                binding.buttonConfirm2.setVisibility(View.VISIBLE)
+            CancelDonate()
+
+        }
+
 
         return binding.root
 
@@ -111,8 +123,8 @@ class Fragment_donorInfo : Fragment() {
 
     private fun createConfirmBloodDonationFirebase() {
         progressDialog.show()
-
-        val timestamp = System.currentTimeMillis()
+        Log.i("TimeAccept","$timestamp")
+        //val timestamp = System.currentTimeMillis()
         val bbloodtype = requireArguments().getString("bloodtype").toString()
         val bdescription= requireArguments().getString("description").toString()
         val btimestamp = requireArguments().getString("ReferenceID").toString()
@@ -143,6 +155,34 @@ class Fragment_donorInfo : Fragment() {
                     binding.textViewStatus1.text = "Fail to process"
                 }
 
+
+            }
+
+    }
+    private fun  CancelDonate() {
+        Log.i("TimeCancel","$timestamp")
+        progressDialog.dismiss()
+        //get id of donor request to delete
+        val user = firebaseAuth.currentUser
+        val uid= user!!.uid
+        //Firebase DB > Categories > categoryId
+        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference(
+                "BloodDonationInfo")
+        ref.child("$timestamp")
+            .removeValue()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    progressDialog = ProgressDialog(context)
+                    progressDialog.setTitle("Deleted")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    progressDialog.dismiss()
+                } else {
+                    progressDialog = ProgressDialog(context)
+                    progressDialog.setTitle("Delete failed")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    progressDialog.dismiss()
+                }
             }
     }
+
 }
