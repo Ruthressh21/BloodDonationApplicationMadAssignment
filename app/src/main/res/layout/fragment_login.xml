@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/logoView"
             android:layout_width="201dp"
             android:layout_height="147dp"
             android:src="@mipmap/ic_launcher_round"
@@ -28,11 +28,11 @@
             android:layout_marginTop="16dp"
             android:text="@string/login"
             android:textColor="@color/black"
-            android:textSize="35dp"
+            android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/logoView" />
 
         <TextView
             android:id="@+id/labelEmail"

@@ -1,10 +1,8 @@
 package my.edu.latestblooddonationapp
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -27,6 +25,8 @@ class fragmentForgotPassword : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //enable menu item
+        setHasOptionsMenu(true)
         _binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
 
         auth= Firebase.auth
@@ -47,5 +47,11 @@ class fragmentForgotPassword : Fragment() {
         }
         return binding.root
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in forgot password fragment
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 }
