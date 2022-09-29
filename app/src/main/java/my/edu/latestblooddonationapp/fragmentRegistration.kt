@@ -72,7 +72,7 @@ class fragmentRegistration : Fragment() {
         dateBirth = binding.dateBirth.text.toString().trim()
         gender = binding.genderType.checkedRadioButtonId.toString().trim()
         bloodType = binding.spinner.selectedItem.toString().trim()
-        phoneNum = binding.phoneNumber.text.toString().trim()
+        phoneNum = binding.phoneNumberNew.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()
         email = binding.emailAddress.text.toString().trim()
         password = binding.password.text.toString().trim()
@@ -97,9 +97,9 @@ class fragmentRegistration : Fragment() {
           if(address.isEmpty()) {
             binding.homeAddress.error = "Enter your home address"
         } else if (phoneNum.isEmpty()) {
-            binding.phoneNumber.error = "Enter your phone number"
+            binding.phoneNumberNew.error = "Enter your phone number"
         } else if (!Patterns.PHONE.matcher(phoneNum).matches()) {
-            binding.phoneNumber.error = "Invalid phone number format"
+            binding.phoneNum.error = "Invalid phone number format"
         } else if (email.isEmpty()) {
             binding.emailAddress.error = "Enter your email address"
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {

@@ -18,10 +18,10 @@
             android:id="@+id/textViewTitle4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="56dp"
             android:text="@string/fullName"
-            android:textSize="18sp"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.281"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,33 +63,20 @@
             android:text="@string/bloodType"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/dateBirth"
+            app:layout_constraintEnd_toEndOf="@+id/genderType"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/dateBirth"
-            app:layout_constraintTop_toBottomOf="@+id/dateBirth" />
-
-        <EditText
-            android:id="@+id/dateBirth"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/labelDateOfBirth"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/labelDateOfBirth"
-            app:layout_constraintTop_toBottomOf="@+id/labelDateOfBirth"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+            app:layout_constraintStart_toStartOf="@+id/genderType"
+            app:layout_constraintTop_toBottomOf="@+id/genderType" />
 
         <RadioGroup
             android:id="@+id/genderType"
             android:layout_width="250dp"
             android:layout_height="45dp"
-            android:orientation="horizontal"
             android:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/textViewGender"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textViewGender"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.577"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewGender">
 
             <RadioButton
@@ -97,9 +84,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/black"
                 android:text="@string/male"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
                 tools:ignore="TouchTargetSizeCheck"
                 tools:layout_editor_absoluteX="86dp"
                 tools:layout_editor_absoluteY="350dp" />
@@ -108,8 +95,8 @@
                 android:id="@+id/radioButtonFemale"
                 android:layout_width="111dp"
                 android:layout_height="match_parent"
-                android:text="@string/female"
                 android:backgroundTint="@color/black"
+                android:text="@string/female"
                 android:textColor="@color/black"
                 tools:ignore="TouchTargetSizeCheck"
                 tools:layout_editor_absoluteX="209dp"
@@ -121,40 +108,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/gender"
-            android:textSize="18sp"
-            android:textColor="@color/black"
             android:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/spinner"
+            android:text="@string/gender"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/confirmPassword"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/spinner"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintStart_toStartOf="@+id/labelConfirmPassword"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
 
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="250dp"
             android:layout_height="48dp"
-            android:layout_marginTop="4dp"
-            android:entries="@array/blood_groups"
             android:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/labelBloodType"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/labelBloodType"
+            android:entries="@array/blood_groups"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.59"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/labelBloodType" />
 
         <TextView
             android:id="@+id/labelAddress"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            android:text="@string/address"
-            android:textSize="18sp"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/genderType"
+            android:text="@string/address"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/dateBirth"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/genderType"
-            app:layout_constraintTop_toBottomOf="@+id/genderType" />
+            app:layout_constraintStart_toStartOf="@+id/dateBirth"
+            app:layout_constraintTop_toBottomOf="@+id/dateBirth" />
 
         <EditText
             android:id="@+id/homeAddress"
@@ -172,45 +158,32 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/textPhoneNumber"
+            android:id="@+id/phoneNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/phoneNumber"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/black"
+            android:text="@string/phoneNumber"
+            android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/homeAddress"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/homeAddress"
             app:layout_constraintTop_toBottomOf="@+id/homeAddress" />
 
-        <EditText
-            android:id="@+id/phoneNumber"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:backgroundTint="@color/black"
-            android:ems="10"
-            android:inputType="text"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="@+id/textPhoneNumber"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textPhoneNumber"
-            app:layout_constraintTop_toBottomOf="@+id/textPhoneNumber"
-            tools:ignore="SpeakableTextPresentCheck" />
-
         <TextView
             android:id="@+id/labelEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/black"
             android:text="@string/email"
+            android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/phoneNumber"
+            app:layout_constraintEnd_toEndOf="@+id/phoneNumberNew"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/phoneNumber"
-            app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+            app:layout_constraintStart_toStartOf="@+id/phoneNumberNew"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumberNew" />
 
         <EditText
             android:id="@+id/emailAddress"
@@ -230,10 +203,10 @@
             android:id="@+id/labelPasswords"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/black"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/black"
             android:text="@string/password"
+            android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/emailAddress"
             app:layout_constraintHorizontal_bias="0.0"
@@ -257,14 +230,14 @@
 
         <Button
             android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:text="@string/register"
+            android:layout_marginTop="16dp"
             android:backgroundTint="@color/grey"
-            app:layout_constraintEnd_toEndOf="@+id/spinnerUserType"
-            app:layout_constraintHorizontal_bias="0.508"
-            app:layout_constraintStart_toStartOf="@+id/spinnerUserType"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerUserType" />
 
         <ImageView
@@ -281,7 +254,7 @@
             android:id="@+id/labelConfirmPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/black"
             android:text="@string/confirm_password"
             android:textColor="@color/black"
@@ -310,38 +283,63 @@
             android:id="@+id/labelUserType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/black"
             android:text="@string/userType"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/confirmPassword"
+            app:layout_constraintEnd_toEndOf="@+id/spinner"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/confirmPassword"
-            app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
+            app:layout_constraintStart_toStartOf="@+id/spinner"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <Spinner
             android:id="@+id/spinnerUserType"
             android:layout_width="250dp"
             android:layout_height="48dp"
-            android:layout_marginTop="4dp"
             android:backgroundTint="@color/black"
             android:entries="@array/userTypes"
-            app:layout_constraintEnd_toEndOf="@+id/labelUserType"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/labelUserType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.59"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/labelUserType" />
 
         <TextView
             android:id="@+id/textViewGenderError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_marginBottom="264dp"
             android:textColor="@color/design_default_color_error"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/genderType"
-            app:layout_constraintStart_toEndOf="@+id/textViewGender"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/genderType" />
+
+        <EditText
+            android:id="@+id/dateBirth"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/labelDateOfBirth"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/labelDateOfBirth"
+            app:layout_constraintTop_toBottomOf="@+id/labelDateOfBirth"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/phoneNumberNew"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/phoneNum"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/phoneNum"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNum"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

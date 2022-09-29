@@ -3,9 +3,7 @@ package my.edu.latestblooddonationapp.Admin
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -39,7 +37,7 @@ class ViewBloodDonationRequest : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        setHasOptionsMenu(false)
         _binding = FragmentViewBloodDonationRequestBinding.inflate(inflater, container, false)
 
 
@@ -105,5 +103,11 @@ class ViewBloodDonationRequest : Fragment() {
         binding.buttonAddBloodDonationRequest.setOnClickListener{
             findNavController().navigate(R.id.action_viewBloodDonationRequest_to_createBloodDonationRequest)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in registration page
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 }
