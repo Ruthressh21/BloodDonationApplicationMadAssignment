@@ -95,31 +95,12 @@ class editProfileFragment : Fragment() {
         dateBirth = binding.dateOfBirth.text.toString().trim()
         gender = binding.gender.text.toString()
         bloodType = binding.bloodType.text.toString()
-        phoneNum = binding.phoneNumber.text.toString().trim()
+        phoneNum = binding.phoneNum.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()
         email = binding.emailAddress.text.toString().trim()
-       // gender = genders
+        // gender = genders
 
-        //validation
-        if (name.isEmpty()) {
-            binding.fullName.error = "Enter your name"
-        } else if (dateBirth.isEmpty()) {
-            binding.dateOfBirth.error = "Enter your date birth"
-        } else if (phoneNum.isEmpty()) {
-            Toast.makeText(this.context, "Enter your phone number", Toast.LENGTH_SHORT).show()
-        } else if (address.isEmpty()) {
-            binding.homeAddress.error = "Enter your home address"
-        } else if (phoneNum.isEmpty()) {
-            binding.phoneNumber.error = "Enter your phone number"
-        } else if (!Patterns.PHONE.matcher(phoneNum).matches()) {
-            binding.phoneNumber.error = "Invalid phone number format"
-        } else if (email.isEmpty()) {
-            binding.emailAddress.error = "Enter your email address"
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.emailAddress.error = "Invalid email format"
-        } else {
             editUserAccount()
-        }
     }
 
     private fun editUserAccount() {
@@ -160,7 +141,7 @@ class editProfileFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        // log out action not visible in edit profile fragment
+        // log out action not visible in edit profile page
         menu.findItem(R.id.action_logOut).isVisible = false
     }
 
