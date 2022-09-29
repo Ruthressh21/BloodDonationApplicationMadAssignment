@@ -13,19 +13,30 @@
             android:id="@+id/action_nav_home_to_viewBloodDonationRequest"
             app:destination="@id/viewBloodDonationRequest" />
         <action
-            android:id="@+id/action_nav_home_to_viewUserAccount"
-            app:destination="@id/viewUserAccount" />
+            android:id="@+id/action_nav_home_to_nav_aboutUs"
+            app:destination="@id/nav_aboutUs" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_editProfile"
+            app:destination="@id/nav_editProfile" />
     </fragment>
     <fragment
         android:id="@+id/nav_aboutUs"
         android:name="my.edu.latestblooddonationapp.AboutUs"
         android:label="@string/menu_aboutUs"
-        tools:layout="@layout/fragment_aboutus" />
+        tools:layout="@layout/fragment_aboutus" >
+        <action
+            android:id="@+id/action_nav_aboutUs_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/nav_editProfile"
         android:name="my.edu.latestblooddonationapp.editProfileFragment"
         android:label="@string/menu_editProfile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_nav_editProfile_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/viewBloodDonationRequest"
         android:name="my.edu.latestblooddonationapp.Admin.ViewBloodDonationRequest"
@@ -58,15 +69,6 @@
         <action
             android:id="@+id/action_createBloodDonationRequest_to_viewBloodDonationRequest"
             app:destination="@id/viewBloodDonationRequest" />
-    </fragment>
-    <fragment
-        android:id="@+id/viewUserAccount"
-        android:name="my.edu.latestblooddonationapp.Admin.ViewUserAccount"
-        android:label="User Account"
-        tools:layout="@layout/fragment_view_user_account">
-        <action
-            android:id="@+id/action_viewUserAccount_to_nav_home"
-            app:destination="@id/nav_home" />
     </fragment>
     <activity
         android:id="@+id/action_logOut"

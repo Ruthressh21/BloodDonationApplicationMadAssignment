@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -134,7 +135,6 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
                     progressDialog.setCanceledOnTouchOutside(false)
                     progressDialog.dismiss()
                 }
-
             }
     }
 
