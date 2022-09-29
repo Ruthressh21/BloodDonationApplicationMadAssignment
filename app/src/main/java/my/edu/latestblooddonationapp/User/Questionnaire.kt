@@ -1,5 +1,6 @@
 package my.edu.latestblooddonationapp.User
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
@@ -77,6 +80,7 @@ class Questionnaire : Fragment() {
         question3 = questions3
         question4 = questions4
 
+
         if (binding.radioButtonYes1.isChecked) {
             binding.textViewError1.text = ""
         } else if (binding.radioButtonNo1.isChecked) {
@@ -97,7 +101,7 @@ class Questionnaire : Fragment() {
             binding.textViewError3.text = ""
         } else if (binding.radioButtonNo3.isChecked) {
             binding.textViewError3.text = ""
-        } else{
+        } else {
             binding.textViewError3.text = "question 3 is required"
         }
 
@@ -109,12 +113,35 @@ class Questionnaire : Fragment() {
             binding.textViewError4.text = "question 4 is required"
         }
 
-        if (binding.radioButtonYes1.isChecked && binding.radioButtonYes2.isChecked && binding.radioButtonNo3.isChecked && binding.radioButtonNo4.isChecked){
+        if (binding.radioButtonYes1.isChecked && binding.radioButtonYes2.isChecked && binding.radioButtonNo3.isChecked && binding.radioButtonNo4.isChecked) {
             createQuestionnaireFirebase()
-        }else if(binding.radioButtonNo1.isChecked || binding.radioButtonNo2.isChecked || binding.radioButtonYes3.isChecked || binding.radioButtonYes4.isChecked){
-            findNavController().navigate(R.id.action_questionnaire_to_questionnaireError)
+        } else if (binding.radioButtonNo1.isChecked || binding.radioButtonNo2.isChecked || binding.radioButtonYes3.isChecked || binding.radioButtonYes4.isChecked) {
+
+            //confirm before create
+            val builder = AlertDialog.Builder(context)
+
+            builder.setTitle("Does not fulfill the requirements.")
+                .setMessage("Please answer the question properly")
+                .setPositiveButton("Go back to questionaire.") { a, d ->
+                    progressDialog = ProgressDialog(context)
+                    progressDialog.setTitle("Please wait...")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    Toast.makeText(context, "Answer again", Toast.LENGTH_SHORT).show()
+
+
+                }.setNegativeButton("Cancel") { a, d ->
+                    a.dismiss()
+                }
+                .show()
+
+
         }
+
+
+
     }
+
+
 
 
 

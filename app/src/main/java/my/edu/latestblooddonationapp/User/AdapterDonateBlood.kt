@@ -73,7 +73,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
         holder.donate.setOnClickListener(){
             //confirm before create
             val builder = AlertDialog.Builder(context)
-            val navController =
+
             builder.setTitle("Accept")
                 .setMessage("Are you sure you want to donate?")
                 .setPositiveButton("Confirm"){a,d->

@@ -7,7 +7,6 @@
     android:background="@drawable/record_divider"
     android:padding="5dp">
 
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -17,7 +16,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:fontFamily="sans-serif-black"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -35,7 +35,8 @@
         android:layout_marginBottom="8dp"
         android:text="@string/patientName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:fontFamily="sans-serif-black"/>
 
     <TextView
         android:id="@+id/textViewTitle4"
@@ -45,7 +46,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/bloodType"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:fontFamily="sans-serif-black"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -59,7 +61,8 @@
         app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle4"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.006"
+        app:fontFamily="sans-serif-black" />
 
     <TextView
         android:id="@+id/textViewPatientName2"
@@ -70,7 +73,8 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:fontFamily="sans-serif-black"/>
 
     <TextView
         android:id="@+id/textViewBloodTypes2"
@@ -81,7 +85,8 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPatientName2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPatientName2"
+        app:fontFamily="sans-serif-black"/>
 
     <TextView
         android:id="@+id/textViewDescription2"
@@ -92,7 +97,8 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBloodTypes2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBloodTypes2"
+        app:fontFamily="sans-serif-black"/>
 
     <TextView
         android:id="@+id/textViewRefenceID"
@@ -103,7 +109,8 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescription2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription2"
+        app:fontFamily="sans-serif-black"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
