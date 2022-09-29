@@ -37,7 +37,7 @@ class ViewBloodDonationConfirmation : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-            setHasOptionsMenu(false)
+            setHasOptionsMenu(true)
         _binding = FragmentViewBloodDonationConfirmationBinding.inflate(inflater, container, false)
 
 
