@@ -61,11 +61,11 @@
             android:id="@+id/action_viewDonateBlood_to_questionnaire"
             app:destination="@id/questionnaire" />
         <action
-            android:id="@+id/action_viewDonateBlood_to_fragment_donorInfo"
-            app:destination="@id/fragment_donorInfo" />
-        <action
             android:id="@+id/action_viewDonateBlood_to_donorVerifyRt"
             app:destination="@id/donorVerifyRt" />
+        <action
+            android:id="@+id/action_viewDonateBlood_to_fragmentDonorConfirmation"
+            app:destination="@id/fragmentDonorConfirmation" />
     </fragment>
     <fragment
         android:id="@+id/questionnaireError"
@@ -87,8 +87,7 @@
         android:label="Check Patient Info"
         tools:layout="@layout/fragment_donor_verify_rt" />
     <fragment
-        android:id="@+id/fragment_donorInfo"
-        android:name="my.edu.latestblooddonationapp.User.Fragment_donorInfo"
-        android:label="Donation Info"
-        tools:layout="@layout/fragment_donor_info" />
+        android:id="@+id/fragmentDonorConfirmation"
+        android:name="my.edu.latestblooddonationapp.User.FragmentDonorConfirmation"
+        android:label="FragmentDonorConfirmation" />
 </navigation>

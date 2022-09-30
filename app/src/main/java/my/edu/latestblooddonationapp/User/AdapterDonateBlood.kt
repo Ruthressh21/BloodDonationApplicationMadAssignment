@@ -91,7 +91,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
                     createDonateBlood(model, holder)
 
 
-                    findNavController(holder.donate).navigate(R.id.action_viewDonateBlood_to_fragment_donorInfo,Bundle().apply {
+                    findNavController(holder.donate).navigate(R.id.action_viewDonateBlood_to_fragmentDonorConfirmation,Bundle().apply {
                         putString("bloodtype",bloodType.toString())
                         putString("name",patientName.toString())
                         putString("description",description.toString())
@@ -111,26 +111,6 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
 
         }
 
-        holder.donate2.setOnClickListener(){
-            val builder = AlertDialog.Builder(context)
-            createDonateBlood(model, holder)
-            builder.setTitle("Cancel")
-                .setMessage("Are you sure you want to cancel?")
-                .setPositiveButton("Confirm"){a,d->
-                    progressDialog = ProgressDialog(context)
-                    progressDialog.setTitle("Please wait...")
-                    progressDialog.setCanceledOnTouchOutside(false)
-                    Toast.makeText(context, "Cancel Donate", Toast.LENGTH_SHORT ).show()
-                    holder.donate.setVisibility(View.VISIBLE)
-                    holder.donate2.setVisibility(View.GONE)
-
-                    CancelDonateBlood(model, holder)
-
-                }.setNegativeButton("Cancel"){a,d->
-                    a.dismiss()
-                }
-                .show()
-        }
 
     }
 
@@ -159,29 +139,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
 
 
     }
-    private fun CancelDonateBlood(model: ModelDonateBlood, holder: AdapterDonateBlood.HolderDonateBlood) {
-        progressDialog.dismiss()
-        //get id of donor request to delete
-        val id = model.id
-        //Firebase DB > Categories > categoryId
-        val ref = Firebase.database("https://blooddonationkotlin-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("\n" +
-                "BloodDonationInfo")
-        ref.child(id)
-            .removeValue()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    progressDialog = ProgressDialog(context)
-                    progressDialog.setTitle("Deleted")
-                    progressDialog.setCanceledOnTouchOutside(false)
-                    progressDialog.dismiss()
-                } else {
-                    progressDialog = ProgressDialog(context)
-                    progressDialog.setTitle("Delete failed")
-                    progressDialog.setCanceledOnTouchOutside(false)
-                    progressDialog.dismiss()
-                }
-            }
-    }
+
 
     override fun getItemCount(): Int {
         return categoryArrayList.size //number of items in List
