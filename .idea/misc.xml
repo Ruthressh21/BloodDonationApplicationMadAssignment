@@ -84,6 +84,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_create_blood_donation_request.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_create_donate_blood.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_donation_offer.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_donor_info.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_edit_blood_donation_request.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_edit_profile.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_first.xml" value="0.25" />
@@ -92,8 +93,11 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_questionnaire.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_questionnaire_error.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_registration.xml" value="0.4" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_row_blood_donation_confirmation.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_row_blood_donation_request.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_row_donate_blood.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_user_home.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_view_blood_donation_confirmation.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_view_blood_donation_request.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/fragment_view_donate_blood.xml" value="0.151268115942029" />
         <entry key="..\:/Users/User/AndroidStudioProjects/BloodDonationApplicationMadAssignment/app/src/main/res/layout/nav_header_home_user.xml" value="0.1" />

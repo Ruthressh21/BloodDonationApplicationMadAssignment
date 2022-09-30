@@ -60,7 +60,7 @@
         android:background="@drawable/shape_button"
         android:minHeight="10dp"
         android:text="Add Blood Donation Request"
-        app:backgroundTint="@color/grey"
+        app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
