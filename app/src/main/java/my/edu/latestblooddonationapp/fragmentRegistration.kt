@@ -46,7 +46,56 @@ class fragmentRegistration : Fragment() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         binding.registerButton.setOnClickListener {
-            validateData()
+            val temp : Int  = binding.genderType.checkedRadioButtonId
+            val rad = view?.findViewById<RadioButton>(temp)
+            val genders = rad?.text.toString()
+            name = binding.fullName.text.toString().trim()
+            dateBirth = binding.dateBirth.text.toString().trim()
+            gender = binding.genderType.checkedRadioButtonId.toString().trim()
+            bloodType = binding.spinner.selectedItem.toString().trim()
+            phoneNum = binding.phoneNumberNew.text.toString().trim()
+            address = binding.homeAddress.text.toString().trim()
+            email = binding.emailAddress.text.toString().trim()
+            password = binding.password.text.toString().trim()
+            gender = genders
+            val cPassword = binding.confirmPassword.text.toString().trim()
+            userType = binding.spinnerUserType.selectedItem.toString().trim()
+
+            //validation
+            if (name.isEmpty()) {
+                binding.fullName.error = "Enter your name"
+            } else if (dateBirth.isEmpty()) {
+                binding.dateBirth.error = "Enter your date birth"
+            } else if (bloodType.isEmpty()) {
+                Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
+            } else if (binding.radioButtonMale.isChecked) {
+                binding.textViewGenderError.text = ""
+            } else if(binding.radioButtonFemale.isChecked){
+                binding.textViewGenderError.text = ""
+            } else if (genderType.checkedRadioButtonId == -1){
+                binding.textViewGenderError.text = "Please choose your gender"
+            }
+            if(address.isEmpty()) {
+                binding.homeAddress.error = "Enter your home address"
+            } else if (phoneNum.isEmpty()) {
+                binding.phoneNumberNew.error = "Enter your phone number"
+            } else if (!Patterns.PHONE.matcher(phoneNum).matches()) {
+                binding.phoneNum.error = "Invalid phone number format"
+            } else if (email.isEmpty()) {
+                binding.emailAddress.error = "Enter your email address"
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.emailAddress.error = "Invalid email format"
+            } else if (password.isEmpty()) {
+                binding.password.error = "Enter your password"
+            } else if (cPassword.isEmpty()) {
+                binding.confirmPassword.error = "Enter your confirm password"
+            } else if (password != cPassword) {
+                binding.confirmPassword.error = "Password doesn't match"
+            } else if (userType.isEmpty()) {
+                Toast.makeText(this.context, "Choose a user type", Toast.LENGTH_SHORT).show()
+            } else {
+                createUserAccount()
+            }
         }
 
         return binding.root
@@ -62,60 +111,6 @@ class fragmentRegistration : Fragment() {
     private var address = ""
     private var password = ""
     private var userType = ""
-
-
-    private fun validateData() {
-        val temp : Int  = binding.genderType.checkedRadioButtonId
-        val rad = view?.findViewById<RadioButton>(temp)
-        val genders = rad?.text.toString()
-        name = binding.fullName.text.toString().trim()
-        dateBirth = binding.dateBirth.text.toString().trim()
-        gender = binding.genderType.checkedRadioButtonId.toString().trim()
-        bloodType = binding.spinner.selectedItem.toString().trim()
-        phoneNum = binding.phoneNumberNew.text.toString().trim()
-        address = binding.homeAddress.text.toString().trim()
-        email = binding.emailAddress.text.toString().trim()
-        password = binding.password.text.toString().trim()
-        gender = genders
-        val cPassword = binding.confirmPassword.text.toString().trim()
-        userType = binding.spinnerUserType.selectedItem.toString().trim()
-
-        //validation
-        if (name.isEmpty()) {
-            binding.fullName.error = "Enter your name"
-        } else if (dateBirth.isEmpty()) {
-            binding.dateBirth.error = "Enter your date birth"
-        } else if (bloodType.isEmpty()) {
-            Toast.makeText(this.context, "Choose your blood group", Toast.LENGTH_SHORT).show()
-        } else if (binding.radioButtonMale.isChecked) {
-            binding.textViewGenderError.text = ""
-        } else if(binding.radioButtonFemale.isChecked){
-            binding.textViewGenderError.text = ""
-        } else if (genderType.checkedRadioButtonId == -1){
-            binding.textViewGenderError.text = "Please choose your gender"
-        }
-          if(address.isEmpty()) {
-            binding.homeAddress.error = "Enter your home address"
-        } else if (phoneNum.isEmpty()) {
-            binding.phoneNumberNew.error = "Enter your phone number"
-        } else if (!Patterns.PHONE.matcher(phoneNum).matches()) {
-            binding.phoneNum.error = "Invalid phone number format"
-        } else if (email.isEmpty()) {
-            binding.emailAddress.error = "Enter your email address"
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.emailAddress.error = "Invalid email format"
-        } else if (password.isEmpty()) {
-            binding.password.error = "Enter your password"
-        } else if (cPassword.isEmpty()) {
-            binding.confirmPassword.error = "Enter your confirm password"
-        } else if (password != cPassword) {
-            binding.confirmPassword.error = "Password doesn't match"
-        } else if (userType.isEmpty()) {
-            Toast.makeText(this.context, "Choose a user type", Toast.LENGTH_SHORT).show()
-        } else {
-            createUserAccount()
-        }
-    }
 
     private fun createUserAccount() {
         progressDialog.setMessage("Creating Account")
