@@ -14,12 +14,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_donor_info.view.*
-import my.edu.latestblooddonationapp.databinding.FragmentDonorInfoBinding
+import my.edu.latestblooddonationapp.databinding.FragmentDonorConfirmationBinding
 
-class Fragment_donorInfo : Fragment() {
+class FragmentDonorConfirmation : Fragment() {
 
-    private var _binding: FragmentDonorInfoBinding? = null
+    private var _binding: FragmentDonorConfirmationBinding? = null
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -37,7 +36,7 @@ class Fragment_donorInfo : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentDonorInfoBinding.inflate(inflater, container, false)
+        _binding = FragmentDonorConfirmationBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -149,7 +148,7 @@ class Fragment_donorInfo : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     progressDialog.dismiss()
-                    binding.textViewStatus1.text = "Successfully deleted"
+                    binding.textViewStatus1.text = "Submit Successfully "
                 } else {
                     progressDialog.dismiss()
                     binding.textViewStatus1.text = "Fail to process"
