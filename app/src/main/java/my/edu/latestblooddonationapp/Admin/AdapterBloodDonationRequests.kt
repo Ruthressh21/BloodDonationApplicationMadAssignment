@@ -32,7 +32,6 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
     private lateinit var binding: FragmentRowBloodDonationRequestBinding
     private var filterList: ArrayList<ModelBloodDonationRequests>
 
-
     private var filter: FilterBloodDonationRequests? = null
 
     //constructor
@@ -111,7 +110,6 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
             putString("bloodType",bloodType.toString())
             putString("description",description.toString())
         })
-
     }
 
 
@@ -141,7 +139,6 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
     override fun getItemCount(): Int {
         return categoryArrayList.size //number of items in List
     }
-
 
     //ViewHolder class to hold/init UI views for fragment_row_blood_donation_request.xml
     inner class HolderBloodDonationRequests(itemView: View): RecyclerView.ViewHolder(itemView){
