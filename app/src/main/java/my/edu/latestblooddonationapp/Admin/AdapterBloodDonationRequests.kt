@@ -28,18 +28,17 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
 
     private lateinit var progressDialog: ProgressDialog
     private val context: Context
-    public var categoryArrayList: ArrayList<ModelBloodDonationRequests>
+    public var itemArrayList: ArrayList<ModelBloodDonationRequests>
     private lateinit var binding: FragmentRowBloodDonationRequestBinding
     private var filterList: ArrayList<ModelBloodDonationRequests>
-
 
     private var filter: FilterBloodDonationRequests? = null
 
     //constructor
-    constructor(context: Context, categoryArrayList: ArrayList<ModelBloodDonationRequests>) {
+    constructor(context: Context, itemArrayList: ArrayList<ModelBloodDonationRequests>) {
         this.context = context
-        this.categoryArrayList = categoryArrayList
-        this.filterList = categoryArrayList
+        this.itemArrayList = itemArrayList
+        this.filterList = itemArrayList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderBloodDonationRequests {
@@ -51,7 +50,7 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
 
     override fun onBindViewHolder(holder: HolderBloodDonationRequests, position: Int) {
         //get data
-        val model = categoryArrayList[position]
+        val model = itemArrayList[position]
         val id = model.id
         val patientName = model.patientName
         val bloodType = model.bloodType
@@ -111,7 +110,6 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
             putString("bloodType",bloodType.toString())
             putString("description",description.toString())
         })
-
     }
 
 
@@ -139,9 +137,8 @@ class AdapterBloodDonationRequests :RecyclerView.Adapter<AdapterBloodDonationReq
     }
 
     override fun getItemCount(): Int {
-        return categoryArrayList.size //number of items in List
+        return itemArrayList.size //number of items in List
     }
-
 
     //ViewHolder class to hold/init UI views for fragment_row_blood_donation_request.xml
     inner class HolderBloodDonationRequests(itemView: View): RecyclerView.ViewHolder(itemView){

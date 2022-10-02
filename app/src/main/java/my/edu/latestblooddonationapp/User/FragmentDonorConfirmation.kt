@@ -24,6 +24,12 @@ class FragmentDonorConfirmation : Fragment() {
 
     private lateinit var progressDialog: ProgressDialog
 
+    private var uid = ""
+    private var name = ""
+    private var gender = ""
+    private var bloodType = ""
+    private var phoneNum = ""
+
     val timestamp = System.currentTimeMillis()
 
     // This property is only valid between onCreateView and
@@ -102,12 +108,6 @@ class FragmentDonorConfirmation : Fragment() {
 
     }
 
-    private var uid = ""
-    private var name = ""
-    private var gender = ""
-    private var bloodType = ""
-    private var phoneNum = ""
-
 
     private fun validateData() {
         uid = binding.textViewUID.text.toString().trim()
@@ -116,8 +116,7 @@ class FragmentDonorConfirmation : Fragment() {
         bloodType = binding.textViewBloodType3.text.toString().trim()
         phoneNum = binding.textViewPhoneNumber3.text.toString().trim()
 
-            createConfirmBloodDonationFirebase()
-
+        createConfirmBloodDonationFirebase()
     }
 
     private fun createConfirmBloodDonationFirebase() {

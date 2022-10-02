@@ -95,7 +95,7 @@ class editProfileFragment : Fragment() {
         dateBirth = binding.dateOfBirth.text.toString().trim()
         gender = binding.gender.text.toString()
         bloodType = binding.bloodType.text.toString()
-        phoneNum = binding.phoneNum.text.toString().trim()
+        phoneNum = binding.phoneNumber.text.toString().trim()
         address = binding.homeAddress.text.toString().trim()
         email = binding.emailAddress.text.toString().trim()
         // gender = genders

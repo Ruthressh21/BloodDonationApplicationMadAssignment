@@ -51,7 +51,7 @@ class FilterBloodDonationConfirmation: Filter {
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
         //apply filter changes
-        adapterBloodDonationConfirmation.categoryArrayList = results.values as ArrayList<ModelBloodDonationConfirmation>
+        adapterBloodDonationConfirmation.itemArrayList = results.values as ArrayList<ModelBloodDonationConfirmation>
 
         //notify changes
         adapterBloodDonationConfirmation.notifyDataSetChanged()
