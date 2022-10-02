@@ -109,7 +109,7 @@ class fragmentLogin : Fragment() {
                             Bundle().apply {
                                 putString("uid",uid.toString())
                                 putString("name",name.toString())
-                                putString("patientName",dateBirth.toString())
+                                putString("dateBirth",dateBirth.toString())
                                 putString("bloodType",bloodType.toString())
                                 putString("gender",gender.toString())
                                 putString("address",address.toString())
