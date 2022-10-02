@@ -174,33 +174,19 @@
             app:layout_constraintStart_toStartOf="@+id/homeAddress"
             app:layout_constraintTop_toBottomOf="@+id/homeAddress" />
 
-        <EditText
-            android:id="@+id/phoneNumber"
-            android:layout_width="413dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:backgroundTint="@color/black"
-            android:ems="10"
-            android:inputType="text"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="@+id/phoneNum"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="@+id/phoneNum"
-            app:layout_constraintTop_toBottomOf="@+id/phoneNum"
-            tools:ignore="SpeakableTextPresentCheck" />
-
         <TextView
             android:id="@+id/labelEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="136dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="160dp"
             android:backgroundTint="@color/black"
             android:text="@string/email"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/phoneNumber"
-            app:layout_constraintHorizontal_bias="0.459"
-            app:layout_constraintStart_toStartOf="@+id/phoneNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
         <EditText
@@ -256,6 +242,18 @@
             app:layout_constraintHorizontal_bias="0.475"
             app:layout_constraintStart_toStartOf="@+id/gender"
             app:layout_constraintTop_toBottomOf="@+id/gender" />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="413dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNum"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

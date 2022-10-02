@@ -132,7 +132,7 @@ class fragmentRegistration : Fragment() {
                 hashMap["uid"] = uid
                 hashMap["timestamp"] = timestamp
                 hashMap["email"] = email
-                hashMap["password"] = password
+                //hashMap["password"] = password
                 hashMap["name"] = name
                 hashMap["dateBirth"] = dateBirth
                 hashMap["bloodType"] = bloodType

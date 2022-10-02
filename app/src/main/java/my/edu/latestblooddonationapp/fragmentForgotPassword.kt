@@ -40,7 +40,10 @@ class fragmentForgotPassword : Fragment() {
             }else{
                 auth.sendPasswordResetEmail(email).addOnCompleteListener{
                     if(it.isSuccessful){
+
                         Toast.makeText(this.context, "Email was sent successfully", Toast.LENGTH_LONG).show()
+
+
                     }
                 }
             }
