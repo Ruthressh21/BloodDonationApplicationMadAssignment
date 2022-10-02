@@ -3,9 +3,7 @@ package my.edu.latestblooddonationapp.User
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -43,6 +41,7 @@ class ViewDonateBlood : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setHasOptionsMenu(true)
 
         _binding = FragmentViewDonateBloodBinding.inflate(inflater, container, false)
 
@@ -112,5 +111,10 @@ class ViewDonateBlood : Fragment() {
 
         })
 
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in login fragment
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 }

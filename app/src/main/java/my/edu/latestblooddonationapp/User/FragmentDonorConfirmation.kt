@@ -3,9 +3,7 @@ package my.edu.latestblooddonationapp.User
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
@@ -14,6 +12,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import my.edu.latestblooddonationapp.R
 import my.edu.latestblooddonationapp.databinding.FragmentDonorConfirmationBinding
 
 class FragmentDonorConfirmation : Fragment() {
@@ -41,7 +40,7 @@ class FragmentDonorConfirmation : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+            setHasOptionsMenu(true)
         _binding = FragmentDonorConfirmationBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -181,6 +180,12 @@ class FragmentDonorConfirmation : Fragment() {
                     progressDialog.dismiss()
                 }
             }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in login fragment
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 
 }

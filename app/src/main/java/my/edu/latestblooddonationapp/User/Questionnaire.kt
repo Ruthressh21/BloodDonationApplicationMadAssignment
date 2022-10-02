@@ -3,9 +3,7 @@ package my.edu.latestblooddonationapp.User
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
@@ -37,7 +35,7 @@ class Questionnaire : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        setHasOptionsMenu(true)
         _binding = FragmentQuestionnaireBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -176,5 +174,10 @@ class Questionnaire : Fragment() {
                 }
 
             }
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in login fragment
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 }

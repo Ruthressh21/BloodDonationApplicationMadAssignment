@@ -22,15 +22,14 @@ package my.edu.latestblooddonationapp.User
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import my.edu.latestblooddonationapp.R
 import my.edu.latestblooddonationapp.databinding.FragmentCreateBloodDonationRequestBinding
 import my.edu.latestblooddonationapp.databinding.FragmentDonorVerifyRtBinding
 
@@ -47,6 +46,7 @@ class DonorVerifyRt : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setHasOptionsMenu(true)
         binding = FragmentDonorVerifyRtBinding.inflate(inflater, container, false)
 
         binding.button3.setOnClickListener {
@@ -87,5 +87,10 @@ class DonorVerifyRt : Fragment() {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         }
 
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        // log out action not visible in login fragment
+        menu.findItem(R.id.action_logOut).isVisible = false
     }
 }

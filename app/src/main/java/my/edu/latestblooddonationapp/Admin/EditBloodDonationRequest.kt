@@ -36,7 +36,7 @@ class EditBloodDonationRequest : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-            setHasOptionsMenu(false)
+            setHasOptionsMenu(true)
         _binding = FragmentEditBloodDonationRequestBinding.inflate(inflater, container, false)
 
         firebaseAuth = FirebaseAuth.getInstance()
