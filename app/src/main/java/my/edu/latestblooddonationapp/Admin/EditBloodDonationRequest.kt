@@ -53,6 +53,7 @@ class EditBloodDonationRequest : Fragment() {
 
         binding.textViewID3.setText(id)
         binding.editTextPatientName.setText(patientName)
+        binding.editTextDescription.setText(description)
 
         if(bloodType == "A"){
             binding.spinnerBloodTypes.setSelection(0)
@@ -63,9 +64,6 @@ class EditBloodDonationRequest : Fragment() {
         } else {
             binding.spinnerBloodTypes.setSelection(3)
         }
-
-
-        binding.editTextDescription.setText(description)
 
         binding.buttonConfirm.setOnClickListener {
             validateData()

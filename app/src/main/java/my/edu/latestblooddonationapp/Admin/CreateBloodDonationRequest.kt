@@ -24,6 +24,10 @@ class CreateBloodDonationRequest : Fragment() {
 
     private lateinit var progressDialog: ProgressDialog
 
+    private var patientName = ""
+    private var bloodType = ""
+    private var description = ""
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -43,33 +47,23 @@ class CreateBloodDonationRequest : Fragment() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         binding.buttonConfirm.setOnClickListener {
-            validateData()
+            patientName = binding.editTextPatientName.text.toString().trim()
+            bloodType = binding.spinnerBloodTypes.selectedItem.toString().trim()
+            description = binding.editTextDescription.text.toString().trim()
+
+            if (patientName.isEmpty()) {
+                binding.editTextPatientName.error = "Enter the patient name"
+            } else if (bloodType.isEmpty()) {
+                Toast.makeText(this.context, "Choose a blood type", Toast.LENGTH_SHORT).show()
+            } else if (description.isEmpty()) {
+                binding.editTextDescription.error = "Enter the description"
+            } else {
+                createBloodDonationRequestFirebase()
+            }
         }
 
         return binding.root
-
     }
-
-    private var patientName = ""
-    private var bloodType = ""
-    private var description = ""
-
-    private fun validateData() {
-        patientName = binding.editTextPatientName.text.toString().trim()
-        bloodType = binding.spinnerBloodTypes.selectedItem.toString().trim()
-        description = binding.editTextDescription.text.toString().trim()
-
-        if (patientName.isEmpty()) {
-            binding.editTextPatientName.error = "Enter the patient name"
-        } else if (bloodType.isEmpty()) {
-            Toast.makeText(this.context, "Choose a blood type", Toast.LENGTH_SHORT).show()
-        } else if (description.isEmpty()) {
-            binding.editTextDescription.error = "Enter the description"
-        } else {
-            createBloodDonationRequestFirebase()
-        }
-    }
-
 
     private fun createBloodDonationRequestFirebase() {
         progressDialog.show()

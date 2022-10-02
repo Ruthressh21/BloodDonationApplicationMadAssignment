@@ -38,17 +38,17 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
 
     private lateinit var progressDialog: ProgressDialog
     private val context: Context
-    public var categoryArrayList: ArrayList<ModelDonateBlood>
+    public var itemArrayList: ArrayList<ModelDonateBlood>
     private lateinit var binding: FragmentRowDonateBloodBinding
     private var filterList: ArrayList<ModelDonateBlood>
 
     private var filter: FilterDonateBlood? = null
 
     //constructor
-    constructor(context: Context, categoryArrayList: ArrayList<ModelDonateBlood>) {
+    constructor(context: Context, itemArrayList: ArrayList<ModelDonateBlood>) {
         this.context = context
-        this.categoryArrayList = categoryArrayList
-        this.filterList = categoryArrayList
+        this.itemArrayList = itemArrayList
+        this.filterList = itemArrayList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderDonateBlood {
@@ -60,7 +60,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
 
     override fun onBindViewHolder(holder: HolderDonateBlood, position: Int) {
         //get data
-        val model = categoryArrayList[position]
+        val model = itemArrayList[position]
         val id = model.id
         val patientName = model.patientName
         val bloodType = model.bloodType
@@ -142,7 +142,7 @@ class AdapterDonateBlood :RecyclerView.Adapter<AdapterDonateBlood.HolderDonateBl
 
 
     override fun getItemCount(): Int {
-        return categoryArrayList.size //number of items in List
+        return itemArrayList.size //number of items in List
     }
 
 
