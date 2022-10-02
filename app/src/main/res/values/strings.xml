@@ -10,7 +10,7 @@
     <string name="fullName">Full Name</string>
     <string name="gender">Gender</string>
     <string name="phoneNumber">Phone Number</string>
-    <string name="address">Address</string>
+    <string name="address">Home Address</string>
     <string name="bloodType">Blood Type</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
